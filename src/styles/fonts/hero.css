@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Mono-Hero";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Mono-Regular.woff2") format("woff2"),
+    url("Mono-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Mono-Hero";
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+  src: url("Mono-Medium.woff2") format("woff2"),
+    url("Mono-Medium.woff") format("woff");
+}

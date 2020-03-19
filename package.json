@@ -1,0 +1,74 @@
+{
+  "name": "gatsby-starter-default",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "dependencies": {
+    "@mdx-js/mdx": "^1.5.7",
+    "@mdx-js/react": "^1.5.7",
+    "babel-plugin-styled-components": "^1.10.7",
+    "gatsby": "^2.19.49",
+    "gatsby-image": "^2.2.45",
+    "gatsby-plugin-manifest": "^2.2.48",
+    "gatsby-plugin-mdx": "^1.0.84",
+    "gatsby-plugin-no-sourcemaps": "^2.1.2",
+    "gatsby-plugin-offline": "^3.0.42",
+    "gatsby-plugin-page-progress": "^2.0.16",
+    "gatsby-plugin-react-helmet": "^3.1.24",
+    "gatsby-plugin-robots-txt": "^1.5.0",
+    "gatsby-plugin-sharp": "^2.4.13",
+    "gatsby-plugin-sitemap": "^2.2.30",
+    "gatsby-plugin-styled-components": "^3.1.21",
+    "gatsby-remark-autolink-headers": "^2.1.26",
+    "gatsby-remark-images": "^3.1.50",
+    "gatsby-remark-smartypants": "^2.1.23",
+    "gatsby-remark-table-of-contents": "0.0.9",
+    "gatsby-source-filesystem": "^2.1.57",
+    "gatsby-transformer-sharp": "^2.3.19",
+    "lodash": "^4.17.15",
+    "prism-react-renderer": "^1.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-helmet": "^5.2.1",
+    "react-icons": "^3.9.0",
+    "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-wesbos": "0.0.19",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "gatsby-plugin-simple-analytics": "^1.0.3",
+    "prettier": "^1.19.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "preload-fonts": "gatsby-preload-fonts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
