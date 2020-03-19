@@ -56,8 +56,11 @@ const CardWrapper = styled.div`
     box-shadow: ${props => props.theme.shadow.hover};
     transform: scale(1.01);
   }
-  :hover .gatsby-image-wrapper {
-    transform: scale(1.1);
+  img {
+    border-radius: 0px;
+  }
+  .gatsby-resp-image-wrapper {
+    border-radius: 0px;
   }
 `;
 

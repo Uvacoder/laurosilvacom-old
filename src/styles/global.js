@@ -164,7 +164,7 @@ const GlobalStyles = createGlobalStyle`
 
   li {
     ${props => props.theme.font_size.small};
-    line-height: 1em;
+    line-height: 1.1em;
   }
 
 

@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import styled from 'styled-components';
 import Logo from '../images/logo.svg';
-
 import ThemeContext from '../context/ThemeContext';
 
 const Header = () => {
@@ -31,9 +30,8 @@ const Header = () => {
             </Link>
             <Link to="/tutorials">Tutorials</Link>
             <Link to="/about">About</Link>
-            <a href="https://laurosilvacom.substack.com/subscribe">
-              <button type="button">Newsletter</button>
-            </a>
+            <Link to="/newsletter">Download</Link>
+            <Link to="/newsletter">Newsletter</Link>
           </HeaderGroup>
           <span role="presentation" onClick={theme.toggleDark}>
             {theme.dark ? <FiSun /> : <FiMoon />}
@@ -55,10 +53,9 @@ const HeaderWrapper = styled.div`
   background: ${props => props.theme.color.primary.purple};
   margin: auto;
   position: fixed;
-  padding: 15px 0;
+  padding: 20px 0;
   width: 100%;
   z-index: 100;
-  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   a {
     font-weight: 700;
     font-size: 16px;
@@ -66,7 +63,6 @@ const HeaderWrapper = styled.div`
   }
   &.HeaderScrolled {
     background: ${props => props.theme.color.dark.accent200};
-    padding: 15px 0;
     box-shadow: rgb(59, 59, 80) 0px 1px;
   }
   a {
@@ -74,36 +70,6 @@ const HeaderWrapper = styled.div`
   }
   a:hover {
     color: ${props => props.theme.color.light.accent100};
-  }
-
-  button {
-    font-size: 16px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.8);
-    background: ${props => props.theme.color.dark.accent200};
-    padding: 6px 20px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba(255, 255, 255, 0.4);
-    border-radius: 20px;
-    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-  button:hover {
-    color: white;
-    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-    background: ${props => props.theme.color.dark.accent100};
-    border-color: rgba(255, 255, 255, 255);
-  }
-
-  &.HeaderScrolled {
-    button {
-      background: rgba(78, 1, 255, 0.85);
-    }
-    button:hover {
-      background: ${props => props.theme.color.primary.purple};
-      color: rgba(255, 255, 255, 255);
-    }
   }
 
   @media (max-width: ${props => props.theme.screen.sm}) {
@@ -144,7 +110,7 @@ const HeaderWrapper = styled.div`
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
     span {
-      margin-top: -27px;
+      margin-top: -32px;
     }
   }
 `;
@@ -158,7 +124,7 @@ const HeaderGroup = styled.div`
   align-items: center;
   justify-items: center;
   @media (max-width: ${props => props.theme.screen.sm}) {
-    a:nth-child(5) {
+    a:nth-child(4) {
       display: none;
     }
   }

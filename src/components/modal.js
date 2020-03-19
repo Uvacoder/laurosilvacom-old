@@ -36,8 +36,6 @@ const EmbedWrapper = styled.div`
     height: 100%;
     border: 0;
     padding: 40px;
-    opacity: 0;
-    animation: HeroAnimation 2s 0.1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
     @media (max-width: ${props => props.theme.screen.sm}) {
       padding: 0px;
     }

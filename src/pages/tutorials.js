@@ -92,12 +92,12 @@ const Header = styled.h1`
   padding-top: 100px;
   position: relative;
   text-align: center;
-  opacity: 0;
+
   font-weight: 800;
   font-size: 52px;
   letter-spacing: -2px;
   margin-bottom: 20px;
-  animation: HeroAnimation 1s 0.1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+
   @media (max-width: ${props => props.theme.screen.sm}) {
     font-size: 36px;
     letter-spacing: -2px;
@@ -115,8 +115,6 @@ const SearchWrapper = styled.div`
   align-items: center;
   justify-items: center;
   grid-gap: 10px;
-  opacity: 0;
-  animation: HeroAnimation 2s 0.8s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
   @media (max-width: ${props => props.theme.screen.md}) {
     padding: 10px 20px;
   }
@@ -124,16 +122,6 @@ const SearchWrapper = styled.div`
     grid-template-columns: 1fr;
   }
 
-  @keyframes HeroAnimation {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0px);
-    }
-  }
   @media (max-width: ${props => props.theme.screen.sm}) {
     h1 {
       font-size: 36px;
@@ -179,14 +167,14 @@ export const pageQuery = graphql`
             image {
               sharp: childImageSharp {
                 fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                  ...GatsbyImageSharpFluid_tracedSVG
                 }
               }
             }
             icon {
               sharp: childImageSharp {
                 fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                  ...GatsbyImageSharpFluid_tracedSVG
                 }
               }
             }

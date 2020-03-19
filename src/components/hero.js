@@ -4,6 +4,11 @@ import Wave from './wave';
 
 const HeroWrapper = styled.div`
   background: ${props => props.theme.color.primary.purple};
+  background-image: radial-gradient(
+    100% 50% at 50% 100%,
+    rgb(132, 0, 255) 0%,
+    transparent 100%
+  );
   height: 820px;
   background-size: cover;
   background-position: center;
@@ -33,15 +38,11 @@ const HeroGroup = styled.div`
     font-size: 72px;
     letter-spacing: -2px;
     line-height: 1;
-    opacity: 0;
-    animation: HeroAnimation 1s 0.1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   p {
     color: rgba(255, 255, 255, 0.8);
     font-size: 30px;
     line-height: 1.5;
-    opacity: 0;
-    animation: HeroAnimation 1s 0.8s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   button {
@@ -55,8 +56,7 @@ const HeroGroup = styled.div`
     border-color: rgba(255, 255, 255, 0.4);
     border-radius: 20px;
     transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    opacity: 0;
-    animation: HeroAnimation 1s 2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+
     z-index: 99;
     position: relative;
   }
@@ -70,7 +70,6 @@ const HeroGroup = styled.div`
 
   @keyframes HeroAnimation {
     0% {
-      opacity: 0;
       transform: translateY(30px);
     }
     100% {

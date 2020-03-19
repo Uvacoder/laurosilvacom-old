@@ -99,14 +99,14 @@ export const pageQuery = graphql`
             image {
               sharp: childImageSharp {
                 fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                  ...GatsbyImageSharpFluid_tracedSVG
                 }
               }
             }
             icon {
               sharp: childImageSharp {
                 fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                  ...GatsbyImageSharpFluid_tracedSVG
                 }
               }
             }
@@ -133,14 +133,14 @@ export const pageQuery = graphql`
             image {
               sharp: childImageSharp {
                 fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                  ...GatsbyImageSharpFluid_tracedSVG
                 }
               }
             }
             icon {
               sharp: childImageSharp {
                 fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                  ...GatsbyImageSharpFluid_tracedSVG
                 }
               }
             }
@@ -172,8 +172,6 @@ const Icon = styled.div`
   width: 60px;
   margin: auto;
   margin-bottom: 25px;
-  animation: HeroAnimation 3s 0.8s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
-  opacity: 0;
   :hover {
     filter: brightness(1.1) saturate(110%);
   }

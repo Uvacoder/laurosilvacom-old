@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterWrapper = styled.div`
-  background: ${props => props.theme.color.dark.accent200};
-
+  background: #00000014;
   padding: 20px;
   margin-top: 200px;
   text-align: center;
@@ -11,8 +10,8 @@ const FooterWrapper = styled.div`
 
 const FooterGroup = styled.div`
   max-width: ${props => props.theme.screen.md};
-  color: ${props => props.theme.color.light.accent200};
   margin: auto;
+  font-size: 14px;
 `;
 
 const Footer = () => (

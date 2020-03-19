@@ -74,14 +74,14 @@ export const query = graphql`
         image {
           sharp: childImageSharp {
             fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }
         icon {
           sharp: childImageSharp {
             fluid(maxWidth: 100) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }
