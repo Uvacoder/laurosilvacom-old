@@ -24,7 +24,7 @@ const SecondaryWrapper = styled.div`
     fill: #f3f2f8;
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
-    height: 520px;
+    height: 420px;
   }
 `;
 
@@ -35,7 +35,7 @@ const SecondaryGroup = styled.div`
   h1 {
     margin: 0;
     color: white;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 72px;
     letter-spacing: -2px;
     line-height: 1;
@@ -69,20 +69,11 @@ const SecondaryGroup = styled.div`
     border-color: rgba(255, 255, 255, 255);
   }
 
-  @keyframes HeroAnimation {
-    0% {
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0px);
-    }
-  }
   @media (max-width: ${props => props.theme.screen.sm}) {
     padding: 120px 20px;
     h1 {
       font-size: 40px;
-      letter-spacing: -2px;
+      letter-spacing: 0px;
     }
     p {
       font-size: 22px;

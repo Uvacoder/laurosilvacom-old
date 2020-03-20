@@ -30,7 +30,7 @@ const theme = {
   },
   screen: {
     xs: '420px',
-    sm: '700px',
+    sm: '720px',
     md: '980px',
   },
 };

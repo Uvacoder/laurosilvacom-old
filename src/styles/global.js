@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import './fonts/hero.css';
 
-const HeroFonts = `body {font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}`;
+const HeroFonts = `body {font-family: Hero, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}`;
 
 const MonoFonts = `code, pre, input {font-family: Mono-Hero;}`;
 
@@ -40,7 +40,7 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
   h1, h2, h3 {
-    font-weight: bold;
+    font-weight: 700;
   }
   h1 {
     ${props => props.theme.font_size.xlarge};
@@ -50,6 +50,7 @@ const GlobalStyles = createGlobalStyle`
   }
   h3 {
     ${props => props.theme.font_size.large};
+    font-weight: 700;
   }
   p {
     ${props => props.theme.font_size.small};
@@ -159,7 +160,7 @@ const GlobalStyles = createGlobalStyle`
   }
   ul {
     ${props => props.theme.font_size.small};
-    line-height: 1em;
+    line-height: 1.1em;
   }
 
   li {

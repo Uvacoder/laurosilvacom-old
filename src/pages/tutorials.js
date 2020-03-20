@@ -93,7 +93,7 @@ const Header = styled.h1`
   position: relative;
   text-align: center;
 
-  font-weight: 800;
+  font-weight: 700;
   font-size: 52px;
   letter-spacing: -2px;
   margin-bottom: 20px;
