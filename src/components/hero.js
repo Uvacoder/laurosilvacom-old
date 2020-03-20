@@ -34,9 +34,9 @@ const HeroGroup = styled.div`
   h1 {
     margin: 0;
     color: white;
-    font-weight: 700;
-    font-size: 72px;
-    letter-spacing: -2px;
+    font-weight: 900;
+    font-size: 68px;
+    letter-spacing: -1px;
     line-height: 1;
   }
   p {
