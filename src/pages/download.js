@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Secondary from '../components/secondary';
+import HeroImage from '../images/donwload.png';
 
 const Downlaod = () => (
   <Layout>
@@ -19,7 +20,13 @@ const Downlaod = () => (
           <Text>
             Get the source code that powers laurosilva.com. Pay what you want!
           </Text>
-          <Button>Downlaod</Button>
+          <a
+            className="gumroad-button"
+            href="https://gum.co/kSYzu"
+            data-gumroad-single-product="true"
+          >
+            <Button>Downlaod</Button>
+          </a>
         </CardWrapper>
       </HeroCard>
     </HeroWrapper>
@@ -47,7 +54,7 @@ const CardWrapper = styled.div`
         rgba(10, 10, 36, 0.8) 97.88%
       )
       center center / cover,
-    url(https://designcode.io/images/downloads/feature-background.jpg) no-repeat;
+    url(${HeroImage}) no-repeat;
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
@@ -61,9 +68,6 @@ const CardWrapper = styled.div`
   height: 450px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 40px;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    height: 380px;
-  }
   :hover {
     transform: scale(1.03);
     box-shadow: rgba(0, 0, 0, 0.5) 0px 30px 60px;
