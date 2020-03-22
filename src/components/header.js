@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { Link } from 'gatsby';
 import React, { useState, useEffect } from 'react';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import styled from 'styled-components';
+import { ThemeToggler } from 'gatsby-plugin-dark-mode';
 import Logo from '../images/logo.svg';
-import ThemeContext from '../context/ThemeContext';
 
 const Header = () => {
   const [scrolling, setScrolling] = useState(false);
@@ -21,8 +22,8 @@ const Header = () => {
   });
 
   return (
-    <ThemeContext.Consumer>
-      {theme => (
+    <ThemeToggler>
+      {({ theme, toggleTheme }) => (
         <HeaderWrapper className={scrolling ? 'HeaderScrolled' : null}>
           <HeaderGroup>
             <Link to="/">
@@ -30,22 +31,28 @@ const Header = () => {
             </Link>
             <Link to="/tutorials">Tutorials</Link>
             <Link to="/about">About</Link>
-            <Link to="/newsletter">Download</Link>
+            <Link to="/download">Download</Link>
             <Link to="/newsletter">Newsletter</Link>
           </HeaderGroup>
-          <span role="presentation" onClick={theme.toggleDark}>
-            {theme.dark ? <FiSun /> : <FiMoon />}
-          </span>
+
+          <label className="tog">
+            <input
+              type="checkbox"
+              onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')}
+              checked={theme === 'dark'}
+            />
+            <span>{theme === 'dark' ? <FiSun /> : <FiMoon />}</span>
+          </label>
         </HeaderWrapper>
       )}
-    </ThemeContext.Consumer>
+    </ThemeToggler>
   );
 };
 
 export default Header;
 
 const Image = styled.img`
-  width: 75px;
+  width: 80px;
   border-radius: 0;
 `;
 
@@ -86,13 +93,13 @@ const HeaderWrapper = styled.div`
     z-index: 101;
     padding: 50px 10px;
     transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-
+    animation: HeroAnimation;
     svg {
       stroke: white;
       transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0s,
         transform 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
-      transform: rotate(360deg);
       opacity: 0.7;
+      transform: rotate(360deg);
     }
     &:hover {
       svg {

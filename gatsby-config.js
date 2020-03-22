@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-dark-mode`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
@@ -63,7 +64,7 @@ module.exports = {
       options: {
         includePaths: [{ regex: '^/tutorials' }],
         excludePaths: ['/'],
-        height: 2,
+        height: 4,
         prependToBody: false,
         color: `#60d9fa`,
       },

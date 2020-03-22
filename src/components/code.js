@@ -3,8 +3,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import ThemeDark from 'prism-react-renderer/themes/nightOwl';
-import ThemeLight from 'prism-react-renderer/themes/nightOwlLight';
-import ThemeContext from '../context/ThemeContext';
 
 const RE = /{([\d,-]+)}/;
 
@@ -67,38 +65,33 @@ const Code = ({ children, className, metastring }) => {
   `;
 
   return (
-    <ThemeContext.Consumer>
-      {heroTheme => (
-        <Highlight
-          {...defaultProps}
-          theme={heroTheme.dark ? ThemeDark : ThemeLight}
-          code={children.trim()}
-          language={language}
-          key={heroTheme.dark}
-        >
-          {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <WrapperStyles>
-              <Pre className={className} style={style}>
-                {tokens.map((line, i) => (
-                  <div
-                    {...getLineProps({
-                      line,
-                      key: i,
-                      className: shouldHighlightLine(i) ? 'highlight-line' : '',
-                    })}
-                  >
-                    <LineNo>{i + 1}</LineNo>
-                    {line.map((token, key) => (
-                      <span {...getTokenProps({ token, key })} />
-                    ))}
-                  </div>
+    <Highlight
+      {...defaultProps}
+      theme={ThemeDark}
+      code={children.trim()}
+      language={language}
+    >
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <WrapperStyles>
+          <Pre className={className} style={style}>
+            {tokens.map((line, i) => (
+              <div
+                {...getLineProps({
+                  line,
+                  key: i,
+                  className: shouldHighlightLine(i) ? 'highlight-line' : '',
+                })}
+              >
+                <LineNo>{i + 1}</LineNo>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} />
                 ))}
-              </Pre>
-            </WrapperStyles>
-          )}
-        </Highlight>
+              </div>
+            ))}
+          </Pre>
+        </WrapperStyles>
       )}
-    </ThemeContext.Consumer>
+    </Highlight>
   );
 };
 

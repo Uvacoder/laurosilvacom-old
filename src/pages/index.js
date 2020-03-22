@@ -200,15 +200,14 @@ const TitleWrapper = styled.div`
     margin: 0 20px;
   }
   button {
-    background: ${props => props.theme.color.primary.purple};
     display: inline-block;
-    padding: 6px 20px;
-    border-radius: 20px;
+    padding: 0.5rem 0.75rem;
+    background: #f1f1f1;
+    border-radius: 4px;
+    color: #5f5f5f;
     font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
-    color: white;
-    opacity: 0.9;
+    font-weight: 500;
+    margin: 0rem 0 0 2rem;
     .dark & {
       background: ${props => props.theme.color.primary.blue};
       color: ${props => props.theme.color.dark.accent100};

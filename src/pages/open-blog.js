@@ -50,7 +50,10 @@ const AnaliticsWrapper = styled.div`
 const AnaliticsGroup = styled.div`
   background: ${props => props.theme.color.light.accent100};
   color: ${props => props.theme.color.dark.accent100};
-  box-shadow: ${props => props.theme.shadow.defaul};
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(198, 208, 235);
+  box-shadow: rgba(198, 208, 235, 0.5) 0px 10px 20px;
   .dark & {
     background: ${props => props.theme.color.dark.accent200};
     color: ${props => props.theme.color.light.accent100};

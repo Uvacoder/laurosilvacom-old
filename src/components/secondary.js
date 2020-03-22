@@ -4,11 +4,6 @@ import Wave from './wave';
 
 const SecondaryWrapper = styled.div`
   background: ${props => props.theme.color.primary.purple};
-  background-image: radial-gradient(
-    100% 50% at 50% 100%,
-    rgb(132, 0, 255) 0%,
-    transparent 100%
-  );
   height: 620px;
   background-size: cover;
   background-position: center;
@@ -21,7 +16,7 @@ const SecondaryWrapper = styled.div`
   }
 
   svg path {
-    fill: #f3f2f8;
+    fill: #fff;
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
     height: 420px;

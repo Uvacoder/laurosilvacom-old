@@ -19,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
     color: ${props => props.theme.color.dark.accent100};
     -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
-   background: #f3f2f8;
+   background: #fff;
   }
   img {
     border-radius: 10px;
@@ -168,6 +168,23 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.1em;
   }
 
+  .tog {
+    input {
+      display: none;
+    }
+    div {
+      width: 1.375rem;
+      height: 1.375rem;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .on {
+      background-color: #fff;
+    }
+    .off {
+      background-color: #282c35;
+    }
+  }
 
   .dark {
     background: #1d1e4a;

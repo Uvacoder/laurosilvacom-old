@@ -4,11 +4,6 @@ import Wave from './wave';
 
 const HeroWrapper = styled.div`
   background: ${props => props.theme.color.primary.purple};
-  background-image: radial-gradient(
-    100% 50% at 50% 100%,
-    rgb(132, 0, 255) 0%,
-    transparent 100%
-  );
   height: 820px;
   background-size: cover;
   background-position: center;
@@ -20,7 +15,7 @@ const HeroWrapper = styled.div`
     left: 0;
   }
   svg path {
-    fill: #f3f2f8;
+    fill: #fff;
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
     height: 620px;
@@ -50,15 +45,17 @@ const HeroGroup = styled.div`
     font-weight: 600;
     color: rgba(255, 255, 255, 0.8);
     background: ${props => props.theme.color.dark.accent200};
-    padding: 9px 20px;
+    padding: 10px 20px;
     border-width: 1px;
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.4);
     border-radius: 20px;
     transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-
+    line-height: 1;
     z-index: 99;
     position: relative;
+    margin-top: 0.2rem;
+    padding-top: 0.7rem;
   }
   button:hover {
     color: white;
