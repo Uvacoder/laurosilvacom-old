@@ -1,10 +1,26 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Secondary from '../components/secondary';
-import HeroImage from '../images/donwload.png';
+
+const DownloadImage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      BackgroundHeroImage: file(relativePath: { eq: "donwload.png" }) {
+        childImageSharp {
+          fluid {
+            src
+          }
+        }
+      }
+    }
+  `);
+  const imageURL = data.BackgroundHeroImage.childImageSharp.fluid.src;
+  return imageURL;
+};
 
 const Downlaod = () => (
   <Layout>
@@ -54,7 +70,7 @@ const CardWrapper = styled.div`
         rgba(10, 10, 36, 0.8) 97.88%
       )
       center center / cover,
-    url(${HeroImage}) no-repeat;
+    url(${DownloadImage}) no-repeat;
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
