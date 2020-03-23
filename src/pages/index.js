@@ -203,14 +203,14 @@ const TitleWrapper = styled.div`
     display: inline-block;
     padding: 0.5rem 0.75rem;
     background: #f1f1f1;
-    border-radius: 4px;
+    border-radius: 8px;
     color: #5f5f5f;
     font-size: 1rem;
     font-weight: 500;
     margin: 0rem 0 0 2rem;
     .dark & {
-      background: ${props => props.theme.color.primary.blue};
-      color: ${props => props.theme.color.dark.accent100};
+      background: #0a0a24;
+      color: #3b3b50;
     }
   }
   button:hover {

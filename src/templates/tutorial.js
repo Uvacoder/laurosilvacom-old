@@ -71,6 +71,7 @@ export const query = graphql`
         tutorialID
         lead
         rotate
+        cta
         image {
           sharp: childImageSharp {
             fluid(maxWidth: 1200) {

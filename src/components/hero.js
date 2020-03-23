@@ -45,7 +45,7 @@ const HeroGroup = styled.div`
     font-weight: 600;
     color: rgba(255, 255, 255, 0.8);
     background: ${props => props.theme.color.dark.accent200};
-    padding: 10px 20px;
+    padding: 12px 20px;
     border-width: 1px;
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.4);

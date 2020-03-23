@@ -34,12 +34,11 @@ const Downlaod = () => (
             <br /> laurosilva.com
           </Title>
           <Text>
-            Get the source code that powers laurosilva.com. Pay what you want!
+            Get the source code that powers laurosilva.com. It's open source!
           </Text>
           <a
-            className="gumroad-button"
-            href="https://gum.co/kSYzu"
-            data-gumroad-single-product="true"
+            target="_blank"
+            href="https://github.com/laurosilvacom/laurosilva.com"
           >
             <Button>Downlaod</Button>
           </a>
@@ -71,6 +70,7 @@ const CardWrapper = styled.div`
       )
       center center / cover,
     url(${DownloadImage}) no-repeat;
+  backdrop-filter: blur(20px);
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
@@ -93,10 +93,15 @@ const CardWrapper = styled.div`
 
 const Title = styled.h1`
   font-size: 60px;
-  color: rgba(255, 255, 255, 1);
-  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.98);
+  margin-bottom: 20px;
+  font-weight: 800;
+  letter-spacing: -1px;
   @media (max-width: ${props => props.theme.screen.md}) {
     font-size: 40px;
+  }
+  @media (max-width: ${props => props.theme.screen.xs}) {
+    font-size: 30px;
   }
 `;
 
@@ -106,6 +111,9 @@ const Text = styled.p`
   margin: 0px;
   color: rgba(255, 255, 255, 0.8);
   max-width: 400px;
+  @media (max-width: ${props => props.theme.screen.md}) {
+    font-size: 18px;
+  }
 `;
 
 const Button = styled.button`
@@ -129,5 +137,9 @@ const Button = styled.button`
   margin-top: 20px;
   :hover {
     color: ${props => props.theme.color.light.accent100};
+  }
+  @media (max-width: ${props => props.theme.screen.md}) {
+    font-size: 20px;
+    width: 200px;
   }
 `;

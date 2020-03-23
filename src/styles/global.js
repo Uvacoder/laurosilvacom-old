@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import './fonts/hero.css';
 
-const HeroFonts = `body {font-family: Hero, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}`;
+const HeroFonts = `body {font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}`;
 
 const MonoFonts = `code, pre, input {font-family: Mono-Hero;}`;
 
@@ -112,9 +112,9 @@ const GlobalStyles = createGlobalStyle`
     color: ${props => props.theme.color.dark.accent300};
   }
 
- #gatsby-plugin-page-progress {
-    background-image: linear-gradient(90deg, #4e01ff 40%, #0055ff 50%, #60d9fa 100%);
- }
+  #gatsby-plugin-page-progress {
+      background-image: linear-gradient(90deg, #4e01ff 40%, #0055ff 50%, #60d9fa 100%);
+  }
 
   .anchor {
     padding-right: 10px;
@@ -166,6 +166,7 @@ const GlobalStyles = createGlobalStyle`
   li {
     ${props => props.theme.font_size.small};
     line-height: 1.1em;
+    margin-bottom: 10px;
   }
 
   .tog {
