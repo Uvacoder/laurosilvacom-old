@@ -209,8 +209,8 @@ const TitleWrapper = styled.div`
     font-weight: 500;
     margin: 0rem 0 0 2rem;
     .dark & {
-      background: #0a0a24;
-      color: #3b3b50;
+      background: #3b3b50;
+      color: #000000;
     }
   }
   button:hover {

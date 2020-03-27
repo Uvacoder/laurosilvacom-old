@@ -20,4 +20,14 @@ const Tutorial = styled.div`
   margin: auto;
   max-width: ${props => props.theme.screen.sm};
   font-size: 1rem;
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    p {
+      font-size: 18px;
+    }
+  }
+  @media (max-width: ${props => props.theme.screen.xs}) {
+    p {
+      font-size: 16px;
+    }
+  }
 `;

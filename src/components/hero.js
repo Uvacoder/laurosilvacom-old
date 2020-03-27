@@ -2,6 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import Wave from './wave';
 
+const Hero = ({ children }) => (
+  <HeroWrapper>
+    <HeroGroup>{children}</HeroGroup>
+    <Wave />
+  </HeroWrapper>
+);
+
+export default Hero;
+
 const HeroWrapper = styled.div`
   background: ${props => props.theme.color.primary.purple};
   height: 820px;
@@ -16,6 +25,9 @@ const HeroWrapper = styled.div`
   }
   svg path {
     fill: #fff;
+  }
+  @media (max-width: ${props => props.theme.screen.md}) {
+    height: 720px;
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
     height: 620px;
@@ -64,24 +76,36 @@ const HeroGroup = styled.div`
     background: ${props => props.theme.color.dark.accent100};
     border-color: rgba(255, 255, 255, 255);
   }
-
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    padding: 120px 20px;
+  @media (max-width: ${props => props.theme.screen.md}) {
     h1 {
-      font-size: 36px;
+      font-size: 38px;
       letter-spacing: 0px;
     }
     p {
       font-size: 22px;
     }
   }
+
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    padding: 120px 20px;
+    padding-bottom: 60px;
+    h1 {
+      font-size: 30px;
+      letter-spacing: 0px;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+  @media (max-width: ${props => props.theme.screen.xm}) {
+    padding: 120px 20px;
+    padding-bottom: 40px;
+    h1 {
+      font-size: 22px;
+      letter-spacing: 0px;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
 `;
-
-const Hero = ({ children }) => (
-  <HeroWrapper>
-    <HeroGroup>{children}</HeroGroup>
-    <Wave />
-  </HeroWrapper>
-);
-
-export default Hero;

@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
   ${MonoFonts}
   
   body {
-    color: ${props => props.theme.color.dark.accent100};
+    color: ${props => props.theme.color.dark.accent200};
     -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    background: #fff;
@@ -113,7 +113,13 @@ const GlobalStyles = createGlobalStyle`
   }
 
   #gatsby-plugin-page-progress {
-      background-image: linear-gradient(90deg, #4e01ff 40%, #0055ff 50%, #60d9fa 100%);
+    background-image: linear-gradient(90deg,#0055ff 50%,#60d9fa 100%);
+  }
+  .highlight-line {
+    background-color: rgba(94, 214, 250, 0.11);
+    margin: 0px -11px;
+    padding: 0px 5px;
+    border-left: 5px solid rgb(94, 214, 250);
   }
 
   .anchor {
@@ -168,6 +174,9 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.1em;
     margin-bottom: 10px;
   }
+  ul p {
+    margin-bottom: 10px;
+  }
 
   .tog {
     input {
@@ -188,7 +197,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .dark {
-    background: #1d1e4a;
+    background: #131431;
     color: ${props => props.theme.color.light.accent100};
     p {
       color: ${props => props.theme.color.light.accent300};
@@ -198,16 +207,10 @@ const GlobalStyles = createGlobalStyle`
       color: ${props => props.theme.color.light.accent100};
     }
     svg path {
-      fill: #1d1e4a;
+      fill: #131431;
     }
     .anchor svg path {
       fill: ${props => props.theme.color.primary.blue};
-    }
-    pre {
-      background: ${props => props.theme.color.dark.accent200} !important;
-      border-color: rgba(255, 255, 255, 0.2) !important;
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 20px !important;
-      border-radius: 10px;
     }
     input {
       background:${props => props.theme.color.dark.accent200};

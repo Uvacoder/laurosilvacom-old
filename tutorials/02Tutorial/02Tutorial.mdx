@@ -9,6 +9,8 @@ lead: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod te
 rotate: true
 ---
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
 # Table of Contents
 
 ```toc
@@ -17,15 +19,37 @@ from-heading: 2
 to-heading: 6
 ```
 
----
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-```
-function Card({ title }) { ... }
-```
-
 ## Heading 1
+
+```javascript {6,13}
+function geoPositionReducer(state, action) {
+  switch (action.type) {
+    case 'error': {
+      return {
+        ...state,
+        status: 'rejected',
+        error: action.error
+      };
+    }
+    case 'success': {
+      return {
+        ...state,
+        status: 'resolved',
+        position: action.position
+      };
+    }
+    case 'started': {
+      return {
+        ...state,
+        status: 'pending'
+      };
+    }
+    default: {
+      throw new Error(`Unhandled action type: ${action.type}`);
+    }
+  }
+}
+```
 
 Lorem ipsum dolor sit amet, _consectetur adipiscing_ elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 

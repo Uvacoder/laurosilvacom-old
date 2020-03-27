@@ -37,16 +37,12 @@ const Code = ({ children, className, metastring }) => {
   `;
 
   const Pre = styled.pre`
-    margin: 1em 0;
-    font-size: 1rem;
-    overflow-x: auto;
-    padding: 20px;
-    line-height: 1.55rem;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(198, 208, 235);
-    box-shadow: rgba(198, 208, 235, 0.5) 0px 10px 20px;
-    border-radius: 10px;
+    float: left;
+    min-width: 100%;
+    overflow: initial;
+    padding: 10px;
+    margin: 0;
+    background: ${props => props.theme.color.dark.accent200} !important;
 
     & .token-line {
       line-height: 1.3em;
@@ -55,8 +51,14 @@ const Code = ({ children, className, metastring }) => {
   `;
 
   const WrapperStyles = styled.div`
-    margin-left: -50px;
-    margin-right: -50px;
+    border-radius: 8px;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-width: 1px;
+    border-style: solid;
+
+    overflow: auto;
+    margin-left: -80px;
+    margin-right: -80px;
 
     @media (max-width: 820px) {
       margin-left: 0px;

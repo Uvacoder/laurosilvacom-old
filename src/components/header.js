@@ -54,6 +54,12 @@ export default Header;
 const Image = styled.img`
   width: 80px;
   border-radius: 0;
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    width: 70px;
+  }
+  @media (max-width: ${props => props.theme.screen.xs}) {
+    width: 60px;
+  }
 `;
 
 const HeaderWrapper = styled.div`
@@ -69,8 +75,8 @@ const HeaderWrapper = styled.div`
     text-decoration: none;
   }
   &.HeaderScrolled {
-    background: ${props => props.theme.color.dark.accent200};
-    box-shadow: rgb(59, 59, 80) 0px 1px;
+    background: ${props => props.theme.color.primary.purple};
+    backdrop-filter: blur(20px);
   }
   a {
     color: ${props => props.theme.color.light.accent200};
@@ -117,7 +123,7 @@ const HeaderWrapper = styled.div`
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
     span {
-      margin-top: -32px;
+      margin-top: -33px;
     }
   }
 `;
@@ -130,8 +136,16 @@ const HeaderGroup = styled.div`
   grid-template-columns: repeat(5, auto);
   align-items: center;
   justify-items: center;
-  @media (max-width: ${props => props.theme.screen.sm}) {
+  @media (max-width: ${props => props.theme.screen.md}) {
     a:nth-child(4) {
+      display: none;
+    }
+  }
+  @media (max-width: ${props => props.theme.screen.xs}) {
+    a:nth-child(4) {
+      display: none;
+    }
+    a:nth-child(3) {
       display: none;
     }
   }

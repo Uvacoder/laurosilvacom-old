@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import Secondary from '../components/secondary';
 import SEO from '../components/seo';
+import Content from '../components/content';
 
 const OpenBlog = () => (
   <Layout>
@@ -14,28 +15,30 @@ const OpenBlog = () => (
         metrics, traffic and code.
       </p>
     </Secondary>
-    <AnaliticsWrapper>
-      <Title>Traffic</Title>
-      <p>
-        This website has <span id="pageviews" /> page views in the last month.
-      </p>
-      <AnaliticsGroup>
-        <div
-          data-sa-graph-url="https://simpleanalytics.com/laurosilva.com?color=4e01ff"
-          data-sa-page-views-selector="#pageviews"
-        >
-          <iframe
-            src="https://simpleanalytics.com/laurosilva.com?color=4e01ff&amp;embed=true"
-            id="sa-graph-1"
-            scrolling="no"
-            style={{ width: '100%', height: '500px', border: 'none' }}
-            height="700px"
-            title="Traffic"
-          />
-        </div>
-        <script src="https://cdn.simpleanalytics.io/embed.js" />
-      </AnaliticsGroup>
-    </AnaliticsWrapper>
+    <Content>
+      <AnaliticsWrapper>
+        <Title>Traffic</Title>
+        <p>
+          This website has <span id="pageviews" /> page views in the last month.
+        </p>
+        <AnaliticsGroup>
+          <div
+            data-sa-graph-url="https://simpleanalytics.com/laurosilva.com?color=4e01ff"
+            data-sa-page-views-selector="#pageviews"
+          >
+            <iframe
+              src="https://simpleanalytics.com/laurosilva.com?color=4e01ff&amp;embed=true"
+              id="sa-graph-1"
+              scrolling="no"
+              style={{ width: '100%', height: '500px', border: 'none' }}
+              height="700px"
+              title="Traffic"
+            />
+          </div>
+          <script src="https://cdn.simpleanalytics.io/embed.js" />
+        </AnaliticsGroup>
+      </AnaliticsWrapper>
+    </Content>
   </Layout>
 );
 

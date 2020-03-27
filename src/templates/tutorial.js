@@ -6,7 +6,7 @@ import Image from 'gatsby-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
 import Layout from '../components/layout';
-import Hero from '../components/hero';
+import TutorialHeader from '../components/tutorial';
 import Content from '../components/content';
 import Code from '../components/code';
 import SEO from '../components/seo';
@@ -28,7 +28,7 @@ const TutorialTemplate = ({ data: { mdx: tutorial } }) => {
         image={tutorial.frontmatter.image.sharp.fluid}
       />
 
-      <Hero>
+      <TutorialHeader>
         {tutorial.frontmatter.tags.map((tag, i) => (
           <Link
             to={`/tags/${_.kebabCase(tag)}`}
@@ -47,8 +47,7 @@ const TutorialTemplate = ({ data: { mdx: tutorial } }) => {
         ))}
 
         <h1>{tutorial.frontmatter.title}</h1>
-        <p>{tutorial.frontmatter.lead}</p>
-      </Hero>
+      </TutorialHeader>
 
       <Content>
         <MDXProvider components={components}>
