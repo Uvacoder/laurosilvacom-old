@@ -68,7 +68,7 @@ function Card(props) {
 
 export default Card;
 
-const Button = styled.div`
+const Button = styled.button`
   text-align: center;
   display: inline-block;
   padding: 0.5rem 0.75rem;
