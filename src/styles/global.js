@@ -112,9 +112,6 @@ const GlobalStyles = createGlobalStyle`
     color: ${props => props.theme.color.dark.accent300};
   }
 
-  #gatsby-plugin-page-progress {
-    background-image: linear-gradient(90deg,#0055ff 50%,#60d9fa 100%);
-  }
   .highlight-line {
     background-color: rgba(94, 214, 250, 0.11);
     margin: 0px -11px;

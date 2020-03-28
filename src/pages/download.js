@@ -55,7 +55,7 @@ const HeroWrapper = styled.div``;
 
 const HeroCard = styled.div`
   padding: 20px;
-  margin-top: -500px;
+  margin-top: -450px;
   position: relative;
   @media (max-width: ${props => props.theme.screen.sm}) {
     margin-top: -300px;

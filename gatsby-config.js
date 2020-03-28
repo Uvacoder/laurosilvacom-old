@@ -60,16 +60,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-page-progress',
-      options: {
-        includePaths: [{ regex: '^/tutorials' }],
-        excludePaths: ['/'],
-        height: 4,
-        prependToBody: false,
-        color: `#60d9fa`,
-      },
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `tutorials`,
