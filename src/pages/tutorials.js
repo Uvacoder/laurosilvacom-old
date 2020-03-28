@@ -63,7 +63,7 @@ const TutorialsPage = ({ data }) => {
           placeholder="Type to filter tutorials..."
           onChange={handleInputChange}
         />
-        <SearchTotal>{tutorials.length}</SearchTotal>
+        <SearchTotal>Total {tutorials.length}</SearchTotal>
       </SearchWrapper>
 
       {tutorials.map(({ node: tutorial }) => (
@@ -111,7 +111,7 @@ const SearchWrapper = styled.div`
   text-align: center;
   padding: 50px 0;
   display: grid;
-  grid-template-columns: 1fr 50px;
+  grid-template-columns: 1fr 100px;
   align-items: center;
   justify-items: center;
   grid-gap: 10px;
@@ -136,13 +136,11 @@ const SearchWrapper = styled.div`
 const SearchTotal = styled.div`
   border-radius: 10px;
   padding: 18px;
-  color: white;
   font-weight: 600;
-  background: ${props => props.theme.color.primary.purple};
+  background: ${props => props.theme.color.primary.blue};
+  color: ${props => props.theme.color.dark.accent200};
   box-shadow: rgba(198, 208, 235, 0.5) 0px 10px 20px;
   .dark & {
-    background: ${props => props.theme.color.primary.blue};
-    color: ${props => props.theme.color.dark.accent100};
     box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px;
   }
 `;

@@ -38,6 +38,7 @@ const Downlaod = () => (
           </Text>
           <a
             target="_blank"
+            rel="noopener noreferrer"
             href="https://github.com/laurosilvacom/laurosilva.com"
           >
             <Button>Downlaod</Button>
@@ -131,7 +132,7 @@ const Button = styled.button`
   z-index: 99;
   position: relative;
   margin-top: 0.2rem;
-  padding-top: 0.7rem;
+  padding-top: 0.4rem;
   height: 50px;
   width: 250px;
   margin-top: 20px;
