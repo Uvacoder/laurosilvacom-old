@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
+import { useUserAgent } from '@oieduardorabelo/use-user-agent';
 
 function Card(props) {
   // Adding state to the copy text
@@ -49,6 +50,16 @@ function Card(props) {
     );
   }
 
+  const details = useUserAgent();
+
+  if (!details) {
+    return <span>123</span>;
+  }
+
+  const { browser } = details;
+
+  const isSafari = browser.name === 'Safari';
+
   return (
     <CardWrapper>
       <CardContent>
@@ -58,9 +69,11 @@ function Card(props) {
         <TutorialText>
           <TutorialTitle>{props.tutorialTitle}</TutorialTitle>
         </TutorialText>
-        <Button type="button" onClick={copy}>
-          {copyText}
-        </Button>
+        {isSafari ? null : (
+          <Button type="button" onClick={copy}>
+            {copyText}
+          </Button>
+        )}
       </CardContent>
     </CardWrapper>
   );
@@ -138,7 +151,7 @@ const TutorialIcon = styled.div`
 
 const CardContent = styled.div`
   display: grid;
-  grid-template-columns: 50px 1fr 100px;
+  grid-template-columns: repeat(3, auto);
   grid-gap: 20px;
   align-items: center;
   @media (max-width: ${props => props.theme.screen.sm}) {
