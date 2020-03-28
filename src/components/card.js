@@ -49,8 +49,8 @@ function Card(props) {
       }
     );
   }
-
-  const details = useUserAgent();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const details = typeof window !== `undefined` ? useUserAgent() : null;
 
   if (!details) {
     return <span>123</span>;
