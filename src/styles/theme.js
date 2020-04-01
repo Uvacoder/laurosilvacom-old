@@ -33,6 +33,6 @@ const theme = {
     sm: '720px',
     md: '980px',
   },
-};
+}
 
-export default theme;
+export default theme

@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const HeroModal = props => (
   <ModalWrapper onClick={props.toggleModal}>
@@ -16,9 +16,9 @@ const HeroModal = props => (
       />
     </EmbedWrapper>
   </ModalWrapper>
-);
+)
 
-export default HeroModal;
+export default HeroModal
 
 const EmbedWrapper = styled.div`
   position: relative;
@@ -40,7 +40,7 @@ const EmbedWrapper = styled.div`
       padding: 0px;
     }
   }
-`;
+`
 
 const ModalWrapper = styled.div`
   position: fixed;
@@ -56,4 +56,4 @@ const ModalWrapper = styled.div`
   backdrop-filter: blur(20px);
   z-index: 2000;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-`;
+`

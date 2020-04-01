@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Wave from './wave';
+import React from 'react'
+import styled from 'styled-components'
+import Wave from './wave'
 
 const SecondaryWrapper = styled.div`
   background: ${props => props.theme.color.primary.purple};
@@ -21,7 +21,7 @@ const SecondaryWrapper = styled.div`
   @media (max-width: ${props => props.theme.screen.sm}) {
     height: 420px;
   }
-`;
+`
 
 const SecondaryGroup = styled.div`
   margin: 0 auto;
@@ -82,7 +82,7 @@ const SecondaryGroup = styled.div`
       letter-spacing: 0px;
     }
     p {
-      font-size: 18px;
+      font-size: 20px;
     }
   }
   @media (max-width: ${props => props.theme.screen.xm}) {
@@ -96,13 +96,13 @@ const SecondaryGroup = styled.div`
       font-size: 16px;
     }
   }
-`;
+`
 
-const Secondary = ({ children }) => (
+const Secondary = ({children}) => (
   <SecondaryWrapper>
     <SecondaryGroup>{children}</SecondaryGroup>
     <Wave />
   </SecondaryWrapper>
-);
+)
 
-export default Secondary;
+export default Secondary

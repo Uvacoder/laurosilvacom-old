@@ -1,14 +1,14 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import Layout from '../components/layout';
-import Grid from '../components/grid';
-import Card from '../components/card';
-import Secondary from '../components/secondary';
-import SEO from '../components/seo';
+import React from 'react'
+import {Link, graphql} from 'gatsby'
+import Layout from '../components/layout'
+import Grid from '../components/grid'
+import Card from '../components/card'
+import Secondary from '../components/secondary'
+import SEO from '../components/seo'
 
-const Tags = ({ pageContext, data }) => {
-  const { tag } = pageContext;
-  const { edges: tutorials } = data.allMdx;
+const Tags = ({pageContext, data}) => {
+  const {tag} = pageContext
+  const {edges: tutorials} = data.allMdx
 
   return (
     <Layout>
@@ -19,7 +19,7 @@ const Tags = ({ pageContext, data }) => {
       </Secondary>
 
       <Grid>
-        {tutorials.map(({ node: tutorial }) => (
+        {tutorials.map(({node: tutorial}) => (
           <Link
             key={tutorial.id}
             to={`/tutorials/${tutorial.frontmatter.slug}`}
@@ -33,17 +33,17 @@ const Tags = ({ pageContext, data }) => {
         ))}
       </Grid>
     </Layout>
-  );
-};
+  )
+}
 
-export default Tags;
+export default Tags
 
 export const pageQuery = graphql`
   query($tag: String) {
     allMdx(
       limit: 2000
-      sort: { fields: frontmatter___tutorialID, order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      sort: {fields: frontmatter___tutorialID, order: DESC}
+      filter: {frontmatter: {tags: {in: [$tag]}}}
     ) {
       totalCount
       edges {
@@ -73,4 +73,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

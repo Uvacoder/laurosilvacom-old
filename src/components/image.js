@@ -1,11 +1,11 @@
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import React from 'react'
+import {useStaticQuery, graphql} from 'gatsby'
+import Img from 'gatsby-image'
 
 const Image = () => {
   const data = useStaticQuery(graphql`
     query {
-      aboutImage: file(relativePath: { eq: "lauro.jpg" }) {
+      aboutImage: file(relativePath: {eq: "lauro.jpg"}) {
         childImageSharp {
           fluid(maxWidth: 1200) {
             ...GatsbyImageSharpFluid_withWebp
@@ -13,7 +13,7 @@ const Image = () => {
         }
       }
     }
-  `);
+  `)
 
   return (
     <Img
@@ -21,7 +21,7 @@ const Image = () => {
       loading="lazy"
       fluid={data.aboutImage.childImageSharp.fluid}
     />
-  );
-};
+  )
+}
 
-export default Image;
+export default Image

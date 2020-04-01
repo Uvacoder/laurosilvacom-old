@@ -1,10 +1,10 @@
-const _ = require('lodash');
+const _ = require('lodash')
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions;
+exports.createPages = async ({actions, graphql, reporter}) => {
+  const {createPage} = actions
   const result = await graphql(`
     query {
-      pages: allMdx(filter: { fileAbsolutePath: { regex: "//pages//" } }) {
+      pages: allMdx(filter: {fileAbsolutePath: {regex: "//pages//"}}) {
         nodes {
           frontmatter {
             slug
@@ -12,9 +12,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
       }
 
-      tutorials: allMdx(
-        filter: { fileAbsolutePath: { regex: "/tutorials//" } }
-      ) {
+      tutorials: allMdx(filter: {fileAbsolutePath: {regex: "//tutorials//"}}) {
         nodes {
           frontmatter {
             slug
@@ -22,21 +20,19 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
       }
 
-      tagsGroup: allMdx(
-        filter: { fileAbsolutePath: { regex: "//tutorials//" } }
-      ) {
+      tagsGroup: allMdx(filter: {fileAbsolutePath: {regex: "//tutorials//"}}) {
         group(field: frontmatter___tags) {
           fieldValue
         }
       }
     }
-  `);
+  `)
 
   if (result.errors) {
-    reporter.panic('failed to create pages', result.errors);
+    reporter.panic('failed to create pages', result.errors)
   }
   // renders pages for lessons
-  const pages = result.data.pages.nodes;
+  const pages = result.data.pages.nodes
   pages.forEach(page => {
     actions.createPage({
       path: `/${page.frontmatter.slug}/`,
@@ -44,11 +40,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {
         slug: page.frontmatter.slug,
       },
-    });
-  });
+    })
+  })
 
   // renders pages for tutorials
-  const tutorials = result.data.tutorials.nodes;
+  const tutorials = result.data.tutorials.nodes
   tutorials.forEach(tutorial => {
     actions.createPage({
       path: `/tutorials/${tutorial.frontmatter.slug}/`,
@@ -56,11 +52,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {
         slug: tutorial.frontmatter.slug,
       },
-    });
-  });
+    })
+  })
 
   // renders pages for courses, based from tutorials tags
-  const tags = result.data.tagsGroup.group;
+  const tags = result.data.tagsGroup.group
   tags.forEach(tag => {
     createPage({
       path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
@@ -68,6 +64,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {
         tag: tag.fieldValue,
       },
-    });
-  });
-};
+    })
+  })
+}

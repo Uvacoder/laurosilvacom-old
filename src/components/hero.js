@@ -1,15 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import Wave from './wave';
+import React from 'react'
+import styled from 'styled-components'
+import Wave from './wave'
 
-const Hero = ({ children }) => (
+const Hero = ({children}) => (
   <HeroWrapper>
     <HeroGroup>{children}</HeroGroup>
     <Wave />
   </HeroWrapper>
-);
+)
 
-export default Hero;
+export default Hero
 
 const HeroWrapper = styled.div`
   background: ${props => props.theme.color.primary.purple};
@@ -32,7 +32,7 @@ const HeroWrapper = styled.div`
   @media (max-width: ${props => props.theme.screen.sm}) {
     height: 620px;
   }
-`;
+`
 
 const HeroGroup = styled.div`
   margin: 0 auto;
@@ -94,7 +94,7 @@ const HeroGroup = styled.div`
       letter-spacing: 0px;
     }
     p {
-      font-size: 18px;
+      font-size: 20px;
     }
   }
   @media (max-width: ${props => props.theme.screen.xm}) {
@@ -105,7 +105,7 @@ const HeroGroup = styled.div`
       letter-spacing: 0px;
     }
     p {
-      font-size: 16px;
+      font-size: 18px;
     }
   }
-`;
+`

@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import Layout from '../components/layout';
-import Secondary from '../components/secondary';
-import SEO from '../components/seo';
-import Content from '../components/content';
+import React from 'react'
+import styled from 'styled-components'
+import Layout from '../components/layout'
+import Secondary from '../components/secondary'
+import SEO from '../components/seo'
+import Content from '../components/content'
 
 const OpenBlog = () => (
   <Layout>
@@ -30,7 +30,7 @@ const OpenBlog = () => (
               src="https://simpleanalytics.com/laurosilva.com?color=4e01ff&amp;embed=true"
               id="sa-graph-1"
               scrolling="no"
-              style={{ width: '100%', height: '500px', border: 'none' }}
+              style={{width: '100%', height: '500px', border: 'none'}}
               height="700px"
               title="Traffic"
             />
@@ -40,15 +40,15 @@ const OpenBlog = () => (
       </AnaliticsWrapper>
     </Content>
   </Layout>
-);
+)
 
-export default OpenBlog;
+export default OpenBlog
 
 const AnaliticsWrapper = styled.div`
   max-width: ${props => props.theme.screen.md};
   margin: auto;
   padding: 20px;
-`;
+`
 
 const AnaliticsGroup = styled.div`
   background: ${props => props.theme.color.light.accent100};
@@ -79,9 +79,9 @@ const AnaliticsGroup = styled.div`
     border: 0;
     padding: 20px;
   }
-`;
+`
 
 const Title = styled.h1`
   text-align: center;
   margin-top: 0;
-`;
+`

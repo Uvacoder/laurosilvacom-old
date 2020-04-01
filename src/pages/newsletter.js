@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import Secondary from '../components/secondary';
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import Secondary from '../components/secondary'
 
 const Downlaod = () => (
   <Layout>
@@ -15,6 +15,6 @@ const Downlaod = () => (
       </p>
     </Secondary>
   </Layout>
-);
+)
 
-export default Downlaod;
+export default Downlaod

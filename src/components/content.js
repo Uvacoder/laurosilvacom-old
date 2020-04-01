@@ -1,20 +1,24 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-const Content = ({ children }) => (
+const Content = ({children}) => (
   <ContentWrapper>
     <Tutorial>{children}</Tutorial>
   </ContentWrapper>
-);
-export default Content;
+)
+export default Content
 
 const ContentWrapper = styled.div`
   padding: 0 20px;
-
   .dark & a {
     color: ${props => props.theme.color.primary.blue};
   }
-`;
+  code {
+    background: rgba(132, 132, 132, 0.25);
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+`
 
 const Tutorial = styled.div`
   margin: auto;
@@ -30,4 +34,4 @@ const Tutorial = styled.div`
       font-size: 16px;
     }
   }
-`;
+`

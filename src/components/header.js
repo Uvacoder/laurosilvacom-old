@@ -1,29 +1,29 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { Link } from 'gatsby';
-import React, { useState, useEffect } from 'react';
-import { FiSun, FiMoon } from 'react-icons/fi';
-import styled from 'styled-components';
-import { ThemeToggler } from 'gatsby-plugin-dark-mode';
-import Logo from '../images/logo.svg';
+import {Link} from 'gatsby'
+import React, {useState, useEffect} from 'react'
+import {FiSun, FiMoon} from 'react-icons/fi'
+import styled from 'styled-components'
+import {ThemeToggler} from 'gatsby-plugin-dark-mode'
+import Logo from '../images/logo.svg'
 
 const Header = () => {
-  const [scrolling, setScrolling] = useState(false);
+  const [scrolling, setScrolling] = useState(false)
 
   const handleScroll = () => {
     if (window.pageYOffset >= 330) {
-      setScrolling(true);
+      setScrolling(true)
     } else {
-      setScrolling(false);
+      setScrolling(false)
     }
-  };
+  }
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.addEventListener('scroll', handleScroll);
-  });
+    window.addEventListener('scroll', handleScroll)
+    return () => window.addEventListener('scroll', handleScroll)
+  })
 
   return (
     <ThemeToggler>
-      {({ theme, toggleTheme }) => (
+      {({theme, toggleTheme}) => (
         <HeaderWrapper className={scrolling ? 'HeaderScrolled' : null}>
           <HeaderGroup>
             <Link to="/">
@@ -46,10 +46,10 @@ const Header = () => {
         </HeaderWrapper>
       )}
     </ThemeToggler>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
 
 const Image = styled.img`
   width: 80px;
@@ -60,7 +60,7 @@ const Image = styled.img`
   @media (max-width: ${props => props.theme.screen.xs}) {
     width: 60px;
   }
-`;
+`
 
 const HeaderWrapper = styled.div`
   background: ${props => props.theme.color.primary.purple};
@@ -126,7 +126,7 @@ const HeaderWrapper = styled.div`
       margin-top: -33px;
     }
   }
-`;
+`
 
 const HeaderGroup = styled.div`
   max-width: ${props => props.theme.screen.md};
@@ -149,4 +149,4 @@ const HeaderGroup = styled.div`
       display: none;
     }
   }
-`;
+`

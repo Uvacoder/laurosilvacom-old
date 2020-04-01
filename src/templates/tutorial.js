@@ -1,24 +1,24 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React from 'react';
-import { graphql, Link } from 'gatsby';
-import styled, { keyframes } from 'styled-components';
-import Image from 'gatsby-image';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { MDXProvider } from '@mdx-js/react';
-import Layout from '../components/layout';
-import TutorialHeader from '../components/tutorial';
-import Content from '../components/content';
-import Code from '../components/code';
-import SEO from '../components/seo';
+import React from 'react'
+import {graphql, Link} from 'gatsby'
+import styled, {keyframes} from 'styled-components'
+import Image from 'gatsby-image'
+import {MDXRenderer} from 'gatsby-plugin-mdx'
+import {MDXProvider} from '@mdx-js/react'
+import Layout from '../components/layout'
+import TutorialHeader from '../components/tutorial'
+import Content from '../components/content'
+import Code from '../components/code'
+import SEO from '../components/seo'
 
 const components = {
   code: Code,
-};
+}
 
-const _ = require('lodash');
+const _ = require('lodash')
 
-const TutorialTemplate = ({ data: { mdx: tutorial } }) => {
-  const rotateState = tutorial.frontmatter.rotate;
+const TutorialTemplate = ({data: {mdx: tutorial}}) => {
+  const rotateState = tutorial.frontmatter.rotate
 
   return (
     <Layout>
@@ -55,14 +55,14 @@ const TutorialTemplate = ({ data: { mdx: tutorial } }) => {
         </MDXProvider>
       </Content>
     </Layout>
-  );
-};
+  )
+}
 
-export default TutorialTemplate;
+export default TutorialTemplate
 
 export const query = graphql`
   query data($slug: String!) {
-    mdx(frontmatter: { slug: { eq: $slug } }) {
+    mdx(frontmatter: {slug: {eq: $slug}}) {
       excerpt(pruneLength: 160)
       frontmatter {
         title
@@ -70,7 +70,6 @@ export const query = graphql`
         tutorialID
         lead
         rotate
-        cta
         image {
           sharp: childImageSharp {
             fluid(maxWidth: 1200) {
@@ -89,7 +88,7 @@ export const query = graphql`
       body
     }
   }
-`;
+`
 
 const rotate = keyframes`
   from {
@@ -99,7 +98,7 @@ const rotate = keyframes`
   to {
     transform: rotate(360deg);
   }
-`;
+`
 
 const Icon = styled.div`
   width: 60px;
@@ -111,13 +110,13 @@ const Icon = styled.div`
   :hover {
     filter: brightness(1.1) saturate(110%);
   }
-`;
+`
 
 const RotateIcon = styled.div`
   &.rotateTrue {
     animation: ${rotate} 15s linear infinite;
   }
-`;
+`
 
 const PlayIcon = styled.img`
   width: 36px;
@@ -126,7 +125,7 @@ const PlayIcon = styled.img`
   top: 25%;
   right: 25%;
   opacity: 0.9;
-`;
+`
 
 const PlayButton = styled.div`
   cursor: pointer;
@@ -167,4 +166,4 @@ const PlayButton = styled.div`
   @media (max-width: ${props => props.theme.screen.md}) {
     top: 80%;
   }
-`;
+`

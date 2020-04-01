@@ -1,20 +1,20 @@
 /* eslint-disable react/button-has-type */
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import styled, { keyframes } from 'styled-components';
-import Image from 'gatsby-image';
-import Layout from '../components/layout';
-import Hero from '../components/hero';
-import Card from '../components/card';
-import Grid from '../components/grid';
-import SEO from '../components/seo';
+import React from 'react'
+import {Link, graphql} from 'gatsby'
+import styled, {keyframes} from 'styled-components'
+import Image from 'gatsby-image'
+import Layout from '../components/layout'
+import Hero from '../components/hero'
+import Card from '../components/card'
+import Grid from '../components/grid'
+import SEO from '../components/seo'
 
-const _ = require('lodash');
+const _ = require('lodash')
 
-const Index = ({ data }) => {
-  const { edges: tutorials } = data.allMdx;
-  const featured = data.featuredPost.edges[0].node;
-  const rotateState = featured.frontmatter.rotate;
+const Index = ({data}) => {
+  const {edges: tutorials} = data.allMdx
+  const featured = data.featuredPost.edges[0].node
+  const rotateState = featured.frontmatter.rotate
 
   return (
     <Layout>
@@ -60,7 +60,7 @@ const Index = ({ data }) => {
         </TitleWrapper>
       </TitlePadding>
       <Grid>
-        {tutorials.map(({ node: tutorial }) => (
+        {tutorials.map(({node: tutorial}) => (
           <Link
             key={tutorial.id}
             to={`/tutorials/${tutorial.frontmatter.slug}`}
@@ -75,16 +75,16 @@ const Index = ({ data }) => {
         ))}
       </Grid>
     </Layout>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index
 
 export const pageQuery = graphql`
   query IndexPage {
     allMdx(
-      sort: { fields: frontmatter___tutorialID, order: DESC }
-      filter: { fileAbsolutePath: { regex: "//tutorials//" } }
+      sort: {fields: frontmatter___tutorialID, order: DESC}
+      filter: {fileAbsolutePath: {regex: "//tutorials//"}}
       limit: 3
     ) {
       edges {
@@ -116,8 +116,8 @@ export const pageQuery = graphql`
       }
     }
     featuredPost: allMdx(
-      sort: { fields: frontmatter___tutorialID, order: DESC }
-      filter: { fileAbsolutePath: { regex: "//tutorials//" } }
+      sort: {fields: frontmatter___tutorialID, order: DESC}
+      filter: {fileAbsolutePath: {regex: "//tutorials//"}}
       limit: 1
     ) {
       edges {
@@ -149,7 +149,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    placeholderImage2: file(relativePath: { eq: "lauro.jpg" }) {
+    placeholderImage2: file(relativePath: {eq: "lauro.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 1200) {
           ...GatsbyImageSharpFluid
@@ -157,7 +157,7 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
 
 const rotate = keyframes`
   from {
@@ -167,7 +167,7 @@ const rotate = keyframes`
   to {
     transform: rotate(360deg);
   }
-`;
+`
 
 const Icon = styled.div`
   width: 60px;
@@ -176,17 +176,17 @@ const Icon = styled.div`
   :hover {
     filter: brightness(1.1) saturate(110%);
   }
-`;
+`
 
 const RotateIcon = styled.div`
   &.rotateTrue {
     animation: ${rotate} 15s linear infinite;
   }
-`;
+`
 
 const TitlePadding = styled.div`
   padding: 20px;
-`;
+`
 const TitleWrapper = styled.div`
   max-width: ${props => props.theme.screen.sm};
   margin: auto;
@@ -223,4 +223,4 @@ const TitleWrapper = styled.div`
       font-size: 1.3rem;
     }
   }
-`;
+`

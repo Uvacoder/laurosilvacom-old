@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-const TutorialHeader = ({ children }) => (
+const TutorialHeader = ({children}) => (
   <TutorialWrapper>
     <TutorialGroup>{children}</TutorialGroup>
   </TutorialWrapper>
-);
+)
 
-export default TutorialHeader;
+export default TutorialHeader
 
 const TutorialWrapper = styled.div`
   background-size: cover;
@@ -22,8 +22,7 @@ const TutorialWrapper = styled.div`
   svg path {
     fill: #fff;
   }
-`;
-
+`
 const TutorialGroup = styled.div`
   margin: 0 auto;
   max-width: ${props => props.theme.screen.md};
@@ -88,5 +87,4 @@ const TutorialGroup = styled.div`
       letter-spacing: 0px;
     }
   }
-  }
-`;
+`

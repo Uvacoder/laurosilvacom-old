@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
-import styled from 'styled-components';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import ThemeDark from 'prism-react-renderer/themes/nightOwl';
+import React from 'react'
+import styled from 'styled-components'
+import Highlight, {defaultProps} from 'prism-react-renderer'
+import ThemeDark from 'prism-react-renderer/themes/nightOwl'
 
-const RE = /{([\d,-]+)}/;
+const RE = /{([\d,-]+)}/
 
 // credit to https://github.com/kentcdodds/kentcdodds.com/blob/4976c89de5dd4246807c0d7a1ad140d703bcc0b0/src/components/mdx/code.js
 
@@ -12,29 +12,29 @@ function calculateLinesToHighlight(meta) {
   if (RE.test(meta)) {
     const lineNumbers = RE.exec(meta)[1]
       .split(',')
-      .map(v => v.split('-').map(y => parseInt(y, 10)));
+      .map(v => v.split('-').map(y => parseInt(y, 10)))
     return index => {
-      const lineNumber = index + 1;
+      const lineNumber = index + 1
       const inRange = lineNumbers.some(([start, end]) =>
         end ? lineNumber >= start && lineNumber <= end : lineNumber === start
-      );
-      return inRange;
-    };
+      )
+      return inRange
+    }
   }
-  return () => false;
+  return () => false
 }
 
-const Code = ({ children, className, metastring }) => {
-  const language = className ? className.replace(/language-/, '') : '';
+const Code = ({children, className, metastring}) => {
+  const language = className ? className.replace(/language-/, '') : ''
 
-  const shouldHighlightLine = calculateLinesToHighlight(metastring);
+  const shouldHighlightLine = calculateLinesToHighlight(metastring)
 
   const LineNo = styled.span`
     display: inline-block;
     width: 2em;
     user-select: none;
     color: #c6d0eb;
-  `;
+  `
 
   const Pre = styled.pre`
     float: left;
@@ -48,7 +48,7 @@ const Code = ({ children, className, metastring }) => {
       line-height: 1.3em;
       height: 1.5em;
     }
-  `;
+  `
 
   const WrapperStyles = styled.div`
     border-radius: 8px;
@@ -64,7 +64,7 @@ const Code = ({ children, className, metastring }) => {
       margin-left: 0px;
       margin-right: 0px;
     }
-  `;
+  `
 
   return (
     <Highlight
@@ -73,7 +73,7 @@ const Code = ({ children, className, metastring }) => {
       code={children.trim()}
       language={language}
     >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+      {({className, style, tokens, getLineProps, getTokenProps}) => (
         <WrapperStyles>
           <Pre className={className} style={style}>
             {tokens.map((line, i) => (
@@ -86,7 +86,7 @@ const Code = ({ children, className, metastring }) => {
               >
                 <LineNo>{i + 1}</LineNo>
                 {line.map((token, key) => (
-                  <span {...getTokenProps({ token, key })} />
+                  <span {...getTokenProps({token, key})} />
                 ))}
               </div>
             ))}
@@ -94,7 +94,7 @@ const Code = ({ children, className, metastring }) => {
         </WrapperStyles>
       )}
     </Highlight>
-  );
-};
+  )
+}
 
-export default Code;
+export default Code

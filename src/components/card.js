@@ -1,26 +1,26 @@
-import React from 'react';
-import styled from 'styled-components';
-import Image from 'gatsby-image';
-import { useStaticQuery, graphql } from 'gatsby';
-import { useUserAgent } from '@oieduardorabelo/use-user-agent';
+import React from 'react'
+import styled from 'styled-components'
+import Image from 'gatsby-image'
+import {useStaticQuery, graphql} from 'gatsby'
+import {useUserAgent} from '@oieduardorabelo/use-user-agent'
 
 function Card(props) {
   // Adding state to the copy text
-  const defaultCopyText = 'Copy URL';
-  const [copyText, setCopytext] = React.useState(defaultCopyText);
+  const defaultCopyText = 'Copy URL'
+  const [copyText, setCopytext] = React.useState(defaultCopyText)
 
   // Setting a timer when to set state
   React.useEffect(() => {
-    let current = true;
+    let current = true
     if (copyText !== defaultCopyText) {
       setTimeout(() => {
         if (current) {
-          setCopytext(defaultCopyText);
+          setCopytext(defaultCopyText)
         }
-      }, 3000);
+      }, 3000)
     }
-    return () => (current = false);
-  }, [copyText]);
+    return () => (current = false)
+  }, [copyText])
 
   // Get site URL
   const data = useStaticQuery(graphql`
@@ -31,34 +31,34 @@ function Card(props) {
         }
       }
     }
-  `);
+  `)
 
   // Create Tutorial URL with site URL
-  const TutorialURL = `${`${data.site.siteMetadata.siteUrl}${props.tutorialSlug}`}`;
+  const TutorialURL = `${`${data.site.siteMetadata.siteUrl}${props.tutorialSlug}`}`
 
   // Targets and then copies the item
   function copy(event) {
-    event.preventDefault();
+    event.preventDefault()
     // Passing TutorialURL
     navigator.clipboard.writeText(TutorialURL).then(
       () => {
-        setCopytext('Copied');
+        setCopytext('Copied')
       },
       () => {
-        setCopytext('Error copying URL');
-      }
-    );
+        setCopytext('Error copying URL')
+      },
+    )
   }
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const details = typeof window !== `undefined` ? useUserAgent() : null;
+  const details = typeof window !== `undefined` ? useUserAgent() : null
 
   if (!details) {
-    return <span>123</span>;
+    return <span>123</span>
   }
 
-  const { browser } = details;
+  const {browser} = details
 
-  const isSafari = browser.name === 'Safari';
+  const isSafari = browser.name === 'Safari'
 
   return (
     <CardWrapper>
@@ -76,10 +76,10 @@ function Card(props) {
         )}
       </CardContent>
     </CardWrapper>
-  );
+  )
 }
 
-export default Card;
+export default Card
 
 const Button = styled.button`
   text-align: center;
@@ -101,12 +101,12 @@ const Button = styled.button`
   @media (max-width: ${props => props.theme.screen.sm}) {
     width: 100%;
   }
-`;
+`
 
 const TutorialText = styled.div`
   padding-left: 10px;
   align-self: auto;
-`;
+`
 
 const CardWrapper = styled.div`
   background: ${props => props.theme.color.light.accent100};
@@ -142,12 +142,12 @@ const CardWrapper = styled.div`
   .gatsby-resp-image-wrapper {
     border-radius: 0px;
   }
-`;
+`
 
 const TutorialIcon = styled.div`
   width: 50px;
   align-self: center;
-`;
+`
 
 const CardContent = styled.div`
   display: grid;
@@ -160,7 +160,7 @@ const CardContent = styled.div`
     justify-items: center;
     text-align: center;
   }
-`;
+`
 
 const TutorialTitle = styled.h3`
   margin: 0;
@@ -170,4 +170,4 @@ const TutorialTitle = styled.h3`
   @media (max-width: ${props => props.theme.screen.xs}) {
     font-size: 26px;
   }
-`;
+`

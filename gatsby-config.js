@@ -1,5 +1,5 @@
 const siteUrl =
-  process.env.URL || process.env.DEPLOY_URL || `https://laurosilva.com`;
+  process.env.URL || process.env.DEPLOY_URL || `https://laurosilva.com`
 
 module.exports = {
   siteMetadata: {
@@ -23,7 +23,7 @@ module.exports = {
       options: {
         host: 'https://laurosilva.com',
         sitemap: 'https://laurosilva.com/sitemap.xml',
-        policy: [{ userAgent: '*', allow: '/' }],
+        policy: [{userAgent: '*', allow: '/'}],
       },
     },
     {
@@ -54,9 +54,9 @@ module.exports = {
           {
             resolve: `gatsby-remark-autolink-headers`,
           },
-          { resolve: 'gatsby-remark-smartypants' },
+          {resolve: 'gatsby-remark-smartypants'},
         ],
-        plugins: [{ resolve: 'gatsby-remark-images' }],
+        plugins: [{resolve: 'gatsby-remark-images'}],
       },
     },
     {
@@ -102,4 +102,4 @@ module.exports = {
       },
     },
   ],
-};
+}

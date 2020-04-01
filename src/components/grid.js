@@ -1,17 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-const Grid = ({ children }) => (
+const Grid = ({children}) => (
   <GridMain>
     <GridWrapper>{children}</GridWrapper>
   </GridMain>
-);
+)
 
-export default Grid;
+export default Grid
 
 const GridMain = styled.div`
   padding: 20px;
-`;
+`
 
 const GridWrapper = styled.div`
   max-width: ${props => props.theme.screen.sm};
@@ -19,4 +19,4 @@ const GridWrapper = styled.div`
   display: grid;
   margin: 0 auto;
   grid-gap: 40px;
-`;
+`

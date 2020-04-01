@@ -1,12 +1,12 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import Layout from '../components/layout';
-import Secondary from '../components/secondary';
-import Content from '../components/content';
-import SEO from '../components/seo';
+import React from 'react'
+import {graphql} from 'gatsby'
+import {MDXRenderer} from 'gatsby-plugin-mdx'
+import Layout from '../components/layout'
+import Secondary from '../components/secondary'
+import Content from '../components/content'
+import SEO from '../components/seo'
 
-const PagesTemplate = ({ data: { mdx: page } }) => (
+const PagesTemplate = ({data: {mdx: page}}) => (
   <Layout>
     <SEO
       title={page.frontmatter.title}
@@ -22,13 +22,13 @@ const PagesTemplate = ({ data: { mdx: page } }) => (
       <MDXRenderer>{page.body}</MDXRenderer>
     </Content>
   </Layout>
-);
+)
 
-export default PagesTemplate;
+export default PagesTemplate
 
 export const query = graphql`
   query($slug: String!) {
-    mdx(frontmatter: { slug: { eq: $slug } }) {
+    mdx(frontmatter: {slug: {eq: $slug}}) {
       excerpt(pruneLength: 160)
       frontmatter {
         title
@@ -45,4 +45,4 @@ export const query = graphql`
       body
     }
   }
-`;
+`

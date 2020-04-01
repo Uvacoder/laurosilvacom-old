@@ -1,31 +1,31 @@
 /* eslint-disable react/button-has-type */
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import styled from 'styled-components';
-import Layout from '../components/layout';
-import Card from '../components/card';
-import Grid from '../components/grid';
-import SEO from '../components/seo';
+import React from 'react'
+import {Link, graphql} from 'gatsby'
+import styled from 'styled-components'
+import Layout from '../components/layout'
+import Card from '../components/card'
+import Grid from '../components/grid'
+import SEO from '../components/seo'
 
-const TutorialsPage = ({ data }) => {
-  const allTutorials = data.allMdx.edges;
+const TutorialsPage = ({data}) => {
+  const allTutorials = data.allMdx.edges
 
-  const emptyQuery = '';
+  const emptyQuery = ''
   const [state, setState] = React.useState({
     filteredData: [],
     query: emptyQuery,
-  });
+  })
 
   // credit: https://www.aboutmonica.com/blog/create-gatsby-blog-search-tutorial#final-code
   const handleInputChange = event => {
-    const query = event.target.value;
+    const query = event.target.value
 
     // this is how we get all of our tutorials
-    const tutorials = data.allMdx.edges || [];
+    const tutorials = data.allMdx.edges || []
     // return all filtered tutorials
     const filteredData = tutorials.filter(tutorial => {
       // destructure data from tutorial frontmatter
-      const { title, tags, lead } = tutorial.node.frontmatter;
+      const {title, tags, lead} = tutorial.node.frontmatter
 
       return (
         // standardize data with .toLowerCase()
@@ -38,18 +38,18 @@ const TutorialsPage = ({ data }) => {
           .join('') // convert tags from an array to string
           .toLowerCase()
           .includes(query.toLowerCase())
-      );
-    });
+      )
+    })
     // update state according to the latest query and results
     setState({
       query, // with current query string from the `Input` event
       filteredData, // with filtered data from tutorials.filter(tutorial => (//filteredData)) above
-    });
-  };
+    })
+  }
 
-  const { filteredData, query } = state;
-  const hasSearchResults = filteredData && query !== emptyQuery;
-  const tutorials = hasSearchResults ? filteredData : allTutorials;
+  const {filteredData, query} = state
+  const hasSearchResults = filteredData && query !== emptyQuery
+  const tutorials = hasSearchResults ? filteredData : allTutorials
 
   return (
     <Layout>
@@ -66,7 +66,7 @@ const TutorialsPage = ({ data }) => {
         <SearchTotal>Total {tutorials.length}</SearchTotal>
       </SearchWrapper>
 
-      {tutorials.map(({ node: tutorial }) => (
+      {tutorials.map(({node: tutorial}) => (
         <Grid>
           <Link
             key={tutorial.id}
@@ -81,10 +81,10 @@ const TutorialsPage = ({ data }) => {
         </Grid>
       ))}
     </Layout>
-  );
-};
+  )
+}
 
-export default TutorialsPage;
+export default TutorialsPage
 
 const Header = styled.h1`
   margin: auto;
@@ -102,7 +102,7 @@ const Header = styled.h1`
     font-size: 36px;
     letter-spacing: -2px;
   }
-`;
+`
 
 const SearchWrapper = styled.div`
   margin: auto;
@@ -131,7 +131,7 @@ const SearchWrapper = styled.div`
       font-size: 22px;
     }
   }
-`;
+`
 
 const SearchTotal = styled.div`
   border-radius: 10px;
@@ -143,13 +143,13 @@ const SearchTotal = styled.div`
   .dark & {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px;
   }
-`;
+`
 
 export const pageQuery = graphql`
   query WritingPage {
     allMdx(
-      sort: { fields: frontmatter___tutorialID, order: DESC }
-      filter: { fileAbsolutePath: { regex: "//tutorials//" } }
+      sort: {fields: frontmatter___tutorialID, order: DESC}
+      filter: {fileAbsolutePath: {regex: "//tutorials//"}}
       limit: 100
     ) {
       edges {
@@ -181,4 +181,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

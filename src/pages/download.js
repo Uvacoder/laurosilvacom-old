@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import Secondary from '../components/secondary';
+import styled from 'styled-components'
+import {useStaticQuery, graphql} from 'gatsby'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import Secondary from '../components/secondary'
 
 const DownloadImage = () => {
   const data = useStaticQuery(graphql`
     query {
-      BackgroundHeroImage: file(relativePath: { eq: "donwload.png" }) {
+      BackgroundHeroImage: file(relativePath: {eq: "donwload.png"}) {
         childImageSharp {
           fluid {
             src
@@ -17,10 +17,10 @@ const DownloadImage = () => {
         }
       }
     }
-  `);
-  const imageURL = data.BackgroundHeroImage.childImageSharp.fluid.src;
-  return imageURL;
-};
+  `)
+  const imageURL = data.BackgroundHeroImage.childImageSharp.fluid.src
+  return imageURL
+}
 
 const Downlaod = () => (
   <Layout>
@@ -47,11 +47,11 @@ const Downlaod = () => (
       </HeroCard>
     </HeroWrapper>
   </Layout>
-);
+)
 
-export default Downlaod;
+export default Downlaod
 
-const HeroWrapper = styled.div``;
+const HeroWrapper = styled.div``
 
 const HeroCard = styled.div`
   padding: 20px;
@@ -60,7 +60,7 @@ const HeroCard = styled.div`
   @media (max-width: ${props => props.theme.screen.sm}) {
     margin-top: -300px;
   }
-`;
+`
 
 const CardWrapper = styled.div`
   background: linear-gradient(
@@ -90,7 +90,7 @@ const CardWrapper = styled.div`
     box-shadow: rgba(0, 0, 0, 0.5) 0px 30px 60px;
     transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-`;
+`
 
 const Title = styled.h1`
   font-size: 60px;
@@ -104,7 +104,7 @@ const Title = styled.h1`
   @media (max-width: ${props => props.theme.screen.xs}) {
     font-size: 30px;
   }
-`;
+`
 
 const Text = styled.p`
   font-size: 24px;
@@ -115,7 +115,7 @@ const Text = styled.p`
   @media (max-width: ${props => props.theme.screen.md}) {
     font-size: 18px;
   }
-`;
+`
 
 const Button = styled.button`
   font-size: 24px;
@@ -143,4 +143,4 @@ const Button = styled.button`
     font-size: 20px;
     width: 200px;
   }
-`;
+`
