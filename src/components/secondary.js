@@ -26,7 +26,7 @@ const SecondaryWrapper = styled.div`
 const SecondaryGroup = styled.div`
   margin: 0 auto;
   max-width: ${props => props.theme.screen.sm};
-  padding: 140px 20px;
+  padding: 180px 20px;
   h1 {
     margin: 0;
     color: white;
@@ -75,7 +75,7 @@ const SecondaryGroup = styled.div`
   }
 
   @media (max-width: ${props => props.theme.screen.sm}) {
-    padding: 120px 20px;
+    padding: 150px 20px;
     padding-bottom: 60px;
     h1 {
       font-size: 30px;
@@ -86,7 +86,7 @@ const SecondaryGroup = styled.div`
     }
   }
   @media (max-width: ${props => props.theme.screen.xm}) {
-    padding: 120px 20px;
+    padding: 150px 20px;
     padding-bottom: 40px;
     h1 {
       font-size: 22px;

@@ -22,10 +22,10 @@ const GlobalStyles = createGlobalStyle`
    background: #fff;
   }
   img {
-    border-radius: 10px;
+    border-radius: 0px;
   }
-  .gatsby-resp-image-wrapper {
-    border-radius: 10px;
+  .gatsby-image-wrapper {
+    border-radius: 0px;
   }
   strong {
     font-weight: bold;
@@ -92,7 +92,7 @@ const GlobalStyles = createGlobalStyle`
     border-width: 1px;
     border-style: solid;
     border-color: rgb(198,208,235);
-    box-shadow: rgba(198,208,235,0.5) 0px 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px;
   }
   input:focus {
     border-color: ${props => props.theme.color.primary.purple};
@@ -199,7 +199,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .dark {
-    background: #131431;
+    background: #191a3e;
     color: ${props => props.theme.color.light.accent100};
     p {
       color: ${props => props.theme.color.light.accent300};
@@ -209,7 +209,7 @@ const GlobalStyles = createGlobalStyle`
       color: ${props => props.theme.color.light.accent100};
     }
     svg path {
-      fill: #131431;
+      fill: #191a3e;
     }
     .anchor svg path {
       fill: ${props => props.theme.color.primary.blue};
@@ -218,7 +218,7 @@ const GlobalStyles = createGlobalStyle`
       background:${props => props.theme.color.dark.accent200};
       color: ${props => props.theme.color.light.accent100};
       border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: rgba(0, 0, 0, 0.5) 0px 30px 60px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px;
     }
     input:focus {
       border-color: ${props => props.theme.color.primary.blue};

@@ -6,7 +6,7 @@ import Image from 'gatsby-image'
 import {MDXRenderer} from 'gatsby-plugin-mdx'
 import {MDXProvider} from '@mdx-js/react'
 import Layout from '../components/layout'
-import TutorialHeader from '../components/tutorial'
+import Hero from '../components/hero'
 import Content from '../components/content'
 import Code from '../components/code'
 import SEO from '../components/seo'
@@ -28,7 +28,16 @@ const TutorialTemplate = ({data: {mdx: tutorial}}) => {
         image={tutorial.frontmatter.image.sharp.fluid}
       />
 
-      <TutorialHeader>
+      <Hero>
+        <Image
+          css={{top: 0, left: 0, right: 0, bottom: 0}}
+          style={{
+            position: `absolute`,
+            zIndex: `-1`,
+          }}
+          loading="eager"
+          fluid={tutorial.frontmatter.hero.sharp.fluid}
+        />
         {tutorial.frontmatter.tags.map((tag, i) => (
           <Link
             to={`/tags/${_.kebabCase(tag)}`}
@@ -47,7 +56,8 @@ const TutorialTemplate = ({data: {mdx: tutorial}}) => {
         ))}
 
         <h1>{tutorial.frontmatter.title}</h1>
-      </TutorialHeader>
+        <p>{tutorial.frontmatter.lead}</p>
+      </Hero>
 
       <Content>
         <MDXProvider components={components}>
@@ -74,6 +84,13 @@ export const query = graphql`
           sharp: childImageSharp {
             fluid(maxWidth: 1200) {
               ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
+        hero {
+          sharp: childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

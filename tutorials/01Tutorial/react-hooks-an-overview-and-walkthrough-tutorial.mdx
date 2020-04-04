@@ -3,6 +3,7 @@ title: React Hooks An Overview and Walkthrough Tutorial
 slug: react-hooks-an-overview-and-walkthrough-tutorial
 image: ./images/cover.png
 icon: ./images/react.png
+hero: ./images/hero.png
 tags: ['React']
 tutorialID: 1
 lead: This tutorial walks you through all the React Hooks. After reading this, you will understand the function and purpose of all the React Hooks.
@@ -84,20 +85,20 @@ function geoPositionReducer(state, action) {
       return {
         ...state,
         status: 'rejected',
-        error: action.error
+        error: action.error,
       }
     }
     case 'success': {
       return {
         ...state,
         status: 'resolved',
-        position: action.position
+        position: action.position,
       }
     }
     case 'started': {
       return {
         ...state,
-        status: 'pending'
+        status: 'pending',
       }
     }
     default: {

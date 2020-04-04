@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import Card from '../components/card'
 import Grid from '../components/grid'
+import SearchWrapper from '../components/searchWrapper'
 import SEO from '../components/seo'
 
 const TutorialsPage = ({data}) => {
@@ -54,16 +55,17 @@ const TutorialsPage = ({data}) => {
   return (
     <Layout>
       <SEO title="Writing" />
-
-      <Header>All Tutorials</Header>
       <SearchWrapper>
-        <input
-          type="text"
-          aria-label="Search"
-          placeholder="Type to filter tutorials..."
-          onChange={handleInputChange}
-        />
-        <SearchTotal>Total {tutorials.length}</SearchTotal>
+        <Header>All Tutorials</Header>
+        <SearchWrapperMain>
+          <input
+            type="text"
+            aria-label="Search"
+            placeholder="Type to filter tutorials..."
+            onChange={handleInputChange}
+          />
+          <SearchTotal>Total {tutorials.length}</SearchTotal>
+        </SearchWrapperMain>
       </SearchWrapper>
 
       {tutorials.map(({node: tutorial}) => (
@@ -104,7 +106,7 @@ const Header = styled.h1`
   }
 `
 
-const SearchWrapper = styled.div`
+const SearchWrapperMain = styled.div`
   margin: auto;
   max-width: ${props => props.theme.screen.sm};
   position: relative;
@@ -139,10 +141,6 @@ const SearchTotal = styled.div`
   font-weight: 600;
   background: ${props => props.theme.color.primary.blue};
   color: ${props => props.theme.color.dark.accent200};
-  box-shadow: rgba(198, 208, 235, 0.5) 0px 10px 20px;
-  .dark & {
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px;
-  }
 `
 
 export const pageQuery = graphql`

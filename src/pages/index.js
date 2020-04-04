@@ -20,34 +20,39 @@ const Index = ({data}) => {
     <Layout>
       <SEO title="Home" />
       <Hero>
-        <div>
-          {featured.frontmatter.tags.map((tag, i) => (
-            <Link
-              to={`/tags/${_.kebabCase(tag)}`}
-              key={i}
-              aria-label="Tutorial Icon"
-            >
-              <RotateIcon
-                className={rotateState === true ? 'rotateTrue' : null}
-              >
-                <Icon>
-                  <Image
-                    loading="eager"
-                    fluid={featured.frontmatter.icon.sharp.fluid}
-                  />
-                </Icon>
-              </RotateIcon>
-            </Link>
-          ))}
-          <h1>{featured.frontmatter.title}</h1>
-          <p>{featured.frontmatter.lead}</p>
+        {featured.frontmatter.tags.map((tag, i) => (
           <Link
-            key={featured.id}
-            to={`/tutorials/${featured.frontmatter.slug}`}
+            to={`/tags/${_.kebabCase(tag)}`}
+            key={i}
+            aria-label="Tutorial Icon"
           >
-            <button>Read New Tutorials</button>
+            <RotateIcon className={rotateState === true ? 'rotateTrue' : null}>
+              <Icon>
+                <Image
+                  loading="eager"
+                  fluid={featured.frontmatter.icon.sharp.fluid}
+                />
+              </Icon>
+            </RotateIcon>
           </Link>
-        </div>
+        ))}
+
+        <Image
+          css={{top: 0, left: 0, right: 0, bottom: 0}}
+          style={{
+            position: `absolute`,
+            zIndex: `-1`,
+            borderRadius: `0`,
+          }}
+          loading="eager"
+          fluid={featured.frontmatter.hero.sharp.fluid}
+        />
+
+        <h1>{featured.frontmatter.title}</h1>
+        <p>{featured.frontmatter.lead}</p>
+        <Link key={featured.id} to={`/tutorials/${featured.frontmatter.slug}`}>
+          <button>Read New Tutorials</button>
+        </Link>
       </Hero>
       <TitlePadding>
         <TitleWrapper>
@@ -135,6 +140,13 @@ export const pageQuery = graphql`
               sharp: childImageSharp {
                 fluid {
                   ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
+            hero {
+              sharp: childImageSharp {
+                fluid(maxWidth: 1200) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

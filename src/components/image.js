@@ -24,7 +24,7 @@ const Image = () => {
 }
 
 const ImageWrapper = styled.div`
-  margin-top: -250px;
+  margin-top: -200px;
   margin-bottom: 60px;
   border-radius: 10px;
   box-shadow: rgba(198, 208, 235, 0.5) 0px 30px 60px;
@@ -35,7 +35,7 @@ const ImageWrapper = styled.div`
     box-shadow: rgba(0, 0, 0, 0.5) 0px 30px 60px;
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
-    margin-top: -150px;
+    margin-top: -100px;
   }
 `
 
