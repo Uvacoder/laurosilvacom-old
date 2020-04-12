@@ -9,7 +9,7 @@ const Image = () => {
       aboutImage: file(relativePath: {eq: "lauro.png"}) {
         childImageSharp {
           fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

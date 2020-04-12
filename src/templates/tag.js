@@ -58,14 +58,14 @@ export const pageQuery = graphql`
             image {
               sharp: childImageSharp {
                 fluid {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
             icon {
               sharp: childImageSharp {
                 fluid(maxWidth: 100) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }

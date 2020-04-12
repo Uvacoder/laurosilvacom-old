@@ -83,21 +83,21 @@ export const query = graphql`
         image {
           sharp: childImageSharp {
             fluid(maxWidth: 1200, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         hero {
           sharp: childImageSharp {
             fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         icon {
           sharp: childImageSharp {
             fluid(maxWidth: 100) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
