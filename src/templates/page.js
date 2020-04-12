@@ -36,8 +36,8 @@ export const query = graphql`
         lead
         image {
           sharp: childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyContentfulFluid_noBase64
+            fluid(maxWidth: 1200, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }

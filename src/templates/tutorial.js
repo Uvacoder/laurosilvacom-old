@@ -82,22 +82,22 @@ export const query = graphql`
         rotate
         image {
           sharp: childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyContentfulFluid_noBase64
+            fluid(maxWidth: 1200, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }
         hero {
           sharp: childImageSharp {
             fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }
         icon {
           sharp: childImageSharp {
             fluid(maxWidth: 100) {
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }
