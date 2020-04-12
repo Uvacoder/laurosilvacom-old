@@ -68,8 +68,8 @@ const TutorialsPage = ({data}) => {
         </SearchWrapperMain>
       </SearchWrapper>
 
-      {tutorials.map(({node: tutorial}) => (
-        <Grid>
+      <Grid>
+        {tutorials.map(({node: tutorial}) => (
           <Link
             key={tutorial.id}
             to={`/tutorials/${tutorial.frontmatter.slug}`}
@@ -78,10 +78,11 @@ const TutorialsPage = ({data}) => {
               tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
               tutorialTags={tutorial.frontmatter.tags}
               tutorialTitle={tutorial.frontmatter.title}
+              tutorialSlug={`/tutorials/${tutorial.frontmatter.slug}`}
             />
           </Link>
-        </Grid>
-      ))}
+        ))}
+      </Grid>
     </Layout>
   )
 }
