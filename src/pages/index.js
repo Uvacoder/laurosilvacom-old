@@ -225,6 +225,9 @@ const TitleWrapper = styled.div`
       background: #3b3b50;
       color: #000000;
     }
+    :hover {
+      transform: scale(1.05);
+    }
   }
   button:hover {
     transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);

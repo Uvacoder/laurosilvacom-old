@@ -86,7 +86,6 @@ const Button = styled.button`
   display: inline-block;
   background: ${props => props.theme.color.primary.blue};
   color: ${props => props.theme.color.dark.accent200};
-  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 500;

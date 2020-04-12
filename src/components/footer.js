@@ -7,10 +7,13 @@ const FooterWrapper = styled.div`
   text-align: center;
 `
 
-const FooterGroup = styled.div`
-  max-width: ${props => props.theme.screen.md};
-  margin: auto;
-  font-size: 14px;
+const FooterGroup = styled.h4`
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: ${props => props.theme.color.dark.accent300};
+  .dark & {
+    color: ${props => props.theme.color.light.accent300};
+  }
 `
 
 const Footer = () => (

@@ -93,6 +93,7 @@ const HeroGroup = styled.div`
   }
 
   @media (max-width: ${props => props.theme.screen.sm}) {
+    padding: 170px 20px;
     padding-bottom: 60px;
     h1 {
       font-size: 30px;
