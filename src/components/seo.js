@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Helmet} from 'react-helmet'
-import {StaticQuery, graphql} from 'gatsby'
+import {StaticQuery, useStaticQuery, graphql} from 'gatsby'
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
@@ -13,6 +13,13 @@ const detailsQuery = graphql`
         author
         social {
           twitter
+        }
+      }
+    }
+    DefaultImage: file(relativePath: {eq: "lauro.png"}) {
+      childImageSharp {
+        fluid {
+          src
         }
       }
     }
@@ -29,7 +36,7 @@ function SEO({description, lang, image, meta, keywords, title, pathname}) {
         const metaImage =
           image && image.src
             ? `${data.site.siteMetadata.siteUrl}${image.src}`
-            : null
+            : `${data.site.siteMetadata.siteUrl}${data.DefaultImage.childImageSharp.fluid.src}`
         const metaUrl = `${data.site.siteMetadata.siteUrl}${pathname}`
         return (
           <Helmet
@@ -82,14 +89,6 @@ function SEO({description, lang, image, meta, keywords, title, pathname}) {
                       {
                         property: `og:image:alt`,
                         content: title,
-                      },
-                      {
-                        property: 'og:image:width',
-                        content: image.width,
-                      },
-                      {
-                        property: 'og:image:height',
-                        content: image.height,
                       },
                       {
                         name: `twitter:card`,
