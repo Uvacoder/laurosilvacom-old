@@ -19,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
     color: ${props => props.theme.color.dark.accent200};
     -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
-   background: #fff;
+   background: #edeff5;
   }
   img {
     border-radius: 0px;
@@ -29,7 +29,7 @@ const GlobalStyles = createGlobalStyle`
   }
   strong {
     font-weight: bold;
-    color: ${props => props.theme.color.dark.accent100};
+    color: ${props => props.theme.color.dark.accent200};
   }
   a {
     color:${props => props.theme.color.primary.purple};
@@ -53,8 +53,8 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 700;
   }
   p {
-    ${props => props.theme.font_size.small};
-    color: ${props => props.theme.color.dark.accent200};
+    ${props => props.theme.font_size.regular};
+    color: ${props => props.theme.color.dark.accent300};
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
     h1 {
@@ -81,7 +81,7 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
     padding: 0px 16px;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     line-height: normal;
     background:${props => props.theme.color.light.accent100};

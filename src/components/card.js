@@ -84,7 +84,6 @@ export default Card
 const Button = styled.button`
   text-align: center;
   display: inline-block;
-  padding: 0.5rem 0.75rem;
   background: ${props => props.theme.color.primary.blue};
   color: ${props => props.theme.color.dark.accent200};
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -92,6 +91,8 @@ const Button = styled.button`
   font-size: 1rem;
   font-weight: 500;
   opacity: 0.9;
+  width: 130px;
+  padding: 10px;
   :hover {
     background: ${props => props.theme.color.primary.purple};
     color: ${props => props.theme.color.light.accent200};
@@ -145,14 +146,14 @@ const CardWrapper = styled.div`
 `
 
 const TutorialIcon = styled.div`
-  width: 50px;
+  width: 70px;
   align-self: center;
 `
 
 const CardContent = styled.div`
   display: grid;
   grid-template-columns: repeat(3, auto);
-  grid-gap: 20px;
+  grid-gap: 30px;
   align-items: center;
   @media (max-width: ${props => props.theme.screen.sm}) {
     grid-template-columns: 1fr;

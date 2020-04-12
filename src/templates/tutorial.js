@@ -118,7 +118,7 @@ const rotate = keyframes`
 `
 
 const Icon = styled.div`
-  width: 60px;
+  width: 70px;
   margin: auto;
   margin-bottom: 25px;
   img {

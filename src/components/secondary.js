@@ -16,7 +16,7 @@ const SecondaryWrapper = styled.div`
   }
 
   svg path {
-    fill: #fff;
+    fill: #edeff5;
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
     height: 420px;
@@ -26,7 +26,7 @@ const SecondaryWrapper = styled.div`
 const SecondaryGroup = styled.div`
   margin: 0 auto;
   max-width: ${props => props.theme.screen.sm};
-  padding: 180px 20px;
+  padding: 180px 0px;
   h1 {
     margin: 0;
     color: white;

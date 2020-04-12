@@ -22,7 +22,7 @@ const DownloadImage = () => {
   return imageURL
 }
 
-const Downlaod = () => (
+const Resources = () => (
   <Layout>
     <SEO title="Download" />
     <HeroWrapper>
@@ -49,7 +49,7 @@ const Downlaod = () => (
   </Layout>
 )
 
-export default Downlaod
+export default Resources
 
 const HeroWrapper = styled.div``
 
@@ -126,7 +126,7 @@ const Button = styled.button`
   border-width: 1px;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.4);
-  border-radius: 50px;
+  border-radius: 10px;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   line-height: 1;
   z-index: 99;

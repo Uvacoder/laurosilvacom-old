@@ -15,7 +15,7 @@ const HeroWrapper = styled.div`
   height: 760px;
   background: linear-gradient(
     rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.5),
     rgba(0, 0, 0, 0.6)
   );
   background-size: cover;
@@ -28,7 +28,7 @@ const HeroWrapper = styled.div`
     left: 0;
   }
   svg path {
-    fill: #fff;
+    fill: #edeff5;
   }
   @media (max-width: ${props => props.theme.screen.md}) {
     height: 720px;
@@ -40,9 +40,8 @@ const HeroWrapper = styled.div`
 
 const HeroGroup = styled.div`
   margin: 0 auto;
-  max-width: ${props => props.theme.screen.md};
-  padding: 150px 20px;
-
+  max-width: ${props => props.theme.screen.xl};
+  padding: 180px 20px;
   h1 {
     margin: 0;
     color: white;
@@ -55,6 +54,10 @@ const HeroGroup = styled.div`
     color: rgba(255, 255, 255, 0.7) !important;
     font-size: 30px;
     line-height: 1.5;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   button {
@@ -64,7 +67,7 @@ const HeroGroup = styled.div`
     background: ${props => props.theme.color.primary.blue};
     color: ${props => props.theme.color.dark.accent200};
     padding: 12px 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     line-height: 1;
     z-index: 99;

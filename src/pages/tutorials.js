@@ -142,6 +142,12 @@ const SearchTotal = styled.div`
   font-weight: 600;
   background: ${props => props.theme.color.primary.blue};
   color: ${props => props.theme.color.dark.accent200};
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    width: 100%;
+  }
+  @media (max-width: ${props => props.theme.screen.xs}) {
+    padding: 0.5rem 0.75rem;
+  }
 `
 
 export const pageQuery = graphql`

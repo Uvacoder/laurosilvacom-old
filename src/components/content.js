@@ -26,12 +26,12 @@ const Tutorial = styled.div`
   font-size: 1rem;
   @media (max-width: ${props => props.theme.screen.sm}) {
     p {
-      font-size: 18px;
+      font-size: 20px;
     }
   }
   @media (max-width: ${props => props.theme.screen.xs}) {
     p {
-      font-size: 16px;
+      font-size: 18px;
     }
   }
 `

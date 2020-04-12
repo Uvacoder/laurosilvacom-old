@@ -182,7 +182,7 @@ const rotate = keyframes`
 `
 
 const Icon = styled.div`
-  width: 60px;
+  width: 70px;
   margin: auto;
   margin-bottom: 25px;
   :hover {
@@ -215,7 +215,7 @@ const TitleWrapper = styled.div`
   button {
     display: inline-block;
     padding: 0.5rem 0.75rem;
-    background: #f1f1f1;
+    background: #ffffff;
     border-radius: 8px;
     color: #5f5f5f;
     font-size: 1rem;
