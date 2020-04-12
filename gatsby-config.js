@@ -4,7 +4,7 @@ const siteUrl =
 module.exports = {
   siteMetadata: {
     title: `Lauro Silva`,
-    description: `I'm a software engineer specializing in creating client-side applications in Javascript.`,
+    description: `I'm a JavaScript software engineer. I enjoy building thoughtful software and helping individuals become better programmers.`,
     author: `@laurosilvacom`,
     siteUrl,
     social: {

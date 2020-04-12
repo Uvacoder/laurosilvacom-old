@@ -24,7 +24,7 @@ const TutorialTemplate = ({data: {mdx: tutorial}}) => {
     <Layout>
       <SEO
         title={tutorial.frontmatter.title}
-        description={tutorial.lead}
+        description={tutorial.frontmatter.lead}
         image={tutorial.frontmatter.image.sharp.fluid}
       />
 
@@ -83,7 +83,7 @@ export const query = graphql`
         image {
           sharp: childImageSharp {
             fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyContentfulFluid_noBase64
             }
           }
         }

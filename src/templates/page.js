@@ -10,7 +10,7 @@ const PagesTemplate = ({data: {mdx: page}}) => (
   <Layout>
     <SEO
       title={page.frontmatter.title}
-      description={page.excerpt}
+      description={page.frontmatter.excerpt}
       image={page.frontmatter.image.sharp.fluid}
     />
     <Secondary>
@@ -37,7 +37,7 @@ export const query = graphql`
         image {
           sharp: childImageSharp {
             fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyContentfulFluid_noBase64
             }
           }
         }
