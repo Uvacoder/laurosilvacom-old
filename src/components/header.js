@@ -14,7 +14,7 @@ const Header = () => (
           <Link to="/">
             <Image alt="logo" src={Logo} />
           </Link>
-          <Link to="/tutorials">Tutorials</Link>
+          <Link to="/blog">Tutorials</Link>
           <Link to="/resources">Resources</Link>
           <Link to="/newsletter">Newsletter</Link>
         </HeaderGroup>

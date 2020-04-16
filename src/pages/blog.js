@@ -8,7 +8,7 @@ import Grid from '../components/grid'
 import SearchWrapper from '../components/searchWrapper'
 import SEO from '../components/seo'
 
-const TutorialsPage = ({data}) => {
+const BlogPage = ({data}) => {
   const allTutorials = data.allMdx.edges
 
   const emptyQuery = ''
@@ -70,15 +70,12 @@ const TutorialsPage = ({data}) => {
 
       <Grid>
         {tutorials.map(({node: tutorial}) => (
-          <Link
-            key={tutorial.id}
-            to={`/tutorials/${tutorial.frontmatter.slug}`}
-          >
+          <Link key={tutorial.id} to={`${tutorial.frontmatter.slug}`}>
             <Card
               tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
               tutorialTags={tutorial.frontmatter.tags}
               tutorialTitle={tutorial.frontmatter.title}
-              tutorialSlug={`/tutorials/${tutorial.frontmatter.slug}`}
+              tutorialSlug={`/${tutorial.frontmatter.slug}`}
             />
           </Link>
         ))}
@@ -87,7 +84,7 @@ const TutorialsPage = ({data}) => {
   )
 }
 
-export default TutorialsPage
+export default BlogPage
 
 const Header = styled.h1`
   margin: auto;

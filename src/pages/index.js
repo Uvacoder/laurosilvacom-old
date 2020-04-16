@@ -30,7 +30,7 @@ const Index = ({data}) => {
         <TitleWrapper>
           <h2>
             Latest Tutorials{' '}
-            <Link to="/tutorials">
+            <Link to="/blog">
               <button>View All</button>
             </Link>
           </h2>
@@ -38,15 +38,12 @@ const Index = ({data}) => {
       </TitlePadding>
       <Grid>
         {tutorials.map(({node: tutorial}) => (
-          <Link
-            key={tutorial.id}
-            to={`/tutorials/${tutorial.frontmatter.slug}`}
-          >
+          <Link key={tutorial.id} to={`${tutorial.frontmatter.slug}`}>
             <Card
               tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
               tutorialTags={tutorial.frontmatter.tags}
               tutorialTitle={tutorial.frontmatter.title}
-              tutorialSlug={`/tutorials/${tutorial.frontmatter.slug}`}
+              tutorialSlug={`/${tutorial.frontmatter.slug}`}
             />
           </Link>
         ))}

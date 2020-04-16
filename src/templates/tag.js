@@ -20,15 +20,12 @@ const Tags = ({pageContext, data}) => {
 
       <Grid>
         {tutorials.map(({node: tutorial}) => (
-          <Link
-            key={tutorial.id}
-            to={`/tutorials/${tutorial.frontmatter.slug}`}
-          >
+          <Link key={tutorial.id} to={`${tutorial.frontmatter.slug}`}>
             <Card
               tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
               tutorialTags={tutorial.frontmatter.tags}
               tutorialTitle={tutorial.frontmatter.title}
-              tutorialSlug={`/tutorials/${tutorial.frontmatter.slug}`}
+              tutorialSlug={`/${tutorial.frontmatter.slug}`}
             />
           </Link>
         ))}

@@ -47,7 +47,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
   const tutorials = result.data.tutorials.nodes
   tutorials.forEach(tutorial => {
     actions.createPage({
-      path: `/tutorials/${tutorial.frontmatter.slug}/`,
+      path: `/${tutorial.frontmatter.slug}/`,
       component: require.resolve('./src/templates/tutorial.js'),
       context: {
         slug: tutorial.frontmatter.slug,
