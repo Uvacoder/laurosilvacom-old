@@ -95,12 +95,10 @@ const Header = styled.h1`
   padding-top: 100px;
   position: relative;
   text-align: center;
-
   font-weight: 700;
   font-size: 52px;
   letter-spacing: -2px;
   margin-bottom: 20px;
-
   @media (max-width: ${props => props.theme.screen.sm}) {
     font-size: 36px;
     letter-spacing: -2px;
@@ -118,6 +116,7 @@ const SearchWrapperMain = styled.div`
   align-items: center;
   justify-items: center;
   grid-gap: 10px;
+  z-index: 1;
   @media (max-width: ${props => props.theme.screen.md}) {
     padding: 10px 20px;
   }
@@ -140,8 +139,14 @@ const SearchTotal = styled.div`
   border-radius: 10px;
   padding: 18px;
   font-weight: 600;
-  background: ${props => props.theme.color.primary.blue};
   color: ${props => props.theme.color.dark.accent200};
+  background: ${props => props.theme.color.light.accent100};
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px;
+  .dark & {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px;
+    color: ${props => props.theme.color.light.accent100};
+    background: ${props => props.theme.color.dark.accent200};
+  }
   @media (max-width: ${props => props.theme.screen.sm}) {
     width: 100%;
   }

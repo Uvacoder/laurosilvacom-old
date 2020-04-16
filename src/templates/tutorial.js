@@ -29,15 +29,6 @@ const TutorialTemplate = ({data: {mdx: tutorial}}) => {
       />
 
       <Hero>
-        <Image
-          css={{top: 0, left: 0, right: 0, bottom: 0}}
-          style={{
-            position: `absolute`,
-            zIndex: `-1`,
-          }}
-          loading="eager"
-          fluid={tutorial.frontmatter.hero.sharp.fluid}
-        />
         {tutorial.frontmatter.tags.map((tag, i) => (
           <Link
             to={`/tags/${_.kebabCase(tag)}`}
@@ -87,13 +78,6 @@ export const query = graphql`
             }
           }
         }
-        hero {
-          sharp: childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
         icon {
           sharp: childImageSharp {
             fluid(maxWidth: 100) {
@@ -132,55 +116,5 @@ const Icon = styled.div`
 const RotateIcon = styled.div`
   &.rotateTrue {
     animation: ${rotate} 15s linear infinite;
-  }
-`
-
-const PlayIcon = styled.img`
-  width: 36px;
-  border-radius: 0;
-  position: absolute;
-  top: 25%;
-  right: 25%;
-  opacity: 0.9;
-`
-
-const PlayButton = styled.div`
-  cursor: pointer;
-  position: absolute;
-  top: 67%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: 600;
-  font-size: 24px;
-  white-space: nowrap;
-  width: 90px;
-  height: 90px;
-  color: rgba(255, 255, 255, 0);
-  box-sizing: border-box;
-  background: #0a0a25;
-  backdrop-filter: blur(5px);
-  z-index: 99;
-  text-decoration: none;
-  padding: 18px 20px 22px;
-  background-position: 38px center;
-  background-repeat: no-repeat;
-  border-radius: 50px;
-  overflow: hidden;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(255, 255, 255, 0.4);
-  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 30px;
-  :hover {
-    background: ${props => props.theme.color.primary.blue};
-    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 30px 60px;
-    border-color: rgb(255, 255, 255);
-    img {
-      opacity: 1;
-    }
-  }
-  @media (max-width: ${props => props.theme.screen.md}) {
-    top: 80%;
   }
 `

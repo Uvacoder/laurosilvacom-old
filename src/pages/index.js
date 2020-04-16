@@ -2,58 +2,30 @@
 import React from 'react'
 import {Link, graphql} from 'gatsby'
 import styled, {keyframes} from 'styled-components'
-import Image from 'gatsby-image'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Card from '../components/card'
 import Grid from '../components/grid'
+import LauroImage from '../components/image'
+import Content from '../components/content'
 import SEO from '../components/seo'
-
-const _ = require('lodash')
 
 const Index = ({data}) => {
   const {edges: tutorials} = data.allMdx
-  const featured = data.featuredPost.edges[0].node
-  const rotateState = featured.frontmatter.rotate
 
   return (
     <Layout>
       <SEO title="Home" />
       <Hero>
-        {featured.frontmatter.tags.map((tag, i) => (
-          <Link
-            to={`/tags/${_.kebabCase(tag)}`}
-            key={i}
-            aria-label="Tutorial Icon"
-          >
-            <RotateIcon className={rotateState === true ? 'rotateTrue' : null}>
-              <Icon>
-                <Image
-                  loading="eager"
-                  fluid={featured.frontmatter.icon.sharp.fluid}
-                />
-              </Icon>
-            </RotateIcon>
-          </Link>
-        ))}
-
-        <Image
-          css={{top: 0, left: 0, right: 0, bottom: 0}}
-          style={{
-            position: `absolute`,
-            zIndex: `-1`,
-            borderRadius: `0`,
-          }}
-          loading="eager"
-          fluid={featured.frontmatter.hero.sharp.fluid}
-        />
-
-        <h1>{featured.frontmatter.title}</h1>
-        <p>{featured.frontmatter.lead}</p>
-        <Link key={featured.id} to={`/tutorials/${featured.frontmatter.slug}`}>
-          <button>Read New Tutorials</button>
-        </Link>
+        <h1>Lauro Silva</h1>
+        <p>
+          I enjoy building thoughtful software and helping individuals become
+          better programmers.
+        </p>
       </Hero>
+      <Content>
+        <LauroImage />
+      </Content>
       <TitlePadding>
         <TitleWrapper>
           <h2>
@@ -117,54 +89,6 @@ export const pageQuery = graphql`
               }
             }
           }
-        }
-      }
-    }
-    featuredPost: allMdx(
-      sort: {fields: frontmatter___tutorialID, order: DESC}
-      filter: {fileAbsolutePath: {regex: "//tutorials//"}}
-      limit: 1
-    ) {
-      edges {
-        node {
-          id
-          excerpt
-          frontmatter {
-            title
-            slug
-            tags
-            tutorialID
-            lead
-            rotate
-            image {
-              sharp: childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_tracedSVG
-                }
-              }
-            }
-            hero {
-              sharp: childImageSharp {
-                fluid(maxWidth: 1200) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            icon {
-              sharp: childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_tracedSVG
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    placeholderImage2: file(relativePath: {eq: "lauro.jpg"}) {
-      childImageSharp {
-        fluid(maxWidth: 1200) {
-          ...GatsbyImageSharpFluid
         }
       }
     }

@@ -13,11 +13,7 @@ export default Hero
 
 const HeroWrapper = styled.div`
   height: 760px;
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.6)
-  );
+  background: ${props => props.theme.color.primary.purple};
   background-size: cover;
   background-position: center;
   position: relative;
@@ -76,11 +72,11 @@ const HeroGroup = styled.div`
     padding-top: 0.7rem;
   }
   button:hover {
-    color: white;
     transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-    background: ${props => props.theme.color.primary.purple};
-    color: ${props => props.theme.color.light.accent200};
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 20px;
+    transform: translateY(-3px);
+    background: white;
   }
   @media (max-width: ${props => props.theme.screen.md}) {
     h1 {
