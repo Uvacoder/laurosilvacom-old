@@ -24,15 +24,18 @@ const Image = () => {
 }
 
 const ImageWrapper = styled.div`
-  margin-top: -300px;
+  margin-top: -280px;
   margin-bottom: 60px;
   border-radius: 10px;
-  box-shadow: rgba(198, 208, 235, 0.7) 0px 30px 60px;
+  box-shadow: rgba(198, 208, 235, 0.2) 0px 30px 60px;
   .gatsby-image-wrapper {
     border-radius: 10px;
   }
   .dark & {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 30px 60px;
+  }
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    margin-top: -220px;
   }
 `
 

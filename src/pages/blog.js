@@ -147,9 +147,6 @@ const SearchTotal = styled.div`
   @media (max-width: ${props => props.theme.screen.sm}) {
     width: 100%;
   }
-  @media (max-width: ${props => props.theme.screen.xs}) {
-    padding: 0.5rem 0.75rem;
-  }
 `
 
 export const pageQuery = graphql`

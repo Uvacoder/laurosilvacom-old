@@ -114,16 +114,8 @@ const HeaderGroup = styled.div`
   grid-template-columns: repeat(5, auto);
   align-items: center;
   justify-items: center;
-  @media (max-width: ${props => props.theme.screen.md}) {
+  @media (max-width: ${props => props.theme.screen.sm}) {
     a:nth-child(4) {
-      display: none;
-    }
-  }
-  @media (max-width: ${props => props.theme.screen.xs}) {
-    a:nth-child(4) {
-      display: none;
-    }
-    a:nth-child(3) {
       display: none;
     }
   }

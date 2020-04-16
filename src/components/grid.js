@@ -14,7 +14,7 @@ const GridMain = styled.div`
 `
 
 const GridWrapper = styled.div`
-  max-width: ${props => props.theme.screen.sm};
+  max-width: ${props => props.theme.screen.md};
   align-items: end;
   display: grid;
   margin: 0 auto;

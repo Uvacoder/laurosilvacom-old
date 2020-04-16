@@ -18,6 +18,7 @@ const HeroWrapper = styled.div`
   background-position: center;
   position: relative;
   text-align: center;
+  z-index: -1;
   svg {
     position: absolute;
     bottom: 0;
@@ -45,6 +46,7 @@ const HeroGroup = styled.div`
     font-size: 68px;
     letter-spacing: -1px;
     line-height: 1;
+    text-shadow: 0 10px 4px rgba(0, 0, 0, 0.05);
   }
   p {
     color: rgba(255, 255, 255, 0.7) !important;

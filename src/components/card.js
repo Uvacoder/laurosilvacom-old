@@ -92,6 +92,7 @@ const Button = styled.button`
   opacity: 0.9;
   width: 130px;
   padding: 10px;
+  justify-self: end;
   :hover {
     background: ${props => props.theme.color.primary.purple};
     color: ${props => props.theme.color.light.accent200};
@@ -151,7 +152,7 @@ const TutorialIcon = styled.div`
 
 const CardContent = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: 70px 2fr 1fr;
   grid-gap: 30px;
   align-items: center;
   @media (max-width: ${props => props.theme.screen.sm}) {

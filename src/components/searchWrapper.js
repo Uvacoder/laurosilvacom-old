@@ -35,6 +35,7 @@ const SecondaryGroup = styled.div`
     letter-spacing: -1px;
     line-height: 1;
     margin-bottom: 20px;
+    text-shadow: 0 10px 4px rgba(0, 0, 0, 0.05);
   }
   p {
     color: rgba(255, 255, 255, 0.8);
