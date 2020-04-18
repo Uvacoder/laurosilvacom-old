@@ -25,7 +25,6 @@ const Tags = ({pageContext, data}) => {
               tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
               tutorialTags={tutorial.frontmatter.tags}
               tutorialTitle={tutorial.frontmatter.title}
-              tutorialSlug={`/${tutorial.frontmatter.slug}`}
             />
           </Link>
         ))}

@@ -2,64 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Image from 'gatsby-image'
 import {useStaticQuery, graphql} from 'gatsby'
-import {useUserAgent} from '@oieduardorabelo/use-user-agent'
 
 function Card(props) {
-  // Adding state to the copy text
-  const defaultCopyText = 'Copy URL'
-  const [copyText, setCopytext] = React.useState(defaultCopyText)
-
-  // Setting a timer when to set state
-  React.useEffect(() => {
-    let current = true
-    if (copyText !== defaultCopyText) {
-      setTimeout(() => {
-        if (current) {
-          setCopytext(defaultCopyText)
-        }
-      }, 3000)
-    }
-    return () => (current = false)
-  }, [copyText])
-
-  // Get site URL
-  const data = useStaticQuery(graphql`
-    query getSiteUrl {
-      site {
-        siteMetadata {
-          siteUrl
-        }
-      }
-    }
-  `)
-
-  // Create Tutorial URL with site URL
-  const TutorialURL = `${`${data.site.siteMetadata.siteUrl}${props.tutorialSlug}`}`
-
-  // Targets and then copies the item
-  function copy(event) {
-    event.preventDefault()
-    // Passing TutorialURL
-    navigator.clipboard.writeText(TutorialURL).then(
-      () => {
-        setCopytext('Copied')
-      },
-      () => {
-        setCopytext('Error copying URL')
-      },
-    )
-  }
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const details = typeof window !== `undefined` ? useUserAgent() : null
-
-  if (!details) {
-    return <span>123</span>
-  }
-
-  const {browser} = details
-
-  const isSafari = browser.name === 'Safari'
-
   return (
     <CardWrapper>
       <CardContent>
@@ -69,40 +13,12 @@ function Card(props) {
         <TutorialText>
           <TutorialTitle>{props.tutorialTitle}</TutorialTitle>
         </TutorialText>
-        {isSafari ? null : (
-          <Button type="button" onClick={copy}>
-            {copyText}
-          </Button>
-        )}
       </CardContent>
     </CardWrapper>
   )
 }
 
 export default Card
-
-const Button = styled.button`
-  text-align: center;
-  display: inline-block;
-  background: ${props => props.theme.color.primary.blue};
-  color: ${props => props.theme.color.dark.accent200};
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  opacity: 0.9;
-  width: 130px;
-  padding: 10px;
-  justify-self: end;
-  :hover {
-    background: ${props => props.theme.color.primary.purple};
-    color: ${props => props.theme.color.light.accent200};
-    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    opacity: 1;
-  }
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    width: 100%;
-  }
-`
 
 const TutorialText = styled.div`
   padding-left: 10px;
@@ -152,7 +68,7 @@ const TutorialIcon = styled.div`
 
 const CardContent = styled.div`
   display: grid;
-  grid-template-columns: 70px 2fr 1fr;
+  grid-template-columns: 70px 2fr;
   grid-gap: 30px;
   align-items: center;
   @media (max-width: ${props => props.theme.screen.sm}) {
