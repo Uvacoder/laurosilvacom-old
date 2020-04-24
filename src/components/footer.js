@@ -18,7 +18,19 @@ const FooterGroup = styled.h4`
 
 const Footer = () => (
   <FooterWrapper>
-    <FooterGroup>© Lauro Silva, LLC. All rights reserved.</FooterGroup>
+    <FooterGroup>
+      <a href="https://twitter.com/laurosilvacom" rel="me">
+        @laurosilvacom on Twitter
+      </a>
+
+      <a href="https://github.com/laurosilvacom" rel="me">
+        Github
+      </a>
+
+      <a href="mailto:hey@laurosilva.com" rel="me">
+        hey@laurosilva.com
+      </a>
+    </FooterGroup>
   </FooterWrapper>
 )
 
