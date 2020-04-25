@@ -1,9 +1,11 @@
+const config = require('./src/config/website')
+
 const siteUrl =
   process.env.URL || process.env.DEPLOY_URL || `https://laurosilva.com`
 
 module.exports = {
   siteMetadata: {
-    title: `Lauro Silva`,
+    title: config.siteTitle,
     description: `I'm a JavaScript software engineer. I enjoy building thoughtful software and helping individuals become better programmers.`,
     author: `@laurosilvacom`,
     siteUrl,
@@ -12,12 +14,17 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-dark-mode`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-emotion`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {

@@ -1,12 +1,9 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react'
-import styled from 'styled-components'
+import {css} from '@emotion/core'
 import Highlight, {defaultProps} from 'prism-react-renderer'
-import ThemeDark from 'prism-react-renderer/themes/nightOwl'
+import theme from '../utils/outputTheme'
 
 const RE = /{([\d,-]+)}/
-
-// credit to https://github.com/kentcdodds/kentcdodds.com/blob/4976c89de5dd4246807c0d7a1ad140d703bcc0b0/src/components/mdx/code.js
 
 function calculateLinesToHighlight(meta) {
   if (RE.test(meta)) {
@@ -16,7 +13,7 @@ function calculateLinesToHighlight(meta) {
     return index => {
       const lineNumber = index + 1
       const inRange = lineNumbers.some(([start, end]) =>
-        end ? lineNumber >= start && lineNumber <= end : lineNumber === start
+        end ? lineNumber >= start && lineNumber <= end : lineNumber === start,
       )
       return inRange
     }
@@ -29,53 +26,43 @@ const Code = ({children, className, metastring}) => {
 
   const shouldHighlightLine = calculateLinesToHighlight(metastring)
 
-  const LineNo = styled.span`
-    display: inline-block;
-    width: 2em;
-    user-select: none;
-    color: #c6d0eb;
-  `
-
-  const Pre = styled.pre`
+  const preStyles = css`
     float: left;
     min-width: 100%;
     overflow: initial;
-    padding: 10px;
-    margin: 0;
-    background: ${props => props.theme.color.dark.accent200} !important;
-
-    & .token-line {
-      line-height: 1.3em;
-      height: 1.5em;
-    }
+    background-color: #061526 !important;
+    padding: 5px 0;
   `
 
-  const WrapperStyles = styled.div`
-    border-radius: 8px;
-    border-color: rgba(255, 255, 255, 0.2);
-    border-width: 1px;
-    border-style: solid;
-
+  const wrapperStyles = css`
     overflow: auto;
     margin-left: -80px;
     margin-right: -80px;
-
-    @media (max-width: 820px) {
+    border-radius: 5px;
+    @media (max-width: 720px) {
       margin-left: 0px;
       margin-right: 0px;
     }
   `
 
+  const spanStyles = css`
+    display: inline-block;
+    width: 2em;
+    user-select: none;
+    opacity: 0.3;
+    padding-left: 10px;
+  `
+
   return (
     <Highlight
       {...defaultProps}
-      theme={ThemeDark}
+      theme={theme}
       code={children.trim()}
       language={language}
     >
-      {({className, style, tokens, getLineProps, getTokenProps}) => (
-        <WrapperStyles>
-          <Pre className={className} style={style}>
+      {({tokens, getLineProps, getTokenProps}) => (
+        <div css={wrapperStyles}>
+          <div css={preStyles}>
             {tokens.map((line, i) => (
               <div
                 {...getLineProps({
@@ -84,14 +71,14 @@ const Code = ({children, className, metastring}) => {
                   className: shouldHighlightLine(i) ? 'highlight-line' : '',
                 })}
               >
-                <LineNo>{i + 1}</LineNo>
+                <span css={spanStyles}>{i + 1}</span>
                 {line.map((token, key) => (
                   <span {...getTokenProps({token, key})} />
                 ))}
               </div>
             ))}
-          </Pre>
-        </WrapperStyles>
+          </div>
+        </div>
       )}
     </Highlight>
   )

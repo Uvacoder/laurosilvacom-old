@@ -2,29 +2,24 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import {MDXRenderer} from 'gatsby-plugin-mdx'
 import Layout from '../components/layout'
-import Secondary from '../components/secondary'
-import Content from '../components/content'
 import SEO from '../components/seo'
 
-const PagesTemplate = ({data: {mdx: page}}) => (
-  <Layout>
-    <SEO
-      title={page.frontmatter.title}
-      description={page.frontmatter.excerpt}
-      image={page.frontmatter.image.sharp.fluid}
-    />
-    <Secondary>
+export default function PagesTemplate({data: {mdx: page}}) {
+  return (
+    <Layout>
+      <SEO
+        title={page.frontmatter.title}
+        description={page.frontmatter.excerpt}
+        image={page.frontmatter.image.sharp.fluid}
+      />
+
       <h1>{page.frontmatter.title}</h1>
       <p>{page.frontmatter.lead}</p>
-    </Secondary>
 
-    <Content>
       <MDXRenderer>{page.body}</MDXRenderer>
-    </Content>
-  </Layout>
-)
-
-export default PagesTemplate
+    </Layout>
+  )
+}
 
 export const query = graphql`
   query($slug: String!) {

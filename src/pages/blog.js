@@ -1,14 +1,11 @@
 /* eslint-disable react/button-has-type */
 import React from 'react'
 import {Link, graphql} from 'gatsby'
-import styled from 'styled-components'
 import Layout from '../components/layout'
 import Card from '../components/card'
-import Grid from '../components/grid'
-import SearchWrapper from '../components/searchWrapper'
 import SEO from '../components/seo'
 
-const BlogPage = ({data}) => {
+export default function BlogPage({data}) {
   const allTutorials = data.allMdx.edges
 
   const emptyQuery = ''
@@ -55,20 +52,16 @@ const BlogPage = ({data}) => {
   return (
     <Layout>
       <SEO title="Writing" />
-      <SearchWrapper>
-        <Header>All Tutorials</Header>
-        <SearchWrapperMain>
-          <input
-            type="text"
-            aria-label="Search"
-            placeholder="Type to filter tutorials..."
-            onChange={handleInputChange}
-          />
-          <SearchTotal>Total {tutorials.length}</SearchTotal>
-        </SearchWrapperMain>
-      </SearchWrapper>
-
-      <Grid>
+      <div>
+        <input
+          type="text"
+          aria-label="Search"
+          placeholder="Type to filter tutorials..."
+          onChange={handleInputChange}
+        />
+        Total {tutorials.length}
+      </div>
+      <div>
         {tutorials.map(({node: tutorial}) => (
           <Link key={tutorial.id} to={`${tutorial.frontmatter.slug}`}>
             <Card
@@ -78,75 +71,10 @@ const BlogPage = ({data}) => {
             />
           </Link>
         ))}
-      </Grid>
+      </div>
     </Layout>
   )
 }
-
-export default BlogPage
-
-const Header = styled.h1`
-  margin: auto;
-  max-width: ${props => props.theme.screen.sm};
-  padding-top: 100px;
-  position: relative;
-  text-align: center;
-  font-weight: 700;
-  font-size: 52px;
-  letter-spacing: -2px;
-  margin-bottom: 20px;
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    font-size: 36px;
-    letter-spacing: -2px;
-  }
-`
-
-const SearchWrapperMain = styled.div`
-  margin: auto;
-  max-width: ${props => props.theme.screen.sm};
-  position: relative;
-  text-align: center;
-  padding: 50px 0;
-  display: grid;
-  grid-template-columns: 1fr 100px;
-  align-items: center;
-  justify-items: center;
-  grid-gap: 10px;
-  z-index: 1;
-  @media (max-width: ${props => props.theme.screen.md}) {
-    padding: 10px 20px;
-  }
-  @media (max-width: ${props => props.theme.screen.xs}) {
-    grid-template-columns: 1fr;
-  }
-
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    h1 {
-      font-size: 36px;
-      letter-spacing: -2px;
-    }
-    p {
-      font-size: 22px;
-    }
-  }
-`
-
-const SearchTotal = styled.div`
-  border-radius: 10px;
-  padding: 18px;
-  font-weight: 600;
-  color: ${props => props.theme.color.dark.accent200};
-  background: ${props => props.theme.color.light.accent100};
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px;
-  .dark & {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px;
-    color: ${props => props.theme.color.light.accent100};
-    background: ${props => props.theme.color.dark.accent200};
-  }
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    width: 100%;
-  }
-`
 
 export const pageQuery = graphql`
   query WritingPage {

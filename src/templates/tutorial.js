@@ -1,15 +1,14 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react'
 import {graphql, Link} from 'gatsby'
-import styled, {keyframes} from 'styled-components'
 import Image from 'gatsby-image'
 import {MDXRenderer} from 'gatsby-plugin-mdx'
 import {MDXProvider} from '@mdx-js/react'
+import {css} from '@emotion/core'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
-import Content from '../components/content'
 import Code from '../components/code'
 import SEO from '../components/seo'
+import Wrapper from '../utils/wrapper'
 
 const components = {
   code: Code,
@@ -17,9 +16,7 @@ const components = {
 
 const _ = require('lodash')
 
-const TutorialTemplate = ({data: {mdx: tutorial}}) => {
-  const rotateState = tutorial.frontmatter.rotate
-
+export default function TutorialTemplate({data: {mdx: tutorial}}) {
   return (
     <Layout>
       <SEO
@@ -28,38 +25,30 @@ const TutorialTemplate = ({data: {mdx: tutorial}}) => {
         image={tutorial.frontmatter.image.sharp.fluid}
       />
 
-      <Hero>
+      <Wrapper>
         {tutorial.frontmatter.tags.map((tag, i) => (
           <Link
             to={`/tags/${_.kebabCase(tag)}`}
             key={i}
             aria-label="Tutorial Icon"
           >
-            <RotateIcon className={rotateState === true ? 'rotateTrue' : null}>
-              <Icon>
-                <Image
-                  loading="eager"
-                  fluid={tutorial.frontmatter.icon.sharp.fluid}
-                />
-              </Icon>
-            </RotateIcon>
+            <Image
+              loading="eager"
+              css={css({width: 70})}
+              fluid={tutorial.frontmatter.icon.sharp.fluid}
+            />
           </Link>
         ))}
 
         <h1>{tutorial.frontmatter.title}</h1>
-        <p>{tutorial.frontmatter.lead}</p>
-      </Hero>
+      </Wrapper>
 
-      <Content>
-        <MDXProvider components={components}>
-          <MDXRenderer components={components}>{tutorial.body}</MDXRenderer>
-        </MDXProvider>
-      </Content>
+      <MDXProvider components={components}>
+        <MDXRenderer components={components}>{tutorial.body}</MDXRenderer>
+      </MDXProvider>
     </Layout>
   )
 }
-
-export default TutorialTemplate
 
 export const query = graphql`
   query data($slug: String!) {
@@ -70,7 +59,6 @@ export const query = graphql`
         tags
         tutorialID
         lead
-        rotate
         image {
           sharp: childImageSharp {
             fluid(maxWidth: 1200, quality: 100) {
@@ -88,33 +76,5 @@ export const query = graphql`
       }
       body
     }
-  }
-`
-
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`
-
-const Icon = styled.div`
-  width: 70px;
-  margin: auto;
-  margin-bottom: 25px;
-  img {
-    border-radius: 0;
-  }
-  :hover {
-    filter: brightness(1.1) saturate(110%);
-  }
-`
-
-const RotateIcon = styled.div`
-  &.rotateTrue {
-    animation: ${rotate} 15s linear infinite;
   }
 `

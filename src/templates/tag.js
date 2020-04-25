@@ -1,24 +1,21 @@
 import React from 'react'
 import {Link, graphql} from 'gatsby'
 import Layout from '../components/layout'
-import Grid from '../components/grid'
 import Card from '../components/card'
-import Secondary from '../components/secondary'
 import SEO from '../components/seo'
 
-const Tags = ({pageContext, data}) => {
+export default function Tags({pageContext, data}) {
   const {tag} = pageContext
   const {edges: tutorials} = data.allMdx
 
   return (
     <Layout>
       <SEO title={`Tutorials tagged as ${tag}`} />
-      <Secondary>
-        <h1>{`${tag}`}</h1>
-        <p>Tutorials tagged as {`${tag}`}</p>
-      </Secondary>
 
-      <Grid>
+      <h1>{`${tag}`}</h1>
+      <p>Tutorials tagged as {`${tag}`}</p>
+
+      <div>
         {tutorials.map(({node: tutorial}) => (
           <Link key={tutorial.id} to={`${tutorial.frontmatter.slug}`}>
             <Card
@@ -28,12 +25,10 @@ const Tags = ({pageContext, data}) => {
             />
           </Link>
         ))}
-      </Grid>
+      </div>
     </Layout>
   )
 }
-
-export default Tags
 
 export const pageQuery = graphql`
   query($tag: String) {
