@@ -9,11 +9,11 @@ export default function Header() {
   const wrapperStyles = css`
     padding: 10px 0;
     background: ${theme.foreground};
-    border: 1px solid ${theme.accents7};
+    border-bottom: 1px solid ${theme.accents7};
   `
 
   const groupStyles = css`
-    max-width: 720px;
+    max-width: 1120px;
     margin: auto;
     padding: 20px;
     display: grid;

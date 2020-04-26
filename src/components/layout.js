@@ -9,7 +9,9 @@ import theme from '../config/theme'
 const custom = css`
   body {
     background: ${theme.accents8};
-    color: ${theme.accents2};
+    color: ${theme.accents1};
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
 
   .highlight-line {

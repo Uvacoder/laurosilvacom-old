@@ -4,13 +4,25 @@ import theme from '../config/theme'
 
 const gridStyles = css`
   background: ${theme.foreground};
+  border-bottom: 1px solid ${theme.accents7};
 `
 
 const wrapperStyles = css`
-  max-width: 720px;
+  max-width: 920px;
   margin: auto;
-  padding: 20px;
   text-align: center;
+  height: 400px;
+  padding: 40px 0;
+  h1 {
+    font-size: 70px;
+    font-weight: 700;
+  }
+  @media (max-width: 620px) {
+    height: 300px;
+    h1 {
+      font-size: 40px;
+    }
+  }
 `
 
 export default function Wrapper({children}) {

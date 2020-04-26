@@ -2,6 +2,7 @@ import React from 'react'
 import {css} from '@emotion/core'
 import Highlight, {defaultProps} from 'prism-react-renderer'
 import theme from '../utils/outputTheme'
+import styleTheme from '../config/theme'
 
 const RE = /{([\d,-]+)}/
 
@@ -23,26 +24,20 @@ function calculateLinesToHighlight(meta) {
 
 const Code = ({children, className, metastring}) => {
   const language = className ? className.replace(/language-/, '') : ''
-
   const shouldHighlightLine = calculateLinesToHighlight(metastring)
 
   const preStyles = css`
     float: left;
     min-width: 100%;
     overflow: initial;
-    background-color: #061526 !important;
+    background-color: ${styleTheme.foreground} !important;
     padding: 5px 0;
   `
 
   const wrapperStyles = css`
     overflow: auto;
-    margin-left: -80px;
-    margin-right: -80px;
-    border-radius: 5px;
-    @media (max-width: 720px) {
-      margin-left: 0px;
-      margin-right: 0px;
-    }
+    border-radius: 4px;
+    border: 1px solid ${styleTheme.accents7};
   `
 
   const spanStyles = css`

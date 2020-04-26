@@ -17,6 +17,12 @@ const components = {
 const _ = require('lodash')
 
 export default function TutorialTemplate({data: {mdx: tutorial}}) {
+  const content = css`
+    max-width: 720px;
+    margin: auto;
+    padding: 50px 20px;
+  `
+
   return (
     <Layout>
       <SEO
@@ -34,18 +40,19 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
           >
             <Image
               loading="eager"
-              css={css({width: 70})}
+              css={css({width: 60, margin: 'auto'})}
               fluid={tutorial.frontmatter.icon.sharp.fluid}
             />
           </Link>
         ))}
-
         <h1>{tutorial.frontmatter.title}</h1>
       </Wrapper>
 
-      <MDXProvider components={components}>
-        <MDXRenderer components={components}>{tutorial.body}</MDXRenderer>
-      </MDXProvider>
+      <div css={content}>
+        <MDXProvider components={components}>
+          <MDXRenderer components={components}>{tutorial.body}</MDXRenderer>
+        </MDXProvider>
+      </div>
     </Layout>
   )
 }

@@ -7,6 +7,7 @@ export default function Footer() {
     padding: 40px 0;
     background: ${theme.foreground};
     border-top: 1px solid ${theme.accents7};
+    margin-top: 100px;
   `
 
   const groupStyles = css`
@@ -17,6 +18,7 @@ export default function Footer() {
     grid-template-columns: repeat(4, auto);
     margin: auto;
     align-items: center;
+    text-align: center;
     a {
       color: ${theme.accents3};
     }
