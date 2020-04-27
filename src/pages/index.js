@@ -29,12 +29,20 @@ const Index = ({data}) => {
       font-size: 22px;
       margin-top: 10px;
     }
+    @media (max-width: 620px) {
+      h2 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 18px;
+      }
+    }
   `
   const allPosts = css`
     align-items: center;
     display: flex;
     height: 56px;
-    width: 720px;
+    max-width: 720px;
     margin-bottom: 30px;
     a {
       align-items: center;

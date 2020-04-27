@@ -21,6 +21,11 @@ const wrapperStyles = css`
   h2 {
     font-size: 24px;
   }
+  @media (max-width: 620px) {
+    h2 {
+      font-size: 20px;
+    }
+  }
 `
 
 export default function Card(props) {

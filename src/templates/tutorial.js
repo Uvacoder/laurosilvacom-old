@@ -10,6 +10,7 @@ import Code from '../components/code'
 import SEO from '../components/seo'
 import Wrapper from '../utils/wrapper'
 import theme from '../config/theme'
+import Newsletter from '../components/newsletter'
 
 const components = {
   code: Code,
@@ -63,6 +64,10 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     text-align: left;
     align-items: center;
     grid-gap: 30px;
+    @media (max-width: 620px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
   `
 
   return (
@@ -96,6 +101,7 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
         <MDXProvider components={components}>
           <MDXRenderer components={components}>{tutorial.body}</MDXRenderer>
         </MDXProvider>
+        <Newsletter />
       </div>
     </Layout>
   )
