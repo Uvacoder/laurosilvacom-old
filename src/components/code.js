@@ -30,14 +30,18 @@ const Code = ({children, className, metastring}) => {
     float: left;
     min-width: 100%;
     overflow: initial;
-    background-color: ${styleTheme.foreground} !important;
+    background-color: ${styleTheme.nightOwl} !important;
     padding: 5px 0;
+    font-size: 18px;
+    line-height: 1.55rem;
+    font-weight: 400;
   `
 
   const wrapperStyles = css`
     overflow: auto;
-    border-radius: 4px;
-    border: 1px solid ${styleTheme.accents7};
+    border-radius: 3px;
+    box-shadow: 0 0 8px #05121f;
+    border: 2px solid ${styleTheme.accents4};
   `
 
   const spanStyles = css`

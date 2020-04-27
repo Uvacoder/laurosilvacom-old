@@ -9,6 +9,7 @@ import Layout from '../components/layout'
 import Code from '../components/code'
 import SEO from '../components/seo'
 import Wrapper from '../utils/wrapper'
+import theme from '../config/theme'
 
 const components = {
   code: Code,
@@ -20,7 +21,48 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
   const content = css`
     max-width: 720px;
     margin: auto;
-    padding: 50px 20px;
+    padding: 0 20px;
+    font-weight: 400;
+    p {
+      margin-top: 21px;
+      line-height: 1.5em;
+    }
+    h2 {
+      margin-top: 45px;
+      font-size: 30px;
+      margin-bottom: 23px;
+    }
+    blockquote {
+      margin-top: 21px;
+      border-left: 6px solid ${theme.accents4};
+      margin-left: 24px;
+      margin-right: 54px;
+      padding-bottom: 10px;
+      padding-left: 24px;
+      padding-top: 10px;
+      color: ${theme.accents3};
+    }
+    strong {
+      color: ${theme.accents1};
+    }
+    a {
+      font-weight: 700;
+    }
+    hr {
+      border-width: 1px;
+      border-style: solid;
+      border-color: ${theme.accents4};
+      border-radius: 10px;
+      margin: 50px 0;
+    }
+  `
+
+  const headerWrapper = css`
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    text-align: left;
+    align-items: center;
+    grid-gap: 30px;
   `
 
   return (
@@ -32,20 +74,22 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
       />
 
       <Wrapper>
-        {tutorial.frontmatter.tags.map((tag, i) => (
-          <Link
-            to={`/tags/${_.kebabCase(tag)}`}
-            key={i}
-            aria-label="Tutorial Icon"
-          >
-            <Image
-              loading="eager"
-              css={css({width: 60, margin: 'auto'})}
-              fluid={tutorial.frontmatter.icon.sharp.fluid}
-            />
-          </Link>
-        ))}
-        <h1>{tutorial.frontmatter.title}</h1>
+        <div css={headerWrapper}>
+          {tutorial.frontmatter.tags.map((tag, i) => (
+            <Link
+              to={`/tags/${_.kebabCase(tag)}`}
+              key={i}
+              aria-label="Tutorial Icon"
+            >
+              <Image
+                loading="eager"
+                css={css({width: 60, margin: 'auto'})}
+                fluid={tutorial.frontmatter.icon.sharp.fluid}
+              />
+            </Link>
+          ))}
+          <h1>{tutorial.frontmatter.title}</h1>
+        </div>
       </Wrapper>
 
       <div css={content}>

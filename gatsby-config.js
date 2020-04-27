@@ -20,9 +20,14 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        fonts: [
+          {
+            family: `Source Sans Pro`,
+            variants: [`400`, `600`, `700`],
+          },
+        ],
       },
     },
     {

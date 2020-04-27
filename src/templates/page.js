@@ -1,10 +1,41 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import {MDXRenderer} from 'gatsby-plugin-mdx'
+import {css} from '@emotion/core'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import theme from '../config/theme'
+import Wrapper from '../utils/wrapper'
 
 export default function PagesTemplate({data: {mdx: page}}) {
+  const content = css`
+    max-width: 720px;
+    margin: auto;
+    padding: 0 20px;
+    font-weight: 400;
+    p {
+      margin-top: 21px;
+      line-height: 1.5em;
+    }
+    h2 {
+      margin-top: 45px;
+      font-size: 30px;
+      margin-bottom: 23px;
+    }
+    blockquote {
+      margin-top: 21px;
+      border-left: 6px solid ${theme.accents4};
+      margin-left: 24px;
+      margin-right: 54px;
+      padding-bottom: 10px;
+      padding-left: 24px;
+      padding-top: 10px;
+      color: ${theme.accents3};
+    }
+    strong {
+      color: ${theme.accents1};
+    }
+  `
   return (
     <Layout>
       <SEO
@@ -13,10 +44,13 @@ export default function PagesTemplate({data: {mdx: page}}) {
         image={page.frontmatter.image.sharp.fluid}
       />
 
-      <h1>{page.frontmatter.title}</h1>
-      <p>{page.frontmatter.lead}</p>
-
-      <MDXRenderer>{page.body}</MDXRenderer>
+      <Wrapper>
+        <h1>{page.frontmatter.title}</h1>
+        <p>{page.frontmatter.lead}</p>
+      </Wrapper>
+      <div css={content}>
+        <MDXRenderer>{page.body}</MDXRenderer>
+      </div>
     </Layout>
   )
 }

@@ -2,33 +2,34 @@ import React from 'react'
 import {css} from '@emotion/core'
 import theme from '../config/theme'
 
-const gridStyles = css`
-  background: ${theme.foreground};
-  border-bottom: 1px solid ${theme.accents7};
-`
-
 const wrapperStyles = css`
-  max-width: 920px;
+  max-width: 720px;
   margin: auto;
   text-align: center;
-  height: 400px;
-  padding: 40px 0;
+  margin: 100px auto;
+  padding: 0 20px;
   h1 {
-    font-size: 70px;
-    font-weight: 700;
+    font-size: 40px;
+    margin: 0 auto;
+    max-width: 600px;
+    color: ${theme.accents1};
+  }
+  p {
+    font-size: 22px;
+    margin-top: 17px;
+    color: #b9c9da;
+    line-height: 1.4;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 20px;
   }
   @media (max-width: 620px) {
-    height: 300px;
     h1 {
-      font-size: 40px;
+      font-size: 30px;
     }
   }
 `
 
 export default function Wrapper({children}) {
-  return (
-    <div css={gridStyles}>
-      <div css={wrapperStyles}>{children}</div>
-    </div>
-  )
+  return <div css={wrapperStyles}>{children}</div>
 }

@@ -1,9 +1,13 @@
 /* eslint-disable react/button-has-type */
 import React from 'react'
 import {Link, graphql} from 'gatsby'
+import {css} from '@emotion/core'
 import Layout from '../components/layout'
 import Card from '../components/card'
 import SEO from '../components/seo'
+import Grid from '../utils/grid'
+import Wrapper from '../utils/wrapper'
+import theme from '../config/theme'
 
 export default function BlogPage({data}) {
   const allTutorials = data.allMdx.edges
@@ -49,21 +53,55 @@ export default function BlogPage({data}) {
   const hasSearchResults = filteredData && query !== emptyQuery
   const tutorials = hasSearchResults ? filteredData : allTutorials
 
+  const inputStyle = css`
+    width: 98%;
+    padding: 20px 0;
+    border-radius: 3px;
+    border: 2px solid ${theme.accents4};
+    background: #1d3247;
+    position: relative;
+    box-shadow: 0 0 8px #05121f;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 10px;
+    color: ${theme.accents1};
+    :focus {
+      border: 2px solid ${theme.accents3};
+    }
+    ::placeholder {
+      color: ${theme.accents3};
+    }
+  `
+
+  const inputWrapper = css`
+    h2 {
+      margin-top: 0;
+    }
+  `
+
   return (
     <Layout>
       <SEO title="Writing" />
-      <div>
-        <input
-          type="text"
-          aria-label="Search"
-          placeholder="Type to filter tutorials..."
-          onChange={handleInputChange}
-        />
-        Total {tutorials.length}
-      </div>
-      <div>
+
+      <Wrapper>
+        <div css={inputWrapper}>
+          <h2>Search 🔭</h2>
+          <input
+            // eslint-disable-next-line jsx-a11y/no-autofocus
+            autoFocus
+            css={inputStyle}
+            type="text"
+            aria-label="Search"
+            placeholder="Type to filter tutorials..."
+            onChange={handleInputChange}
+          />
+          <p>Total {tutorials.length}</p>
+        </div>
+      </Wrapper>
+
+      <Grid>
         {tutorials.map(({node: tutorial}) => (
-          <Link key={tutorial.id} to={`${tutorial.frontmatter.slug}`}>
+          <Link key={tutorial.id} to={`/${tutorial.frontmatter.slug}`}>
             <Card
               tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
               tutorialTags={tutorial.frontmatter.tags}
@@ -71,7 +109,7 @@ export default function BlogPage({data}) {
             />
           </Link>
         ))}
-      </div>
+      </Grid>
     </Layout>
   )
 }
