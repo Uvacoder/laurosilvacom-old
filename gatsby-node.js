@@ -4,7 +4,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
   const {createPage} = actions
   const result = await graphql(`
     query {
-      pages: allMdx(filter: {fileAbsolutePath: {regex: "//pages//"}}) {
+      notes: allMdx(filter: {fileAbsolutePath: {regex: "//notes//"}}) {
         nodes {
           frontmatter {
             slug
@@ -25,23 +25,18 @@ exports.createPages = async ({actions, graphql, reporter}) => {
           fieldValue
         }
       }
+
+      labelsGroup: allMdx(filter: {fileAbsolutePath: {regex: "//notes//"}}) {
+        group(field: frontmatter___labels) {
+          fieldValue
+        }
+      }
     }
   `)
 
   if (result.errors) {
     reporter.panic('failed to create pages', result.errors)
   }
-  // renders pages for lessons
-  const pages = result.data.pages.nodes
-  pages.forEach(page => {
-    actions.createPage({
-      path: `/${page.frontmatter.slug}/`,
-      component: require.resolve('./src/templates/page.js'),
-      context: {
-        slug: page.frontmatter.slug,
-      },
-    })
-  })
 
   // renders pages for tutorials
   const tutorials = result.data.tutorials.nodes
@@ -63,6 +58,30 @@ exports.createPages = async ({actions, graphql, reporter}) => {
       component: require.resolve('./src/templates/tag.js'),
       context: {
         tag: tag.fieldValue,
+      },
+    })
+  })
+
+  // renders pages, based from notes labels
+  const labels = result.data.labelsGroup.group
+  labels.forEach(label => {
+    createPage({
+      path: `/labels/${_.kebabCase(label.fieldValue)}/`,
+      component: require.resolve('./src/templates/label.js'),
+      context: {
+        label: label.fieldValue,
+      },
+    })
+  })
+
+  // renders pages for notes
+  const notes = result.data.notes.nodes
+  notes.forEach(note => {
+    actions.createPage({
+      path: `/${note.frontmatter.slug}/`,
+      component: require.resolve('./src/templates/note.js'),
+      context: {
+        slug: note.frontmatter.slug,
       },
     })
   })

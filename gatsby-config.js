@@ -75,14 +75,21 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `tutorials`,
-        path: `${__dirname}/tutorials/`,
+        path: `${__dirname}/content/tutorials/`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: `pages`,
-        path: `${__dirname}/pages/`,
+        name: `notes`,
+        path: `${__dirname}/content/notes/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
     {
@@ -93,13 +100,6 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-no-sourcemaps',
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
     },
     {
       resolve: `gatsby-plugin-manifest`,

@@ -73,7 +73,7 @@ export default function Header() {
           <a href="https://twitter.com/laurosilvacom" rel="me">
             @laurosilvacom
           </a>
-          <Link to="/blog">Tutorials</Link>
+          <Link to="/search">Search</Link>
           <Link to="/newsletter">Newsletter</Link>
         </div>
       </div>

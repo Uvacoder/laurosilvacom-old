@@ -2,6 +2,7 @@
 import React from 'react'
 import {Link, graphql} from 'gatsby'
 import {css} from '@emotion/core'
+import Image from 'gatsby-image'
 import Layout from '../components/layout'
 import Card from '../components/card'
 import SEO from '../components/seo'
@@ -9,8 +10,8 @@ import Grid from '../utils/grid'
 import Wrapper from '../utils/wrapper'
 import theme from '../config/theme'
 
-export default function BlogPage({data}) {
-  const allTutorials = data.allMdx.edges
+export default function SearchPage({data}) {
+  const allContent = data.allMdx.edges
 
   const emptyQuery = ''
   const [state, setState] = React.useState({
@@ -18,16 +19,16 @@ export default function BlogPage({data}) {
     query: emptyQuery,
   })
 
-  // credit: https://www.aboutmonica.com/blog/create-gatsby-blog-search-tutorial#final-code
+  // credit: https://www.aboutmonica.com/blog/create-gatsby-blog-search-page#final-code
   const handleInputChange = event => {
     const query = event.target.value
 
-    // this is how we get all of our tutorials
-    const tutorials = data.allMdx.edges || []
-    // return all filtered tutorials
-    const filteredData = tutorials.filter(tutorial => {
-      // destructure data from tutorial frontmatter
-      const {title, tags, lead} = tutorial.node.frontmatter
+    // this is how we get all of our pages
+    const pages = data.allMdx.edges || []
+    // return all filtered pages
+    const filteredData = pages.filter(page => {
+      // destructure data from page frontmatter
+      const {title, tags, labels, lead} = page.node.frontmatter
 
       return (
         // standardize data with .toLowerCase()
@@ -35,23 +36,19 @@ export default function BlogPage({data}) {
         // contains the query string
 
         lead.toLowerCase().includes(query.toLowerCase()) ||
-        title.toLowerCase().includes(query.toLowerCase()) ||
-        tags
-          .join('') // convert tags from an array to string
-          .toLowerCase()
-          .includes(query.toLowerCase())
+        title.toLowerCase().includes(query.toLowerCase())
       )
     })
     // update state according to the latest query and results
     setState({
       query, // with current query string from the `Input` event
-      filteredData, // with filtered data from tutorials.filter(tutorial => (//filteredData)) above
+      filteredData, // with filtered data from pages.filter(page => (//filteredData)) above
     })
   }
 
   const {filteredData, query} = state
   const hasSearchResults = filteredData && query !== emptyQuery
-  const tutorials = hasSearchResults ? filteredData : allTutorials
+  const pages = hasSearchResults ? filteredData : allContent
 
   const inputStyle = css`
     width: 98%;
@@ -85,27 +82,28 @@ export default function BlogPage({data}) {
 
       <Wrapper>
         <div css={inputWrapper}>
-          <h2>Search 🔭</h2>
+          <h2>Search all content 🔭</h2>
           <input
             // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
             css={inputStyle}
             type="text"
             aria-label="Search"
-            placeholder="Type to filter tutorials..."
+            placeholder="Type to filter pages..."
             onChange={handleInputChange}
           />
-          <p>Total {tutorials.length}</p>
+          <p>Total {pages.length}</p>
         </div>
       </Wrapper>
 
       <Grid>
-        {tutorials.map(({node: tutorial}) => (
-          <Link key={tutorial.id} to={`/${tutorial.frontmatter.slug}`}>
+        {pages.map(({node: page}) => (
+          <Link key={page.id} to={`/${page.frontmatter.slug}`}>
             <Card
-              tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
-              tutorialTags={tutorial.frontmatter.tags}
-              tutorialTitle={tutorial.frontmatter.title}
+              // fix this, Create page component!
+              tutorialIcon={page.frontmatter.icon.sharp.fluid}
+              tutorialTags={page.frontmatter.tags}
+              tutorialTitle={page.frontmatter.title}
             />
           </Link>
         ))}
@@ -116,20 +114,15 @@ export default function BlogPage({data}) {
 
 export const pageQuery = graphql`
   query WritingPage {
-    allMdx(
-      sort: {fields: frontmatter___tutorialID, order: DESC}
-      filter: {fileAbsolutePath: {regex: "//tutorials//"}}
-      limit: 100
-    ) {
+    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
           id
           excerpt
           frontmatter {
+            date(formatString: "MMMM DD, YYYY")
             title
             slug
-            tags
-            tutorialID
             lead
             image {
               sharp: childImageSharp {

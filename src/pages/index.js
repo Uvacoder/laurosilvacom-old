@@ -8,9 +8,12 @@ import SEO from '../components/seo'
 import theme from '../config/theme'
 import Grid from '../utils/grid'
 import LauroImage from '../utils/image'
+import NoteCard from '../components/note-card'
 
 const Index = ({data}) => {
   const {edges: tutorials} = data.allMdx
+  const {edges: notes} = data.notesData
+
   const Hero = css`
     padding: 0 20px;
     margin-bottom: 100px;
@@ -31,7 +34,7 @@ const Index = ({data}) => {
     }
     @media (max-width: 620px) {
       h2 {
-        font-size: 24px;
+        font-size: 26px;
       }
       p {
         font-size: 18px;
@@ -80,7 +83,6 @@ const Index = ({data}) => {
       <div css={Hero}>
         <div css={HeroWrapper}>
           <h2>Welcome to my Digital Garden! 👋🏽</h2>
-
           <p>
             I'm Lauro Silva! I enjoy building thoughtful software and helping
             individuals become better programmers.
@@ -92,7 +94,7 @@ const Index = ({data}) => {
       <Grid>
         <div css={allPosts}>
           <h2>Latest Tutorials 📘</h2>
-          <Link to="/blog">
+          <Link to="/search">
             <button>View All</button>
           </Link>
         </div>
@@ -102,6 +104,23 @@ const Index = ({data}) => {
               tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
               tutorialTags={tutorial.frontmatter.tags}
               tutorialTitle={tutorial.frontmatter.title}
+            />
+          </Link>
+        ))}
+      </Grid>
+      <Grid>
+        <div css={allPosts}>
+          <h2>Latest Notes 🌱</h2>
+          <Link to="/search">
+            <button>View All</button>
+          </Link>
+        </div>
+        {notes.map(({node: note}) => (
+          <Link key={note.id} to={`/${note.frontmatter.slug}`}>
+            <NoteCard
+              noteIcon={note.frontmatter.icon.sharp.fluid}
+              noteTags={note.frontmatter.tags}
+              noteTitle={note.frontmatter.title}
             />
           </Link>
         ))}
@@ -128,6 +147,39 @@ export const pageQuery = graphql`
             slug
             tags
             tutorialID
+            lead
+            image {
+              sharp: childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
+            icon {
+              sharp: childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    notesData: allMdx(
+      sort: {fields: frontmatter___noteID, order: DESC}
+      filter: {fileAbsolutePath: {regex: "//notes//"}}
+      limit: 3
+    ) {
+      edges {
+        node {
+          id
+          excerpt
+          frontmatter {
+            title
+            slug
+            tags
+            noteID
             lead
             image {
               sharp: childImageSharp {
