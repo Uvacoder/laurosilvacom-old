@@ -1,5 +1,5 @@
 ---
-title: Migrate from REST to GraphQL Workshop
+title: Migrate from REST to GraphQL Workshop Notes
 date: 2020-04-30
 slug: migrate-from-rest-to-graphql-workshop
 image: ./images/cover.png
@@ -16,6 +16,7 @@ lead: Migrate from REST to GraphQL workshop
 ## Exercise 1 - exploring project REST api
 
 - REST generates a lot of requests. Under-feching. Not enough data to show in the page.
+- One of the biggest drawbacks of REST APIs is that they don’t have a schema describing what the data structures that are returned by the API endpoints look like.
 - You don't need all the data on each request, this is called over-feching. Only solution is to increase complexity (painful process).
   - Over-fetching is fetching too much data, meaning there is data in the response you don't use.
   - Under-fetching is not having enough data with a call to an endpoint, forcing you to call a second endpoint.
@@ -53,6 +54,8 @@ query getPostByTitle($title: String) {
   }
 }
 ```
+
+- The first thing you need to understand is the shape of the data that’s returned by the different REST endpoints.
 
 ```graphql
 // GraphQL Schema definition by defining root level Query type with one single hello query that will return a String
@@ -92,8 +95,8 @@ type Query {
 
 ## Exercise 5 - Implementing temporary resolvers for Queries
 
-- resolvers/postsResolvers.js - will export resolvers relevant to posts
-- resolvers/authorsResolvers.js - will export resolvers relevant to authors
+- `resolvers/postsResolvers.js` - will export resolvers relevant to posts
+- `resolvers/authorsResolvers.js` - will export resolvers relevant to authors
 
 - You define all of your server's resolvers in a single JavaScript object (named resolvers above).
   - This object is called the resolver map.
@@ -181,6 +184,8 @@ class PostsJsonDataSource extends DataSource {
 
 ### Extra Credit
 
+## Resolve it:
+
 ```js
 const cache = await this.keyValueCache.get(CACHE_KEY)
 if (!cache) {
@@ -196,6 +201,8 @@ return cache[key]
 ## Exercise Exercise 7 - Migrate to the same data source
 
 - Wrapper REST points. Then gradually move to creating methods in each data source.
+- https://www.prisma.io/blog/how-to-wrap-a-rest-api-with-graphql-8bf3fb17547d
+-
 
 ```js
 class PostsJsonDataSource extends DataSource {
