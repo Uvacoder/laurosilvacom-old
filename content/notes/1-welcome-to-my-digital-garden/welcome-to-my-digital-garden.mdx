@@ -1,34 +1,237 @@
 ---
-title: Learn React Hooks
-date: 2020-01-10
-slug: learn-react-hooks
+title: Migrate from REST to GraphQL Workshop
+date: 2020-04-30
+slug: migrate-from-rest-to-graphql-workshop
 image: ./images/cover.png
-icon: ../icons/personal.png
-labels: ['personal']
+icon: ../icons/graphql.png
+labels: ['graphql']
 noteID: 1
-lead: Learn React Hooks Test
+lead: Migrate from REST to GraphQL workshop
 ---
 
-A digital garden is a digital space full of interconnected ideas and information that you collect, curate, tend to, and learn from over time.
+**Instructor:** [Vladimir Novick](https://github.com/vnovick/moving-from-rest-to-graphql#author)
 
-## Writing
+**Workshop Repo:** https://github.com/vnovick/moving-from-rest-to-graphql
 
-I'm treating my blog as a [digital garden](https://joelhooks.com/digital-garden). This means more incomplete tutorials at initial publish. It will focus on **JavaScript** for the browser and **Node**. I'll also be publishing cheatsheet, similar to [React+TypeScript Cheatsheets](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet-es).
+## Exercise 1 - exploring project REST api
 
-## Open Source
+- REST generates a lot of requests. Under-feching. Not enough data to show in the page.
+- You don't need all the data on each request, this is called over-feching. Only solution is to increase complexity (painful process).
+  - Over-fetching is fetching too much data, meaning there is data in the response you don't use.
+  - Under-fetching is not having enough data with a call to an endpoint, forcing you to call a second endpoint.
+  - In both cases, they are performance issues: you either use more bandwidth than you should, or you are making more HTTP requests than you should.
+  - Source: https://stackoverflow.com/questions/44564905/what-is-over-fetching-or-under-fetching
 
-The [code of this blog](https://github.com/laurosilvacom/laurosilva.com) is Open Source. However, I encourage you to be creative and create your own blog. 😅
+## Exercise 2 - Explore GraphQL queries and mutations
 
-## Privacy
+- GraphQL gives you just one end point, where you send only Post requests.
+- https://graphiql-online.com/
+- GraphQL on the server is implemented in a Type System.
+- Mutations: mutation field returns an object type, you can ask for nested fields. This can be useful for fetching the new state of an object after an update. Let's look at a simple example mutation
+- Insert both authors and posts in the same mutation and make sure both are inserted.
 
-In the spirit of a privacy-friendly site, I'm using [Simple Analytics](https://referral.simpleanalytics.com/lauro). Which means that I don't use cookies or collect any personal data on you.
+```graphql
+{
+  posts {
+    author {
+      name
+    }
+    title
+  }
+}
+```
 
-I've also made my analytics open by default, you can find them in the [Open Blog](/open-blog/) section.
+## Exercise 3 - GraphQL endpoint setup
 
-## Newsletter
+- Create reusable insert mutation called addPost from that mutation using variable of some input type.
+  - Run playground: http://localhost:3001/graphql
 
-I've also started a newsletter. I am personally not a big fan of emails so I promise to only send emails when I have exciting things to share with you. [Sing up here](/newsletter).
+```graphql
+query getPostByTitle($title: String) {
+  posts(order_by: { timestamp: asc }, where: { title: { _eq: $title } }) {
+    title
+  }
+}
+```
 
----
+```graphql
+// GraphQL Schema definition by defining root level Query type with one single hello query that will return a String
+const typeDefs = gql`
+  type Query {
+    hello: String
+  }
+`;
 
-I'm super excited to start publishing. Keep an eye out for the next tutorial! Until next time, friend!
+// resolver for hello query that will return "Hello GraphQL"
+const resolvers = {
+  Query: {
+    hello: () => 'Hello GraphQL',
+  },
+};
+
+
+// a new ApolloServer providing it type definitions just defined
+// add mocks: true to ApolloServer to make sure we are able to get unimplemented resolvers through mocks.
+// Make sure to also add mockEntireSchema: false
+const server = new ApolloServer({typeDefs, resolvers, mocks: true, mockEntireSchema: false})
+
+```
+
+## Exercise 4 - Design GraphQL Schema
+
+- Define your field resolvers separately from the schema. Since the schema already describes all of the fields, arguments, and result types, the only thing left is a collection of functions that are called to actually execute these fields.
+- Keep in mind that GraphQL resolvers can return [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+  - In fact, most resolvers that do real work - for example fetching data from a database or a REST API - will return a promise. If you’re not familiar with promises, here’s [a brief overview](https://scotch.io/tutorials/javascript-promises-for-dummies).
+
+```graphql
+type Query {
+  numberSix: Int! # Should always return the number 6 when queried
+  numberSeven: Int! # Should always return 7
+}
+```
+
+## Exercise 5 - Implementing temporary resolvers for Queries
+
+- resolvers/postsResolvers.js - will export resolvers relevant to posts
+- resolvers/authorsResolvers.js - will export resolvers relevant to authors
+
+- You define all of your server's resolvers in a single JavaScript object (named resolvers above).
+  - This object is called the resolver map.
+  - The resolver map has top-level fields that correspond to your schema's types (such as Query above).
+- Each resolver function belongs to whichever type its corresponding field belongs to.
+
+```graphql
+query getPosts {
+  posts(order: DESC, limit: 3) {
+    id
+    title
+    author {
+      name
+      avatarUrl
+    }
+  }
+}
+```
+
+```json
+{
+  "data": {
+    "posts": [
+      {
+        "id": "12",
+        "title": "Reprehenderit excepteur quis nulla dolore elit est velit laboris et adipisicing Lorem adipisicing labore.",
+        "author": {
+          "name": "Name",
+          "avatarUrl": "https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=3759e09a5b9fbe53088b23c615b6312e"
+        }
+      },
+      {
+        "id": "11",
+        "title": "Laboris nulla pariatur incididunt velit voluptate ea.",
+        "author": {
+          "name": "Name",
+          "avatarUrl": "https://images.unsplash.com/photo-1513732822839-24f03a92f633?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+        }
+      },
+      {
+        "id": "10",
+        "title": "Ea do irure aliqua mollit amet ex proident.",
+        "author": {
+          "name": "Name",
+          "avatarUrl": "https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=3759e09a5b9fbe53088b23c615b6312e"
+        }
+      }
+    ]
+  }
+}
+```
+
+## Exercise 6 - Batch REST requests with REST Data Source
+
+- `explore data/postsDataSource.js` implement `getAuthorById` method
+
+```js
+class PostsJsonDataSource extends DataSource {
+  constructor() {
+    super()
+    // Creating InMemoryCache
+    this.keyValueCache = new InMemoryLRUCache()
+    this.jsonDbPath = path.resolve(__dirname, '../db.json')
+  }
+
+  // Caching our json file and limiting access to file
+  async get(key) {
+    console.log(`File access for ${key}`)
+    const result = await readFile(this.jsonDbPath)
+    const parsedResult = JSON.parse(result)
+    return parsedResult[key]
+  }
+
+  async getPosts() {
+    const posts = await this.get(`posts`)
+    return posts
+  }
+
+  async getAuthorById(id) {
+    const authors = await this.get(`authors`)
+    return authors.filter((author) => author.id === id)[0]
+  }
+}
+```
+
+### Extra Credit
+
+```js
+const cache = await this.keyValueCache.get(CACHE_KEY)
+if (!cache) {
+  console.log(`File access for${key}`)
+  const result = await readFile(this.jsonDbPath)
+  const parsedResult = JSON.parse(result)
+  await this.keyValueCache.set(CACHE_KEY, parsedResult)
+  return parsedResult[key]
+}
+return cache[key]
+```
+
+## Exercise Exercise 7 - Migrate to the same data source
+
+- Wrapper REST points. Then gradually move to creating methods in each data source.
+
+```js
+class PostsJsonDataSource extends DataSource {
+  constructor() {
+    super()
+    // Creating InMemoryCache
+    this.keyValueCache = new InMemoryLRUCache()
+    this.jsonDbPath = path.resolve(__dirname, '../db.json')
+  }
+
+  // Caching our json file and limiting access to file
+  async get(key) {
+    // ----- Extra Credit ----
+    // const cache = await this.keyValueCache.get(CACHE_KEY)
+    // if (!cache) {
+    //   console.log(`File access for${key}`)
+    //   const result = await readFile(this.jsonDbPath)
+    //   const parsedResult = JSON.parse(result)
+    //   await this.keyValueCache.set(CACHE_KEY, parsedResult)
+    //   return parsedResult[key]
+    // }
+    // return cache[key]
+    console.log(`File access for ${key}`)
+    const result = await readFile(this.jsonDbPath)
+    const parsedResult = JSON.parse(result)
+    return parsedResult[key]
+  }
+
+  async getPosts() {
+    const posts = await this.get(`posts`)
+    return posts
+  }
+
+  async getAuthorById(id) {
+    const authors = await this.get(`authors`)
+    return authors.filter((author) => author.id === id)[0]
+  }
+}
+```

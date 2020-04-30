@@ -8,6 +8,11 @@ const reset = css`
     -webkit-text-size-adjust: 100%; /* 2 */
   }
 
+  ul li {
+    margin: 0 0 1.7rem;
+    font-size: 1.25rem;
+  }
+
   body {
     margin: 0;
   }
