@@ -19,6 +19,29 @@ const custom = css`
     font-weight: 600;
   }
 
+  code {
+    padding: 3px 5px;
+    color: ${theme.accents2};
+    background: ${theme.accents4};
+    font-weight: 500;
+    border-radius: 3px;
+    font-size: 15px;
+  }
+
+  blockquote {
+    margin-top: 21px;
+    border-left: 6px solid ${theme.success};
+    margin-left: 24px;
+    margin-right: 54px;
+    padding-bottom: 10px;
+    padding-left: 24px;
+    padding-top: 10px;
+    color: ${theme.accents3};
+    background: #f5f5f51a;
+    border-radius: 3px;
+    padding-right: 10px;
+  }
+
   button:focus {
     outline: 0;
   }
@@ -48,6 +71,13 @@ const custom = css`
   h4,
   h5 {
     color: ${theme.accents1};
+  }
+
+  ul li {
+    margin: 0 0 1.7rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    margin-top: 21px;
   }
 
   .highlight-line {

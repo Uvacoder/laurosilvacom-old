@@ -26,22 +26,12 @@ export default function NoteTemplate({data: {mdx: note}}) {
     font-weight: 400;
     p {
       margin-top: 21px;
-      line-height: 1.5em;
+      line-height: 1.6;
     }
     h2 {
       margin-top: 45px;
       font-size: 30px;
       margin-bottom: 23px;
-    }
-    blockquote {
-      margin-top: 21px;
-      border-left: 6px solid ${theme.accents4};
-      margin-left: 24px;
-      margin-right: 54px;
-      padding-bottom: 10px;
-      padding-left: 24px;
-      padding-top: 10px;
-      color: ${theme.accents3};
     }
     strong {
       color: ${theme.accents1};

@@ -8,11 +8,6 @@ const reset = css`
     -webkit-text-size-adjust: 100%; /* 2 */
   }
 
-  ul li {
-    margin: 0 0 1.7rem;
-    font-size: 1.25rem;
-  }
-
   body {
     margin: 0;
   }
@@ -56,7 +51,6 @@ const reset = css`
   kbd,
   samp {
     font-family: monospace, monospace; /* 1 */
-    font-size: 1em; /* 2 */
   }
 
   small {
