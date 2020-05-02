@@ -28,7 +28,7 @@ export default function SearchPage({data}) {
     // return all filtered pages
     const filteredData = pages.filter(page => {
       // destructure data from page frontmatter
-      const {title, tags, labels, lead} = page.node.frontmatter
+      const {title, tags, lead} = page.node.frontmatter
 
       return (
         // standardize data with .toLowerCase()
@@ -36,7 +36,11 @@ export default function SearchPage({data}) {
         // contains the query string
 
         lead.toLowerCase().includes(query.toLowerCase()) ||
-        title.toLowerCase().includes(query.toLowerCase())
+        title.toLowerCase().includes(query.toLowerCase()) ||
+        tags
+          .join('') // convert tags from an array to string
+          .toLowerCase()
+          .includes(query.toLowerCase())
       )
     })
     // update state according to the latest query and results
@@ -124,6 +128,7 @@ export const pageQuery = graphql`
             title
             slug
             lead
+            tags
             image {
               sharp: childImageSharp {
                 fluid {

@@ -32,7 +32,7 @@ const Code = ({children, className, metastring}) => {
     overflow: initial;
     background-color: ${styleTheme.nightOwl} !important;
     padding: 5px 0;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.55rem;
     font-weight: 400;
   `

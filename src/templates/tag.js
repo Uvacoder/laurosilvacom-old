@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link, graphql} from 'gatsby'
+import {css} from '@emotion/core'
 import Layout from '../components/layout'
 import Card from '../components/card'
 import SEO from '../components/seo'
@@ -9,13 +10,17 @@ export default function Tags({pageContext, data}) {
   const {tag} = pageContext
   const {edges: tutorials} = data.allMdx
 
+  const tagHeaderStyle = css`
+    margin-top: 50px;
+  `
+
   return (
     <Layout>
-      <SEO title={`Tutorials tagged as ${tag}`} />
+      <SEO title={`Tutorials & Notes tagged as ${tag}`} />
 
       <Grid>
-        <h1>{`${tag}`}</h1>
-        <p>Tutorials tagged as {`${tag}`}</p>
+        <h1 css={tagHeaderStyle}>{`${tag}`}</h1>
+        <p>Tutorials & Notes tagged as {`${tag}`}</p>
         {tutorials.map(({node: tutorial}) => (
           <Link key={tutorial.id} to={`/${tutorial.frontmatter.slug}`}>
             <Card
@@ -34,7 +39,7 @@ export const pageQuery = graphql`
   query($tag: String) {
     allMdx(
       limit: 2000
-      sort: {fields: frontmatter___tutorialID, order: DESC}
+      sort: {fields: frontmatter___date, order: DESC}
       filter: {frontmatter: {tags: {in: [$tag]}}}
     ) {
       totalCount
@@ -45,7 +50,7 @@ export const pageQuery = graphql`
             title
             slug
             tags
-            tutorialID
+            date
             image {
               sharp: childImageSharp {
                 fluid {

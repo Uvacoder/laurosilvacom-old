@@ -31,7 +31,7 @@ const wrapperStyles = css`
 export default function NoteCard(props) {
   return (
     <div css={wrapperStyles}>
-      <Image fluid={props.noteIcon} css={css({height: 70})} />
+      <Image fluid={props.noteIcon} css={css({width: 70})} />
       <h2>{props.noteTitle}</h2>
     </div>
   )

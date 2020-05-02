@@ -50,13 +50,29 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
 
   const headerWrapper = css`
     display: grid;
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: 80px 1fr;
     text-align: left;
-    align-items: center;
     grid-gap: 30px;
     @media (max-width: 620px) {
       grid-template-columns: 1fr;
       text-align: center;
+    }
+  `
+
+  const tagStyle = css`
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: transparent;
+    border: 2px solid ${theme.accents4};
+    color: ${theme.accents3};
+    transition: transform 160ms;
+    cursor: pointer;
+    padding: 6px 20px;
+    margin-top: 10px;
+    :hover {
+      background: ${theme.accents4};
+      transform: scale(1.05);
+      box-shadow: 0 0 8px #05121f;
     }
   `
 
@@ -78,12 +94,25 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
             >
               <Image
                 loading="eager"
-                css={css({width: 60, margin: 'auto'})}
+                css={css({width: 80, margin: 'auto'})}
                 fluid={tutorial.frontmatter.icon.sharp.fluid}
               />
             </Link>
           ))}
-          <h1>{tutorial.frontmatter.title}</h1>
+          <div>
+            <h1>{tutorial.frontmatter.title}</h1>
+            {tutorial.frontmatter.tags.map((tag, i) => (
+              <Link
+                to={`/tags/${_.kebabCase(tag)}`}
+                key={i}
+                aria-label="Tutorial Icon"
+              >
+                <button type="button" css={tagStyle}>
+                  {tutorial.frontmatter.tags}
+                </button>
+              </Link>
+            ))}
+          </div>
         </div>
       </Wrapper>
 
@@ -104,7 +133,7 @@ export const query = graphql`
       frontmatter {
         title
         tags
-        tutorialID
+        date
         lead
         image {
           sharp: childImageSharp {

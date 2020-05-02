@@ -11,7 +11,6 @@ const wrapperStyles = css`
   h1 {
     font-size: 40px;
     margin: 0 auto;
-    max-width: 600px;
     color: ${theme.accents1};
   }
   p {

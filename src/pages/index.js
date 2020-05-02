@@ -134,7 +134,7 @@ export default Index
 export const pageQuery = graphql`
   query IndexPage {
     allMdx(
-      sort: {fields: frontmatter___tutorialID, order: DESC}
+      sort: {fields: frontmatter___date, order: DESC}
       filter: {fileAbsolutePath: {regex: "//tutorials//"}}
       limit: 3
     ) {
@@ -146,7 +146,7 @@ export const pageQuery = graphql`
             title
             slug
             tags
-            tutorialID
+            date
             lead
             image {
               sharp: childImageSharp {
@@ -167,7 +167,7 @@ export const pageQuery = graphql`
       }
     }
     notesData: allMdx(
-      sort: {fields: frontmatter___noteID, order: DESC}
+      sort: {fields: frontmatter___date, order: DESC}
       filter: {fileAbsolutePath: {regex: "//notes//"}}
       limit: 3
     ) {
@@ -179,7 +179,7 @@ export const pageQuery = graphql`
             title
             slug
             tags
-            noteID
+            date
             lead
             image {
               sharp: childImageSharp {

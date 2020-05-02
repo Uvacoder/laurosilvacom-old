@@ -20,14 +20,8 @@ exports.createPages = async ({actions, graphql, reporter}) => {
         }
       }
 
-      tagsGroup: allMdx(filter: {fileAbsolutePath: {regex: "//tutorials//"}}) {
+      tagsGroup: allMdx {
         group(field: frontmatter___tags) {
-          fieldValue
-        }
-      }
-
-      labelsGroup: allMdx(filter: {fileAbsolutePath: {regex: "//notes//"}}) {
-        group(field: frontmatter___labels) {
           fieldValue
         }
       }
@@ -58,18 +52,6 @@ exports.createPages = async ({actions, graphql, reporter}) => {
       component: require.resolve('./src/templates/tag.js'),
       context: {
         tag: tag.fieldValue,
-      },
-    })
-  })
-
-  // renders pages, based from notes labels
-  const labels = result.data.labelsGroup.group
-  labels.forEach(label => {
-    createPage({
-      path: `/labels/${_.kebabCase(label.fieldValue)}/`,
-      component: require.resolve('./src/templates/label.js'),
-      context: {
-        label: label.fieldValue,
       },
     })
   })

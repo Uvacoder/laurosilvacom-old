@@ -31,7 +31,7 @@ const wrapperStyles = css`
 export default function Card(props) {
   return (
     <div css={wrapperStyles}>
-      <Image fluid={props.tutorialIcon} css={css({height: 70})} />
+      <Image fluid={props.tutorialIcon} css={css({width: 70})} />
       <h2>{props.tutorialTitle}</h2>
     </div>
   )

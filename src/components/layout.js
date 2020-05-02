@@ -86,6 +86,9 @@ const custom = css`
     padding: 0 5px;
     border-left: 5px solid #c9a7ff;
   }
+  .anchor svg {
+    fill: ${theme.success};
+  }
   .anchor {
     padding-right: 10px;
     margin-left: -30px;
