@@ -146,6 +146,20 @@ function Layout({children}) {
       <Header />
       {children}
       <Footer />
+      <a
+        rel="webmention"
+        aria-hidden
+        href="https://webmention.io/laurosilva.com/webmention"
+      >
+        webmention
+      </a>
+      <a
+        aria-hidden
+        rel="pingback"
+        href="https://webmention.io/laurosilva.com/xmlrpc"
+      >
+        webmention
+      </a>
     </div>
   )
 }
