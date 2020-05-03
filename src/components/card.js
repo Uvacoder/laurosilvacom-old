@@ -28,11 +28,26 @@ const wrapperStyles = css`
   }
 `
 
+const hidden = css`
+  display: none;
+`
+
 export default function Card(props) {
   return (
-    <div css={wrapperStyles}>
-      <Image fluid={props.tutorialIcon} css={css({width: 60})} />
-      <h2>{props.tutorialTitle}</h2>
+    <div css={wrapperStyles} className="h-card">
+      <Image
+        fluid={props.tutorialIcon}
+        className="u-photo"
+        css={css({width: 60})}
+      />
+      <h2 className="">{props.tutorialTitle}</h2>
+      <a
+        href="https://www.twitter.com/laurosilvacom"
+        className="p-name u-url"
+        css={hidden}
+      >
+        @laurosilvacom
+      </a>
     </div>
   )
 }
