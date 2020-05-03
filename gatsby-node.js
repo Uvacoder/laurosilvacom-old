@@ -40,7 +40,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
       component: require.resolve('./src/templates/tutorial.js'),
       context: {
         slug: tutorial.frontmatter.slug,
-        url: `https://laurosilva.com/${tutorial.frontmatter.slug}`,
+        url: `https://laurosilva.com/${tutorial.frontmatter.slug}/`,
       },
     })
   })
@@ -65,7 +65,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
       component: require.resolve('./src/templates/note.js'),
       context: {
         slug: note.frontmatter.slug,
-        url: `https://laurosilva.com/${note.frontmatter.slug}`,
+        url: `https://laurosilva.com/${note.frontmatter.slug}/`,
       },
     })
   })

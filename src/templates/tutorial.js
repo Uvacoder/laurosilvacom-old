@@ -11,6 +11,7 @@ import SEO from '../components/seo'
 import Wrapper from '../utils/wrapper'
 import theme from '../config/theme'
 import Newsletter from '../components/newsletter'
+import Webmentions from '../components/WebMentions'
 
 const components = {
   code: Code,
@@ -18,7 +19,7 @@ const components = {
 
 const _ = require('lodash')
 
-export default function TutorialTemplate({data: {mdx: tutorial}}) {
+export default function TutorialTemplate({data: {mdx: tutorial, webmentions}}) {
   const content = css`
     max-width: 720px;
     margin: auto;
@@ -105,13 +106,14 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
           <MDXRenderer components={components}>{tutorial.body}</MDXRenderer>
         </MDXProvider>
         <Newsletter />
+        <Webmentions {...webmentions} />
       </div>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query data($slug: String!) {
+  query data($slug: String!, $url: String!) {
     mdx(frontmatter: {slug: {eq: $slug}}) {
       excerpt(pruneLength: 160)
       frontmatter {
@@ -135,6 +137,28 @@ export const query = graphql`
         }
       }
       body
+    }
+    webmentions: allWebMentionEntry(filter: {wmTarget: {eq: $url}}) {
+      edges {
+        node {
+          wmTarget
+          wmSource
+          wmProperty
+          wmId
+          type
+          url
+          likeOf
+          author {
+            url
+            type
+            photo
+            name
+          }
+          content {
+            text
+          }
+        }
+      }
     }
   }
 `

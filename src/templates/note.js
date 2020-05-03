@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react'
 import {graphql, Link} from 'gatsby'
@@ -11,6 +12,7 @@ import SEO from '../components/seo'
 import Wrapper from '../utils/wrapper'
 import theme from '../config/theme'
 import Newsletter from '../components/newsletter'
+import Webmentions from '../components/WebMentions'
 
 const components = {
   code: Code,
@@ -18,7 +20,7 @@ const components = {
 
 const _ = require('lodash')
 
-export default function NoteTemplate({data: {mdx: note}}) {
+export default function NoteTemplate({data: {mdx: note, webmentions}}) {
   const content = css`
     max-width: 720px;
     margin: auto;
@@ -105,13 +107,14 @@ export default function NoteTemplate({data: {mdx: note}}) {
           <MDXRenderer components={components}>{note.body}</MDXRenderer>
         </MDXProvider>
         <Newsletter />
+        <Webmentions {...webmentions} />
       </div>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String!, $url: String!) {
     mdx(frontmatter: {slug: {eq: $slug}}) {
       excerpt(pruneLength: 160)
       frontmatter {
@@ -135,6 +138,28 @@ export const query = graphql`
         }
       }
       body
+    }
+    webmentions: allWebMentionEntry(filter: {wmTarget: {eq: $url}}) {
+      edges {
+        node {
+          wmTarget
+          wmSource
+          wmProperty
+          wmId
+          type
+          url
+          likeOf
+          author {
+            url
+            type
+            photo
+            name
+          }
+          content {
+            text
+          }
+        }
+      }
     }
   }
 `
