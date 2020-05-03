@@ -73,11 +73,22 @@ const custom = css`
     color: ${theme.accents1};
   }
 
+  img {
+    width: 100%;
+  }
+
   ul li {
-    margin: 0 0 1.7rem;
+    margin: 0 0 1.5rem;
     font-size: 1.25rem;
     line-height: 1.4;
     margin-top: 21px;
+  }
+  hr {
+    border-width: 1px;
+    border-style: solid;
+    border-color: ${theme.accents4};
+    border-radius: 10px;
+    margin: 50px 0;
   }
 
   .highlight-line {

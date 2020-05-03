@@ -24,27 +24,11 @@ export default function NoteTemplate({data: {mdx: note}}) {
     margin: auto;
     padding: 0 20px;
     font-weight: 400;
-    p {
-      margin-top: 21px;
-      line-height: 1.6;
-    }
-    h2 {
-      margin-top: 45px;
-      font-size: 30px;
-      margin-bottom: 23px;
-    }
     strong {
       color: ${theme.accents1};
     }
     a {
       font-weight: 700;
-    }
-    hr {
-      border-width: 1px;
-      border-style: solid;
-      border-color: ${theme.accents4};
-      border-radius: 10px;
-      margin: 50px 0;
     }
   `
 
@@ -94,7 +78,7 @@ export default function NoteTemplate({data: {mdx: note}}) {
             >
               <Image
                 loading="eager"
-                css={css({width: 60, margin: 'auto'})}
+                css={css({width: 60, margin: 'auto', marginTop: '10px'})}
                 fluid={note.frontmatter.icon.sharp.fluid}
               />
             </Link>

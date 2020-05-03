@@ -55,6 +55,7 @@ export default function Header() {
     display: flex;
     img {
       height: 20px;
+      width: auto;
     }
     @media (max-width: 500px) {
       img {

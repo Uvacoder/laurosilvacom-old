@@ -7,7 +7,7 @@ const wrapperStyles = css`
   margin-bottom: 30px;
   display: grid;
   grid-gap: 30px;
-  grid-template-columns: 70px 1fr;
+  grid-template-columns: 60px 1fr;
   transition: all 0.4s ease 0s;
   align-items: center;
   background: ${theme.accents4};
@@ -31,7 +31,7 @@ const wrapperStyles = css`
 export default function NoteCard(props) {
   return (
     <div css={wrapperStyles}>
-      <Image fluid={props.noteIcon} css={css({width: 70})} />
+      <Image fluid={props.noteIcon} css={css({width: 60})} />
       <h2>{props.noteTitle}</h2>
     </div>
   )

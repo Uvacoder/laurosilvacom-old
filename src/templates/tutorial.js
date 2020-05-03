@@ -24,27 +24,11 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     margin: auto;
     padding: 0 20px;
     font-weight: 400;
-    p {
-      margin-top: 21px;
-      line-height: 1.6;
-    }
-    h2 {
-      margin-top: 45px;
-      font-size: 30px;
-      margin-bottom: 23px;
-    }
     strong {
       color: ${theme.accents1};
     }
     a {
       font-weight: 700;
-    }
-    hr {
-      border-width: 1px;
-      border-style: solid;
-      border-color: ${theme.accents4};
-      border-radius: 10px;
-      margin: 50px 0;
     }
   `
 
@@ -94,7 +78,7 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
             >
               <Image
                 loading="eager"
-                css={css({width: 80, margin: 'auto'})}
+                css={css({width: 80, margin: 'auto', marginTop: '10px'})}
                 fluid={tutorial.frontmatter.icon.sharp.fluid}
               />
             </Link>
