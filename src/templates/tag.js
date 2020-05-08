@@ -16,11 +16,11 @@ export default function Tags({pageContext, data}) {
 
   return (
     <Layout>
-      <SEO title={`Tutorials & Notes tagged as ${tag}`} />
+      <SEO title={`Tutorials tagged as ${tag}`} />
 
       <Grid>
         <h1 css={tagHeaderStyle}>{`${tag}`}</h1>
-        <p>Tutorials & Notes tagged as {`${tag}`}</p>
+        <p>Tutorials tagged as {`${tag}`}</p>
         {tutorials.map(({node: tutorial}) => (
           <Link key={tutorial.id} to={`/${tutorial.frontmatter.slug}`}>
             <Card

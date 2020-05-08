@@ -104,7 +104,6 @@ export default function SearchPage({data}) {
         {pages.map(({node: page}) => (
           <Link key={page.id} to={`/${page.frontmatter.slug}`}>
             <Card
-              // fix this, Create page component!
               tutorialIcon={page.frontmatter.icon.sharp.fluid}
               tutorialTags={page.frontmatter.tags}
               tutorialTitle={page.frontmatter.title}

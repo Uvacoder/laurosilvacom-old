@@ -8,11 +8,9 @@ import SEO from '../components/seo'
 import theme from '../config/theme'
 import Grid from '../utils/grid'
 import LauroImage from '../utils/image'
-import NoteCard from '../components/note-card'
 
 const Index = ({data}) => {
   const {edges: tutorials} = data.allMdx
-  const {edges: notes} = data.notesData
 
   const Hero = css`
     padding: 0 20px;
@@ -93,7 +91,7 @@ const Index = ({data}) => {
 
       <Grid>
         <div css={allPosts}>
-          <h2>Latest Tutorials 📘</h2>
+          <h2>Latest Tutorials 🌱</h2>
           <Link to="/search">
             <button>View All</button>
           </Link>
@@ -104,23 +102,6 @@ const Index = ({data}) => {
               tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
               tutorialTags={tutorial.frontmatter.tags}
               tutorialTitle={tutorial.frontmatter.title}
-            />
-          </Link>
-        ))}
-      </Grid>
-      <Grid>
-        <div css={allPosts}>
-          <h2>Latest Notes 🌱</h2>
-          <Link to="/search">
-            <button>View All</button>
-          </Link>
-        </div>
-        {notes.map(({node: note}) => (
-          <Link key={note.id} to={`/${note.frontmatter.slug}`}>
-            <NoteCard
-              noteIcon={note.frontmatter.icon.sharp.fluid}
-              noteTags={note.frontmatter.tags}
-              noteTitle={note.frontmatter.title}
             />
           </Link>
         ))}
@@ -136,39 +117,6 @@ export const pageQuery = graphql`
     allMdx(
       sort: {fields: frontmatter___date, order: DESC}
       filter: {fileAbsolutePath: {regex: "//tutorials//"}}
-      limit: 3
-    ) {
-      edges {
-        node {
-          id
-          excerpt
-          frontmatter {
-            title
-            slug
-            tags
-            date
-            lead
-            image {
-              sharp: childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_tracedSVG
-                }
-              }
-            }
-            icon {
-              sharp: childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_tracedSVG
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    notesData: allMdx(
-      sort: {fields: frontmatter___date, order: DESC}
-      filter: {fileAbsolutePath: {regex: "//notes//"}}
       limit: 3
     ) {
       edges {

@@ -23,22 +23,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-plugin-webmention`,
-      options: {
-        username: 'laurosilva.com', // webmention.io username
-        identity: {
-          // you need to specify at least one of the identities
-          // to be able to log in webmention.io
-          twitter: 'laurosilvacom', // no @
-        },
-        mentions: true,
-        pingbacks: true,
-        domain: 'laurosilva.com',
-        fetchLimit: 10000, // number of webmentions to fetch
-        token: process.env.WEBMENTIONS_TOKEN,
-      },
-    },
-    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
@@ -95,13 +79,6 @@ module.exports = {
       options: {
         name: `tutorials`,
         path: `${__dirname}/content/tutorials/`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: `notes`,
-        path: `${__dirname}/content/notes/`,
       },
     },
     {

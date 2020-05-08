@@ -90,7 +90,6 @@ const custom = css`
     border-radius: 10px;
     margin: 50px 0;
   }
-
   .highlight-line {
     background-color: rgba(201, 167, 255, 0.2);
     margin: 0 -10px;
@@ -146,20 +145,6 @@ function Layout({children}) {
       <Header />
       {children}
       <Footer />
-      <a
-        rel="webmention"
-        aria-hidden
-        href="https://webmention.io/laurosilva.com/webmention"
-      >
-        webmention
-      </a>
-      <a
-        aria-hidden
-        rel="pingback"
-        href="https://webmention.io/laurosilva.com/xmlrpc"
-      >
-        webmention
-      </a>
     </div>
   )
 }
