@@ -12,18 +12,16 @@ const custom = css`
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-      'Helvetica Neue', sans-serif;
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
     font-size: 19px;
-    font-weight: 600;
   }
 
   code {
     padding: 3px 5px;
     color: ${theme.accents2};
     background: ${theme.accents4};
-    font-weight: 500;
     border-radius: 3px;
     font-size: 15px;
   }
@@ -71,6 +69,7 @@ const custom = css`
   h4,
   h5 {
     color: ${theme.accents1};
+    font-weight: bold;
   }
 
   img {

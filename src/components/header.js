@@ -11,7 +11,7 @@ export default function Header() {
     background-color: ${theme.accents4};
     display: flex;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 25px 20px;
     position: relative;
     z-index: 100;
   `
@@ -19,7 +19,7 @@ export default function Header() {
   const groupStyles = css`
     align-items: center;
     display: flex;
-    width: 720px;
+    width: 1220px;
   `
 
   const navStyles = css`

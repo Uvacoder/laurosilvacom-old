@@ -35,13 +35,14 @@ const Code = ({children, className, metastring}) => {
     font-size: 16px;
     line-height: 1.55rem;
     font-weight: 400;
+    font-family: 'IBM Plex Mono';
   `
 
   const wrapperStyles = css`
     overflow: auto;
     border-radius: 3px;
     box-shadow: 0 0 8px #05121f;
-    border: 2px solid ${styleTheme.accents4};
+    border: 1px solid ${styleTheme.accents4};
   `
 
   const spanStyles = css`

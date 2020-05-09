@@ -4,7 +4,6 @@ import Wrapper from '../utils/wrapper'
 
 export default function Nesletter() {
   const style = css`
-    font-weight: 600;
     margin-bottom: 20px !important;
   `
   return (

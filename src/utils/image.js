@@ -13,7 +13,7 @@ export default function Image() {
     query {
       aboutImage: file(relativePath: {eq: "lauro.png"}) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 900) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }

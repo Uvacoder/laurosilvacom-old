@@ -51,8 +51,9 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     color: ${theme.accents3};
     transition: transform 160ms;
     cursor: pointer;
-    padding: 6px 20px;
+    padding: 3px 20px;
     margin-top: 10px;
+    padding-bottom: 4px;
     :hover {
       background: ${theme.accents4};
       transform: scale(1.05);
