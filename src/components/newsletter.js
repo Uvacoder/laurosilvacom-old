@@ -4,11 +4,16 @@ import Wrapper from '../utils/wrapper'
 
 export default function Nesletter() {
   const style = css`
-    margin-bottom: 20px !important;
+    font-size: 18px;
+    color: #b9c9da;
+    line-height: 1.4;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 20px;
   `
   return (
     <Wrapper>
-      <h1>Newsletter 📫</h1>
+      <h1>Newsletter</h1>
       <p css={style}>
         Listen, I get it, newsletters are the worst. This one is different
         though. One-click unsubscribe anytime.

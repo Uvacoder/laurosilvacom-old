@@ -27,16 +27,13 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     strong {
       color: ${theme.accents1};
     }
-    a {
-      font-weight: 700;
-    }
   `
 
   const headerWrapper = css`
     display: grid;
-    grid-template-columns: 80px 1fr;
-    text-align: left;
-    grid-gap: 30px;
+    grid-template-columns: 1fr;
+    text-align: center;
+    grid-gap: 10px;
     @media (max-width: 620px) {
       grid-template-columns: 1fr;
       text-align: center;
@@ -54,6 +51,7 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     padding: 3px 20px;
     margin-top: 10px;
     padding-bottom: 4px;
+    font-family: 'IBM Plex Mono';
     :hover {
       background: ${theme.accents4};
       transform: scale(1.05);
@@ -71,33 +69,18 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
 
       <Wrapper>
         <div css={headerWrapper}>
+          <h1>{tutorial.frontmatter.title}</h1>
           {tutorial.frontmatter.tags.map((tag, i) => (
             <Link
               to={`/tags/${_.kebabCase(tag)}`}
               key={i}
               aria-label="Tutorial Icon"
             >
-              <Image
-                loading="eager"
-                css={css({width: 80, margin: 'auto', marginTop: '10px'})}
-                fluid={tutorial.frontmatter.icon.sharp.fluid}
-              />
+              <button type="button" css={tagStyle}>
+                {tutorial.frontmatter.tags}
+              </button>
             </Link>
           ))}
-          <div>
-            <h1>{tutorial.frontmatter.title}</h1>
-            {tutorial.frontmatter.tags.map((tag, i) => (
-              <Link
-                to={`/tags/${_.kebabCase(tag)}`}
-                key={i}
-                aria-label="Tutorial Icon"
-              >
-                <button type="button" css={tagStyle}>
-                  {tutorial.frontmatter.tags}
-                </button>
-              </Link>
-            ))}
-          </div>
         </div>
       </Wrapper>
 
@@ -123,14 +106,14 @@ export const query = graphql`
         image {
           sharp: childImageSharp {
             fluid(maxWidth: 1200, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }
         icon {
           sharp: childImageSharp {
-            fluid(maxWidth: 100) {
-              ...GatsbyImageSharpFluid_withWebp
+            fluid {
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }

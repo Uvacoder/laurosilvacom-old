@@ -36,9 +36,12 @@ export default function Header() {
       display: flex;
       justify-content: center;
       white-space: nowrap;
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 400;
       margin-left: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
     }
     a:hover {
       color: ${theme.accents1};
@@ -54,12 +57,11 @@ export default function Header() {
     align-items: center;
     display: flex;
     img {
-      height: 20px;
-      width: auto;
+      width: 170px;
     }
     @media (max-width: 500px) {
       img {
-        height: 15px;
+        width: 140px;
       }
     }
   `

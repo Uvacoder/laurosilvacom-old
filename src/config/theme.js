@@ -6,7 +6,7 @@ const theme = {
   accents4: '#192b3f',
   danger: '#e6375a',
   nightOwl: '#040e1b',
-  success: '#3f9fff',
+  success: '#ff4a4a',
 }
 
 export default theme

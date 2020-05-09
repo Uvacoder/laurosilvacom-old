@@ -14,7 +14,7 @@ export default function Image() {
       aboutImage: file(relativePath: {eq: "lauro.png"}) {
         childImageSharp {
           fluid(maxWidth: 900) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }

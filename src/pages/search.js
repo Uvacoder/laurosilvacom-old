@@ -58,16 +58,15 @@ export default function SearchPage({data}) {
     width: 98%;
     padding: 20px 0;
     border-radius: 3px;
-    border: 2px solid ${theme.accents4};
+    border: 1px solid ${theme.accents4};
     background: #1d3247;
     position: relative;
     box-shadow: 0 0 8px #05121f;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 18px;
     padding-left: 10px;
     color: ${theme.accents1};
     :focus {
-      border: 2px solid ${theme.accents3};
+      border: 1px solid ${theme.accents3};
     }
     ::placeholder {
       color: ${theme.accents3};
@@ -86,7 +85,7 @@ export default function SearchPage({data}) {
 
       <Wrapper>
         <div css={inputWrapper}>
-          <h2>Search all content 🔭</h2>
+          <h2>Search</h2>
           <input
             // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus

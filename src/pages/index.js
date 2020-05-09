@@ -15,6 +15,7 @@ const Index = ({data}) => {
   const Hero = css`
     padding: 0 20px;
     margin-bottom: 100px;
+    background-image: linear-gradient(to bottom, #1a2b3f, #061528);
   `
   const HeroWrapper = css`
     max-width: 720px;
@@ -27,8 +28,8 @@ const Index = ({data}) => {
       margin-top: 20px;
     }
     p {
-      font-size: 22px;
       margin-top: 10px;
+      opacity: 0.9;
     }
     @media (max-width: 620px) {
       h2 {
@@ -55,11 +56,14 @@ const Index = ({data}) => {
       border-radius: 4px;
       font-size: 16px;
       background-color: transparent;
-      border: 2px solid ${theme.accents4};
+      border: 1px solid ${theme.accents4};
       color: ${theme.accents3};
       transition: transform 160ms;
       cursor: pointer;
       padding: 6px 20px;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 2px;
       :hover {
         background: ${theme.accents4};
         transform: scale(1.05);
@@ -80,7 +84,7 @@ const Index = ({data}) => {
 
       <div css={Hero}>
         <div css={HeroWrapper}>
-          <h2>Welcome to my Digital Garden! 👋🏽</h2>
+          <h2>Welcome to my Digital Garden!</h2>
           <p>
             I'm Lauro Silva! I enjoy building thoughtful software and helping
             individuals become better programmers.
@@ -91,7 +95,7 @@ const Index = ({data}) => {
 
       <Grid>
         <div css={allPosts}>
-          <h2>Latest Tutorials 🌱</h2>
+          <h2>Latest Tutorials</h2>
           <Link to="/search">
             <button>View All</button>
           </Link>

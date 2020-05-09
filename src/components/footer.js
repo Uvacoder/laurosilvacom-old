@@ -12,6 +12,9 @@ export default function Footer() {
     margin: auto;
     p {
       text-align: center;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1px;
     }
   `
 
