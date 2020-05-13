@@ -9,9 +9,8 @@ const wrapperStyles = css`
   grid-template-columns: 1fr;
   transition: all 0.4s ease 0s;
   align-items: center;
-  background: ${theme.accents4};
+  background: ${theme.background};
   border-radius: 3px;
-  box-shadow: 0 0 8px #05121f;
   padding: 32px;
   transition: transform 160ms;
   :hover {
@@ -19,6 +18,7 @@ const wrapperStyles = css`
   }
   h2 {
     font-size: 24px;
+    color: ${theme.accents1};
   }
   @media (max-width: 620px) {
     h2 {

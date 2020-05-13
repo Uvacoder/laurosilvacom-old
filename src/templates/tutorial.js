@@ -44,8 +44,8 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     border-radius: 4px;
     font-size: 16px;
     background-color: transparent;
-    border: 2px solid ${theme.accents4};
-    color: ${theme.accents3};
+    border: 2px solid ${theme.accents2};
+    color: ${theme.accents2};
     transition: transform 160ms;
     cursor: pointer;
     padding: 3px 20px;
@@ -53,9 +53,8 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     padding-bottom: 4px;
     font-family: 'IBM Plex Mono';
     :hover {
-      background: ${theme.accents4};
+      background: ${theme.accents2};
       transform: scale(1.05);
-      box-shadow: 0 0 8px #05121f;
     }
   `
 

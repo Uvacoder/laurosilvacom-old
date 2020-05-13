@@ -41,8 +41,6 @@ const Code = ({children, className, metastring}) => {
   const wrapperStyles = css`
     overflow: auto;
     border-radius: 3px;
-    box-shadow: 0 0 8px #05121f;
-    border: 1px solid ${styleTheme.accents4};
   `
 
   const spanStyles = css`

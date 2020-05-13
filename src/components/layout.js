@@ -20,8 +20,8 @@ const custom = css`
 
   code {
     padding: 3px 5px;
-    color: ${theme.accents2};
-    background: ${theme.accents4};
+    color: ${theme.background};
+    background: ${theme.accents2};
     border-radius: 3px;
     font-size: 15px;
   }
@@ -34,7 +34,7 @@ const custom = css`
     padding-bottom: 10px;
     padding-left: 24px;
     padding-top: 10px;
-    color: ${theme.accents3};
+    color: ${theme.accents2};
     background: #f5f5f51a;
     border-radius: 3px;
     padding-right: 10px;
@@ -85,7 +85,7 @@ const custom = css`
   hr {
     border-width: 1px;
     border-style: solid;
-    border-color: ${theme.accents4};
+    border-color: ${theme.accents2};
     border-radius: 10px;
     margin: 50px 0;
   }

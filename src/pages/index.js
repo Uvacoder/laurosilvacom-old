@@ -15,7 +15,6 @@ const Index = ({data}) => {
   const Hero = css`
     padding: 0 20px;
     margin-bottom: 100px;
-    background-image: linear-gradient(to bottom, #1a2b3f, #061528);
   `
   const HeroWrapper = css`
     max-width: 720px;
@@ -56,8 +55,8 @@ const Index = ({data}) => {
       border-radius: 4px;
       font-size: 16px;
       background-color: transparent;
-      border: 1px solid ${theme.accents4};
-      color: ${theme.accents3};
+      border: 1px solid ${theme.accents2};
+      color: ${theme.accents2};
       transition: transform 160ms;
       cursor: pointer;
       padding: 6px 20px;
@@ -65,9 +64,8 @@ const Index = ({data}) => {
       font-size: 12px;
       letter-spacing: 2px;
       :hover {
-        background: ${theme.accents4};
+        background: ${theme.accents2};
         transform: scale(1.05);
-        box-shadow: 0 0 8px #05121f;
       }
     }
     h2 {

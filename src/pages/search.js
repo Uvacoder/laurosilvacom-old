@@ -58,18 +58,17 @@ export default function SearchPage({data}) {
     width: 98%;
     padding: 20px 0;
     border-radius: 3px;
-    border: 1px solid ${theme.accents4};
-    background: #1d3247;
+    border: 1px solid ${theme.accents2};
+    background: ${theme.background};
     position: relative;
-    box-shadow: 0 0 8px #05121f;
     font-size: 18px;
     padding-left: 10px;
     color: ${theme.accents1};
     :focus {
-      border: 1px solid ${theme.accents3};
+      border: 1px solid ${theme.accents2};
     }
     ::placeholder {
-      color: ${theme.accents3};
+      color: ${theme.accents2};
     }
   `
 
