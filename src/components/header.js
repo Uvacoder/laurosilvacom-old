@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'gatsby'
 import {css} from '@emotion/core'
 import theme from '../config/theme'
-import Logo from '../images/logo.png'
+import Logo from '../images/logo.svg'
 
 const config = require('../config/website')
 
