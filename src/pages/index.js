@@ -22,7 +22,7 @@ const Index = ({data}) => {
     h1 {
       color: ${theme.foreground};
       font-size: 50px;
-      line-height: 1.4;
+      line-height: 1;
       margin-top: 20px;
       margin-bottom: 10px;
     }

@@ -62,7 +62,7 @@ export default function Header() {
       color: ${theme.background};
       padding-left: 10px;
       font-size: 22px;
-      font-weight: 600;
+      font-weight: 700;
     }
   `
 

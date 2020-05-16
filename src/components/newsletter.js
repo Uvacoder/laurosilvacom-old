@@ -3,10 +3,6 @@ import {css} from '@emotion/core'
 import theme from '../config/theme'
 
 export default function Nesletter() {
-  const wrapperGroup = css`
-    margin: 20px;
-  `
-
   const wrapperStyles = css`
     max-width: 720px;
     margin: auto;
@@ -47,21 +43,19 @@ export default function Nesletter() {
     margin-top: 20px;
   `
   return (
-    <div css={wrapperGroup}>
-      <div css={wrapperStyles}>
-        <h1>Newsletter</h1>
-        <p css={style}>
-          Listen, I get it, newsletters are the worst. This one is different
-          though. One-click unsubscribe anytime.
-        </p>
-        <iframe
-          title="Lauro's Newsletter"
-          src="https://laurosilvacom.substack.com/embed"
-          height="100px"
-          frameBorder="0"
-          scrolling="no"
-        />
-      </div>
+    <div css={wrapperStyles}>
+      <h1>Newsletter</h1>
+      <p css={style}>
+        Listen, I get it, newsletters are the worst. This one is different
+        though. One-click unsubscribe anytime.
+      </p>
+      <iframe
+        title="Lauro's Newsletter"
+        src="https://laurosilvacom.substack.com/embed"
+        height="100px"
+        frameBorder="0"
+        scrolling="no"
+      />
     </div>
   )
 }

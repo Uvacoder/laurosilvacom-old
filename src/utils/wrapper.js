@@ -6,7 +6,7 @@ const wrapperStyles = css`
   max-width: 720px;
   margin: auto;
   text-align: center;
-  padding: 100px 20px;
+  padding: 50px 20px;
   input {
     max-width: 720px;
   }

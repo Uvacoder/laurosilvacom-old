@@ -31,16 +31,22 @@ const Code = ({children, className, metastring}) => {
     min-width: 100%;
     overflow: initial;
     background-color: ${styleTheme.nightOwl} !important;
-    padding: 10px;
+    padding: 20px 10px;
     font-size: 16px;
     line-height: 1.55rem;
     font-weight: 400;
-    font-family: 'IBM Plex Mono';
+    font-family: 'Fira Mono';
   `
 
   const wrapperStyles = css`
     overflow: auto;
-    border-radius: 3px;
+    border-radius: 6px;
+    margin-left: -80px;
+    margin-right: -80px;
+    @media (max-width: 620px) {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
   `
 
   const spanStyles = css`

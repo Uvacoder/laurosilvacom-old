@@ -27,6 +27,9 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     strong {
       color: ${theme.foreground};
     }
+    a {
+      font-weight: 600;
+    }
   `
 
   const ImageStyle = css`

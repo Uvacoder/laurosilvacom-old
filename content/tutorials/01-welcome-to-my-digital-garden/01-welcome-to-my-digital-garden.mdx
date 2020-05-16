@@ -4,7 +4,7 @@ date: 2020-04-30
 slug: migrate-from-rest-to-graphql-workshop
 image: ./images/cover.png
 icon: ../icons/graphql.png
-tags: ['graphql']
+tags: ["graphql"]
 lead: Migrate from REST to GraphQL workshop
 ---
 
@@ -20,7 +20,6 @@ lead: Migrate from REST to GraphQL workshop
   - Over-fetching is fetching too much data, meaning there is data in the response you don't use.
   - Under-fetching is not having enough data with a call to an endpoint, forcing you to call a second endpoint.
   - In both cases, they are performance issues: you either use more bandwidth than you should, or you are making more HTTP requests than you should.
-  - Source: https://stackoverflow.com/questions/44564905/what-is-over-fetching-or-under-fetching
 
 ## Exercise 2 - Explore GraphQL queries and mutations
 
@@ -158,7 +157,7 @@ class PostsJsonDataSource extends DataSource {
     super()
     // Creating InMemoryCache
     this.keyValueCache = new InMemoryLRUCache()
-    this.jsonDbPath = path.resolve(__dirname, '../db.json')
+    this.jsonDbPath = path.resolve(__dirname, "../db.json")
   }
 
   // Caching our json file and limiting access to file
@@ -208,7 +207,7 @@ class PostsJsonDataSource extends DataSource {
     super()
     // Creating InMemoryCache
     this.keyValueCache = new InMemoryLRUCache()
-    this.jsonDbPath = path.resolve(__dirname, '../db.json')
+    this.jsonDbPath = path.resolve(__dirname, "../db.json")
   }
 
   // Caching our json file and limiting access to file
