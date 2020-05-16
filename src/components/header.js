@@ -2,7 +2,6 @@ import React from 'react'
 import {Link} from 'gatsby'
 import {css} from '@emotion/core'
 import theme from '../config/theme'
-import Logo from '../images/logo.svg'
 
 const config = require('../config/website')
 
@@ -39,9 +38,15 @@ export default function Header() {
       font-size: 16px;
       margin-left: 20px;
       opacity: 0.8;
+      padding: 6px;
+      line-height: 20px;
+      border-radius: 4px;
+      transition: all 0.15s ease;
+      font-weight: 600;
     }
     a:hover {
       opacity: 1;
+      background: #ffffff38;
     }
     @media (max-width: 520px) {
       a:nth-of-type(1) {
