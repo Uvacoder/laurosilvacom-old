@@ -19,7 +19,7 @@ export default function Header() {
   const groupStyles = css`
     align-items: center;
     display: flex;
-    width: 1220px;
+    width: 1440px;
   `
 
   const navStyles = css`

@@ -55,16 +55,18 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     font-size: 16px;
     background-color: transparent;
     border: 1px solid ${theme.accents2};
-    color: ${theme.foreground};
-    transition: transform 160ms;
+    color: ${theme.accents3};
+    transition: all 0.15s ease;
     cursor: pointer;
     padding: 3px 20px;
     margin: 10px 0;
     padding-bottom: 4px;
     font-family: 'IBM Plex Mono';
+    opacity: 0.8;
     :hover {
-      background: ${theme.accents2};
-      transform: scale(1.05);
+      background: ${theme.accents1};
+      transform: translateY(-1px);
+      opacity: 1;
     }
   `
 
@@ -86,7 +88,7 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
               aria-label="Tutorial Icon"
             >
               <button type="button" css={tagStyle}>
-                {tutorial.frontmatter.tags}
+                #{tutorial.frontmatter.tags}
               </button>
             </Link>
           ))}

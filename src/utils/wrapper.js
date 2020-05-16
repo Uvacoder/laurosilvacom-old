@@ -19,9 +19,9 @@ const wrapperStyles = css`
     font-size: 22px;
     margin-top: 17px;
     line-height: 1.4;
-    max-width: 400px;
     margin: auto;
     margin-top: 20px;
+    color: ${theme.accents3};
   }
   @media (max-width: 620px) {
     h1 {

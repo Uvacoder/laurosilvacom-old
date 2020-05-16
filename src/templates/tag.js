@@ -20,7 +20,7 @@ export default function Tags({pageContext, data}) {
       <SEO title={`Tutorials tagged as ${tag}`} />
 
       <Wrapper>
-        <h1 css={tagHeaderStyle}>{`${tag}`}</h1>
+        <h1 css={tagHeaderStyle}>#{`${tag}`}</h1>
         <p>Tutorials tagged as {`${tag}`}</p>
       </Wrapper>
 
