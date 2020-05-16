@@ -43,7 +43,7 @@ export default function Header() {
     a:hover {
       opacity: 1;
     }
-    @media (max-width: 500px) {
+    @media (max-width: 520px) {
       a:nth-of-type(1) {
         display: none;
       }
@@ -61,11 +61,11 @@ export default function Header() {
     }
     img {
       border-radius: 50%;
-      width: 70px;
+      width: 50px;
     }
-    @media (max-width: 500px) {
+    @media (max-width: 520px) {
       img {
-        width: 60px;
+        width: 40px;
       }
     }
   `

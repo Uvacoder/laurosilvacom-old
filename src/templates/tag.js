@@ -5,6 +5,7 @@ import Layout from '../components/layout'
 import Card from '../components/card'
 import SEO from '../components/seo'
 import Grid from '../utils/grid'
+import Wrapper from '../utils/wrapper'
 
 export default function Tags({pageContext, data}) {
   const {tag} = pageContext
@@ -18,15 +19,19 @@ export default function Tags({pageContext, data}) {
     <Layout>
       <SEO title={`Tutorials tagged as ${tag}`} />
 
-      <Grid>
+      <Wrapper>
         <h1 css={tagHeaderStyle}>{`${tag}`}</h1>
         <p>Tutorials tagged as {`${tag}`}</p>
+      </Wrapper>
+
+      <Grid>
         {tutorials.map(({node: tutorial}) => (
           <Link key={tutorial.id} to={`/${tutorial.frontmatter.slug}`}>
             <Card
               tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
-              tutorialTags={tutorial.frontmatter.tags}
               tutorialTitle={tutorial.frontmatter.title}
+              tutorialLead={tutorial.frontmatter.lead}
+              tutorialImage={tutorial.frontmatter.image.sharp.fluid}
             />
           </Link>
         ))}

@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react'
 import {graphql, Link} from 'gatsby'
-import Image from 'gatsby-image'
 import {MDXRenderer} from 'gatsby-plugin-mdx'
 import {MDXProvider} from '@mdx-js/react'
 import {css} from '@emotion/core'
+import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import Code from '../components/code'
 import SEO from '../components/seo'
@@ -25,10 +25,20 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     padding: 0 20px;
     font-weight: 400;
     strong {
-      color: ${theme.accents1};
+      color: ${theme.foreground};
     }
   `
 
+  const ImageStyle = css`
+    border-radius: 3px;
+    width: 100%;
+    height: 500px;
+    background: #c5d2d9 no-repeat 50%;
+    object-fit: cover;
+    @media (max-width: 620px) {
+      height: 250px;
+    }
+  `
   const headerWrapper = css`
     display: grid;
     grid-template-columns: 1fr;
@@ -44,12 +54,12 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     border-radius: 4px;
     font-size: 16px;
     background-color: transparent;
-    border: 2px solid ${theme.accents2};
-    color: ${theme.accents2};
+    border: 1px solid ${theme.accents2};
+    color: ${theme.foreground};
     transition: transform 160ms;
     cursor: pointer;
     padding: 3px 20px;
-    margin-top: 10px;
+    margin: 10px 0;
     padding-bottom: 4px;
     font-family: 'IBM Plex Mono';
     :hover {
@@ -80,6 +90,12 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
               </button>
             </Link>
           ))}
+          <div>
+            <Img
+              fluid={tutorial.frontmatter.image.sharp.fluid}
+              css={ImageStyle}
+            />
+          </div>
         </div>
       </Wrapper>
 

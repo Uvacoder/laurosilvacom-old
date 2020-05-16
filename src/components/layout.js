@@ -8,7 +8,7 @@ import theme from '../config/theme'
 const custom = css`
   body {
     background: ${theme.background};
-    color: ${theme.accents2};
+    color: ${theme.foreground};
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -20,7 +20,6 @@ const custom = css`
 
   code {
     padding: 3px 5px;
-    color: ${theme.background};
     background: ${theme.accents2};
     border-radius: 3px;
     font-size: 15px;
@@ -28,14 +27,15 @@ const custom = css`
 
   blockquote {
     margin-top: 21px;
-    border-left: 6px solid ${theme.success};
-    margin-left: 24px;
-    margin-right: 54px;
+    margin-left: 0px;
+    margin-right: 0px;
     padding-bottom: 10px;
     padding-left: 24px;
     padding-top: 10px;
-    color: ${theme.accents2};
-    background: #f5f5f51a;
+    background: ${theme.accents1};
+    border: 1px solid ${theme.accents2};
+    border-left: 6px solid ${theme.success};
+    color: ${theme.accents3};
     border-radius: 3px;
     padding-right: 10px;
   }
@@ -60,7 +60,6 @@ const custom = css`
   }
 
   p {
-    color: ${theme.accents2};
     line-height: 1.6;
   }
   h1,
@@ -68,7 +67,6 @@ const custom = css`
   h3,
   h4,
   h5 {
-    color: ${theme.accents1};
     font-weight: bold;
   }
 

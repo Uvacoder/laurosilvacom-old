@@ -58,14 +58,18 @@ export default function SearchPage({data}) {
     width: 98%;
     padding: 20px 0;
     border-radius: 3px;
-    border: 1px solid ${theme.accents2};
-    background: ${theme.background};
+    border: 0px solid ${theme.accents2};
+    background: ${theme.accents1};
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
     position: relative;
     font-size: 18px;
     padding-left: 10px;
-    color: ${theme.accents1};
+    color: ${theme.foreground};
+    transition: all 0.15s ease;
     :focus {
-      border: 1px solid ${theme.accents2};
+      border: 0px solid ${theme.accents2};
+      box-shadow: 0 4px 6px rgba(50, 50, 93, 0.08),
+        0 1px 3px rgba(0, 0, 0, 0.08);
     }
     ::placeholder {
       color: ${theme.accents2};
@@ -75,6 +79,9 @@ export default function SearchPage({data}) {
   const inputWrapper = css`
     h2 {
       margin-top: 0;
+    }
+    p {
+      color: ${theme.accents3};
     }
   `
 
@@ -99,12 +106,13 @@ export default function SearchPage({data}) {
       </Wrapper>
 
       <Grid>
-        {pages.map(({node: page}) => (
-          <Link key={page.id} to={`/${page.frontmatter.slug}`}>
+        {pages.map(({node: tutorial}) => (
+          <Link key={tutorial.id} to={`/${tutorial.frontmatter.slug}`}>
             <Card
-              tutorialIcon={page.frontmatter.icon.sharp.fluid}
-              tutorialTags={page.frontmatter.tags}
-              tutorialTitle={page.frontmatter.title}
+              tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
+              tutorialTitle={tutorial.frontmatter.title}
+              tutorialLead={tutorial.frontmatter.lead}
+              tutorialImage={tutorial.frontmatter.image.sharp.fluid}
             />
           </Link>
         ))}

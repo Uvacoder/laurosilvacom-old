@@ -2,16 +2,34 @@ import React from 'react'
 import {css} from '@emotion/core'
 import theme from '../config/theme'
 
-const gridStyles = css`
-  margin: auto;
-  max-width: 720px;
-  padding: 0 20px;
-  h2 {
-    color: white;
-    margin: 0;
+const ineerStyles = css`
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
+`
+
+const postFeed = css`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  a {
+    color: ${theme.foreground};
+  }
+  a:hover {
+    color: ${theme.foreground};
+  }
+  @media (max-width: 1320px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
   }
 `
 
 export default function Grid({children}) {
-  return <div css={gridStyles}>{children}</div>
+  return (
+    <div css={ineerStyles}>
+      <div css={postFeed}>{children}</div>
+    </div>
+  )
 }

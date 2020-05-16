@@ -5,7 +5,6 @@ import Wrapper from '../utils/wrapper'
 export default function Nesletter() {
   const style = css`
     font-size: 18px;
-    color: #b9c9da;
     line-height: 1.4;
     max-width: 400px;
     margin: auto;
