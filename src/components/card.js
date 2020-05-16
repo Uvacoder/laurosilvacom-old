@@ -3,7 +3,7 @@ import {css} from '@emotion/core'
 import Img from 'gatsby-image'
 
 const postCard = css`
-  height: 330px;
+  height: 350px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
   position: relative;
   margin: 20px;
@@ -13,6 +13,8 @@ const postCard = css`
   transition: all 0.15s ease;
   @media (max-width: 420px) {
     width: 240px;
+    margin: auto;
+    margin-top: 20px;
   }
   :hover {
     box-shadow: 0 4px 6px rgba(50, 50, 93, 0.08), 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -29,9 +31,12 @@ const postCardContent = css`
 const ImageStyle = css`
   border-radius: 3px;
   width: 100%;
-  height: 200px;
+  height: 250px;
   background: #c5d2d9 no-repeat 50%;
   object-fit: cover;
+  @media (max-width: 420px) {
+    height: 160px;
+  }
 `
 const IconStyle = css`
   width: 30px;
