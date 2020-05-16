@@ -6,7 +6,7 @@ export default function Nesletter() {
   const style = css`
     font-size: 18px;
     line-height: 1.4;
-    max-width: 400px;
+    max-width: 720px;
     margin: auto;
     margin-top: 20px;
   `

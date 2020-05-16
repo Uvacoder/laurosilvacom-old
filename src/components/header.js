@@ -59,15 +59,6 @@ export default function Header() {
       font-size: 22px;
       font-weight: 600;
     }
-    img {
-      border-radius: 50%;
-      width: 50px;
-    }
-    @media (max-width: 520px) {
-      img {
-        width: 40px;
-      }
-    }
   `
 
   return (
