@@ -80,7 +80,7 @@ export default function Header() {
       aboutImage: file(relativePath: {eq: "icon.png"}) {
         childImageSharp {
           fluid(maxWidth: 100) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
@@ -92,7 +92,10 @@ export default function Header() {
       <div css={groupStyles}>
         <Link to="/" css={logoStyles}>
           <div css={ImageWrapper}>
-            <Img fluid={data.aboutImage.childImageSharp.fluid} />
+            <Img
+              loading="eager"
+              fluid={data.aboutImage.childImageSharp.fluid}
+            />
           </div>
           <span>Lauro Silva</span>
         </Link>

@@ -126,14 +126,14 @@ export const query = graphql`
         image {
           sharp: childImageSharp {
             fluid(maxWidth: 1200, quality: 100) {
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }
         icon {
           sharp: childImageSharp {
             fluid {
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }
