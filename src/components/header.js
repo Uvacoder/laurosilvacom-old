@@ -1,8 +1,8 @@
 import React from 'react'
-import {Link} from 'gatsby'
+import {Link, useStaticQuery, graphql} from 'gatsby'
 import {css} from '@emotion/core'
+import Img from 'gatsby-image'
 import theme from '../config/theme'
-import Logo from '../utils/image'
 
 const config = require('../config/website')
 
@@ -57,8 +57,9 @@ export default function Header() {
   `
 
   const logoStyles = css`
+    display: grid;
+    grid-template-columns: 50px 1fr;
     align-items: center;
-    display: flex;
     span {
       color: ${theme.background};
       padding-left: 10px;
@@ -67,11 +68,32 @@ export default function Header() {
     }
   `
 
+  const ImageWrapper = css`
+    img {
+      border-radius: 3px;
+      border-radius: 50%;
+    }
+  `
+
+  const data = useStaticQuery(graphql`
+    query {
+      aboutImage: file(relativePath: {eq: "icon.png"}) {
+        childImageSharp {
+          fluid(maxWidth: 100) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <div css={wrapperStyles}>
       <div css={groupStyles}>
         <Link to="/" css={logoStyles}>
-          <Logo />
+          <div css={ImageWrapper}>
+            <Img fluid={data.aboutImage.childImageSharp.fluid} />
+          </div>
           <span>Lauro Silva</span>
         </Link>
         <div css={navStyles}>

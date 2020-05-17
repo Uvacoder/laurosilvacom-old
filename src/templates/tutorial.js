@@ -64,7 +64,7 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     padding: 3px 20px;
     margin: 10px 0;
     padding-bottom: 4px;
-    font-family: 'IBM Plex Mono';
+    font-family: 'Fira Mono';
     opacity: 0.8;
     :hover {
       background: ${theme.accents1};
