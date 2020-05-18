@@ -12,6 +12,7 @@ const postFeed = css`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
+  gap: 20px;
   a {
     color: ${theme.foreground};
   }

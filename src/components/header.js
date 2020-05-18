@@ -65,22 +65,12 @@ export default function Header() {
 
   const logoStyles = css`
     display: grid;
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
     span {
       color: ${theme.background};
-      padding-left: 10px;
       font-size: 22px;
       font-weight: 700;
-    }
-  `
-
-  const ImageWrapper = css`
-    height: 55px;
-    -webkit-transform: translateZ(0);
-    img {
-      border-radius: 3px;
-      border-radius: 50%;
     }
   `
 
@@ -88,9 +78,6 @@ export default function Header() {
     <div css={wrapperStyles}>
       <div css={groupStyles}>
         <Link to="/" css={logoStyles}>
-          <div css={ImageWrapper}>
-            <img src={Lauro} alt="Lauro Silva" />
-          </div>
           <span>Lauro Silva</span>
         </Link>
         <div css={navStyles}>
@@ -98,7 +85,9 @@ export default function Header() {
             @laurosilvacom
           </a>
           <Link to="/blog">Blog</Link>
-          <Link to="/newsletter">Newsletter</Link>
+          <a href="https://laurosilvacom.substack.com/subscribe" rel="me">
+            Newsletter
+          </a>
         </div>
       </div>
     </div>
