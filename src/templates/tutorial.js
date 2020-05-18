@@ -108,7 +108,6 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
         <MDXProvider components={components}>
           <MDXRenderer components={components}>{tutorial.body}</MDXRenderer>
         </MDXProvider>
-        <Newsletter />
       </div>
     </Layout>
   )

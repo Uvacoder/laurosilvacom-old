@@ -92,12 +92,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-simple-analytics',
-      options: {
-        domain: 'pageviews.laurosilva.com',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-no-sourcemaps',
     },
     {

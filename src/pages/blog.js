@@ -76,8 +76,9 @@ export default function SearchPage({data}) {
   `
 
   const inputWrapper = css`
-    h2 {
+    h1 {
       margin-top: 0;
+      margin-bottom: 10px;
     }
     p {
       color: ${theme.accents3};
@@ -90,7 +91,7 @@ export default function SearchPage({data}) {
 
       <Wrapper>
         <div css={inputWrapper}>
-          <h2>Search</h2>
+          <h1>Tutorials</h1>
           <input
             // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus

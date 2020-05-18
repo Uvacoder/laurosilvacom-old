@@ -1,14 +1,14 @@
 import React from 'react'
 import {Link, useStaticQuery, graphql} from 'gatsby'
 import {css} from '@emotion/core'
-import Img from 'gatsby-image'
+import Lauro from '../images/logo.svg'
 import theme from '../config/theme'
 
 const config = require('../config/website')
 
 export default function Header() {
   const wrapperStyles = css`
-    background: ${theme.success};
+    background: ${theme.foreground};
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -29,6 +29,7 @@ export default function Header() {
     margin-left: auto;
     z-index: 100;
     a {
+      line-height:0
       align-items: center;
       border-radius: 2px;
       color: ${theme.background};
@@ -48,6 +49,12 @@ export default function Header() {
     a:hover {
       opacity: 1;
       background: #ffffff38;
+    }
+    a:nth-of-type(3) {
+      background: ${theme.success};
+      color: ${theme.accents1};
+      opacity: 1;
+      padding-bottom: 8px;
     }
     @media (max-width: 520px) {
       a:nth-of-type(1) {
@@ -69,33 +76,20 @@ export default function Header() {
   `
 
   const ImageWrapper = css`
+    height: 55px;
+    -webkit-transform: translateZ(0);
     img {
       border-radius: 3px;
       border-radius: 50%;
     }
   `
 
-  const data = useStaticQuery(graphql`
-    query {
-      aboutImage: file(relativePath: {eq: "icon.png"}) {
-        childImageSharp {
-          fluid(maxWidth: 100) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
-        }
-      }
-    }
-  `)
-
   return (
     <div css={wrapperStyles}>
       <div css={groupStyles}>
         <Link to="/" css={logoStyles}>
           <div css={ImageWrapper}>
-            <Img
-              loading="eager"
-              fluid={data.aboutImage.childImageSharp.fluid}
-            />
+            <img src={Lauro} alt="Lauro Silva" />
           </div>
           <span>Lauro Silva</span>
         </Link>
@@ -103,8 +97,7 @@ export default function Header() {
           <a href="https://twitter.com/laurosilvacom" rel="me">
             @laurosilvacom
           </a>
-
-          <Link to="/search">Search</Link>
+          <Link to="/blog">Blog</Link>
           <Link to="/newsletter">Newsletter</Link>
         </div>
       </div>

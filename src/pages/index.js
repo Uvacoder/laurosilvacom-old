@@ -81,7 +81,7 @@ export const pageQuery = graphql`
     allMdx(
       sort: {fields: frontmatter___date, order: DESC}
       filter: {fileAbsolutePath: {regex: "//tutorials//"}}
-      limit: 7
+      limit: 6
     ) {
       edges {
         node {
