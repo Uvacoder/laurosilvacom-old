@@ -8,7 +8,7 @@ const config = require('../config/website')
 
 export default function Header() {
   const wrapperStyles = css`
-    background: ${theme.foreground};
+    background: ${theme.success};
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -50,12 +50,6 @@ export default function Header() {
       opacity: 1;
       background: #ffffff38;
     }
-    a:nth-of-type(3) {
-      background: ${theme.success};
-      color: ${theme.accents1};
-      opacity: 1;
-      padding-bottom: 8px;
-    }
     @media (max-width: 520px) {
       a:nth-of-type(1) {
         display: none;
@@ -64,13 +58,22 @@ export default function Header() {
   `
 
   const logoStyles = css`
-    display: grid;
-    grid-template-columns: 1fr;
     align-items: center;
+    display: flex;
     span {
-      color: ${theme.background};
+      color: #ffffff;
+      padding-left: 10px;
       font-size: 22px;
       font-weight: 700;
+    }
+    img {
+      border-radius: 50%;
+      width: 50px;
+    }
+    @media (max-width: 520px) {
+      img {
+        width: 40px;
+      }
     }
   `
 
@@ -78,6 +81,7 @@ export default function Header() {
     <div css={wrapperStyles}>
       <div css={groupStyles}>
         <Link to="/" css={logoStyles}>
+          <img src={Lauro} alt={config.siteTitle} />
           <span>Lauro Silva</span>
         </Link>
         <div css={navStyles}>

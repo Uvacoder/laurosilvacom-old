@@ -1,10 +1,12 @@
 import React from 'react'
 import {css} from '@emotion/core'
+import theme from '../config/theme'
 
 export default function Footer() {
   const wrapperStyles = css`
     padding: 40px 0;
     margin-top: 100px;
+    background: ${theme.success};
   `
 
   const groupStyles = css`
@@ -15,6 +17,7 @@ export default function Footer() {
       text-transform: uppercase;
       font-size: 13px;
       letter-spacing: 1px;
+      color: ${theme.background};
     }
   `
 

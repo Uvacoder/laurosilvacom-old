@@ -30,7 +30,7 @@ const Code = ({children, className, metastring}) => {
     float: left;
     min-width: 100%;
     overflow: initial;
-    background-color: ${styleTheme.nightOwl} !important;
+    background-color: ${styleTheme.foreground} !important;
     padding: 20px 10px;
     font-size: 16px;
     line-height: 1.55rem;

@@ -13,6 +13,7 @@ const postFeed = css`
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   gap: 20px;
+  padding: 0 20px;
   a {
     color: ${theme.foreground};
   }
@@ -21,6 +22,7 @@ const postFeed = css`
   }
   @media (max-width: 1320px) {
     grid-template-columns: 1fr 1fr;
+    padding: 0 20px;
   }
   @media (max-width: 720px) {
     grid-template-columns: 1fr;
