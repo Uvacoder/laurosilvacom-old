@@ -12,7 +12,7 @@ export default function Header() {
   `
 
   const groupStyles = css`
-    width: 1440px;
+    max-width: 1440px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: auto;

@@ -4,6 +4,7 @@ import Header from './header'
 import Footer from './footer'
 import reset from '../libs/reset'
 import theme from '../config/theme'
+import fonts from '../libs/fonts/hero.css'
 
 const custom = css`
   body {
@@ -12,9 +13,8 @@ const custom = css`
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-      'Helvetica Neue', sans-serif;
+    font-family: 'Hero', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 19px;
   }
 
@@ -133,6 +133,7 @@ const custom = css`
 export const globalStyles = css`
   ${custom}
   ${reset},
+  ${fonts}
 `
 
 function Layout({children}) {

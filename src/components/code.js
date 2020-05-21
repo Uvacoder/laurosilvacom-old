@@ -35,7 +35,7 @@ const Code = ({children, className, metastring}) => {
     font-size: 16px;
     line-height: 1.55rem;
     font-weight: 400;
-    font-family: 'Fira Mono';
+    font-family: 'Mono-Hero';
   `
 
   const wrapperStyles = css`
