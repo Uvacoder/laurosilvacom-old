@@ -9,17 +9,14 @@ const config = require('../config/website')
 export default function Header() {
   const wrapperStyles = css`
     background: ${theme.success};
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-    z-index: 100;
   `
 
   const groupStyles = css`
-    align-items: center;
-    display: flex;
     width: 1440px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    padding: 20px;
   `
 
   const navStyles = css`
