@@ -36,8 +36,18 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     grid-template-columns: 80px 1fr;
     grid-gap: 20px;
     align-items: center;
-    h1 {
+    h2 {
       margin: 0;
+    }
+    @media (max-width: 620px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    @media (max-width: 420px) {
+      grid-template-columns: 1fr;
+      h2 {
+        font-size: 20px;
+      }
     }
   `
 
@@ -53,7 +63,7 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     margin: 10px 0;
     padding-bottom: 4px;
     font-family: 'Fira Mono';
-    opacity: 0.8;
+    opacity: 0.6;
     :hover {
       background: ${theme.accents1};
       transform: translateY(-1px);
@@ -65,6 +75,9 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     width: 80px;
     border-radius: 0px;
     align-self: baseline;
+    @media (max-width: 620px) {
+      margin: auto;
+    }
   `
 
   return (
@@ -79,7 +92,7 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
         <div css={headerWrapper}>
           <Img fluid={tutorial.frontmatter.icon.sharp.fluid} css={IconStyle} />
           <div>
-            <h1>{tutorial.frontmatter.title}</h1>
+            <h2>{tutorial.frontmatter.title}</h2>
             {tutorial.frontmatter.tags.map((tag, i) => (
               <Link
                 to={`/tags/${_.kebabCase(tag)}`}

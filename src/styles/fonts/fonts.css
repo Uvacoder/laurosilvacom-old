@@ -1,9 +1,9 @@
 @font-face {
-  font-family: 'Inter Thin';
+  font-family: "Inter Thin";
   font-style: normal;
   font-weight: 100;
-  src: url('Inter-Thin-BETA.woff2') format('woff2'),
-    url('Inter-Thin-BETA.woff') format('woff');
+  src: url("Inter-Thin-BETA.woff2") format("woff2"),
+    url("Inter-Thin-BETA.woff") format("woff");
 }
 /* @font-face {
   font-family: 'Inter Thin Italic';
@@ -14,11 +14,11 @@
 } */
 
 @font-face {
-  font-family: 'Inter ExtraLight';
+  font-family: "Inter ExtraLight";
   font-style: normal;
   font-weight: 200;
-  src: url('Inter-ExtraLight-BETA.woff2') format('woff2'),
-    url('Inter-ExtraLight-BETA.woff') format('woff');
+  src: url("Inter-ExtraLight-BETA.woff2") format("woff2"),
+    url("Inter-ExtraLight-BETA.woff") format("woff");
 }
 /* @font-face {
   font-family: 'Inter ExtraLight Italic';
@@ -29,11 +29,11 @@
 } */
 
 @font-face {
-  font-family: 'Inter Light';
+  font-family: "Inter Light";
   font-style: normal;
   font-weight: 300;
-  src: url('Inter-Light-BETA.woff2') format('woff2'),
-    url('Inter-Light-BETA.woff') format('woff');
+  src: url("Inter-Light-BETA.woff2") format("woff2"),
+    url("Inter-Light-BETA.woff") format("woff");
 }
 /* @font-face {
   font-family: 'Inter Light Italic';
@@ -44,11 +44,11 @@
 } */
 
 @font-face {
-  font-family: 'Inter Regular';
+  font-family: "Inter Regular";
   font-style: normal;
   font-weight: 400;
-  src: url('Inter-Regular.woff2') format('woff2'),
-    url('Inter-Regular.woff') format('woff');
+  src: url("Inter-Regular.woff2") format("woff2"),
+    url("Inter-Regular.woff") format("woff");
 }
 /* @font-face {
   font-family: 'Inter Italic';
@@ -59,11 +59,11 @@
 } */
 
 @font-face {
-  font-family: 'Inter Medium';
+  font-family: "Inter Medium";
   font-style: normal;
   font-weight: 500;
-  src: url('Inter-Medium.woff2') format('woff2'),
-    url('Inter-Medium.woff') format('woff');
+  src: url("Inter-Medium.woff2") format("woff2"),
+    url("Inter-Medium.woff") format("woff");
 }
 /* @font-face {
   font-family: 'Inter Medium Italic';
@@ -74,19 +74,19 @@
 } */
 
 @font-face {
-  font-family: 'Inter SemiBold';
+  font-family: "Inter SemiBold";
   font-style: normal;
   font-weight: 600;
-  src: url('Inter-SemiBold.woff2') format('woff2'),
-    url('Inter-SemiBold.woff') format('woff');
+  src: url("Inter-SemiBold.woff2") format("woff2"),
+    url("Inter-SemiBold.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Inter Bold';
+  font-family: "Inter Bold";
   font-style: normal;
   font-weight: 700;
-  src: url('Inter-Bold.woff2') format('woff2'),
-    url('Inter-Bold.woff') format('woff');
+  src: url("Inter-Bold.woff2") format("woff2"),
+    url("Inter-Bold.woff") format("woff");
 }
 /* @font-face {
   font-family: 'Inter SemiBold Italic';
@@ -182,3 +182,17 @@ explicitly, e.g.
   src: url('Inter.var.woff2') format('woff2-variations'),
     url('Inter.var.woff2') format('woff2');
 } */
+
+@font-face {
+  font-family: "Dank Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("DankMono-Regular.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Dank Mono";
+  font-style: italic;
+  font-weight: 400;
+  src: url("DankMono-Italic.ttf") format("ttf");
+}

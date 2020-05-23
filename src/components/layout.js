@@ -10,7 +10,7 @@ const custom = css`
     background: ${theme.background};
   }
   .highlight-line {
-    background-color: rgb(0, 30, 56);
+    background-color: rgba(255, 255, 255, 0.1);
     margin: 0 -10px;
     padding: 0 5px;
     border-left: 5px solid #5533fe;
@@ -68,6 +68,15 @@ const custom = css`
     font-weight: bold;
   }
 
+  ::selection {
+    background: ${theme.danger}; /* WebKit/Blink Browsers */
+    color: ${theme.background};
+  }
+  ::-moz-selection {
+    background: ${theme.danger}; /* Gecko Browsers */
+    color: ${theme.background};
+  }
+
   img {
     width: 100%;
   }
@@ -119,6 +128,16 @@ const custom = css`
     opacity: 1;
   }
   .anchor svg path {
+  }
+  @keyframes HeroAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
   }
 `
 

@@ -6,7 +6,8 @@ export default function Footer() {
   const wrapperStyles = css`
     padding: 40px 0;
     margin-top: 100px;
-    background: ${theme.danger};
+    background: ${theme.accents1};
+    box-shadow: rgb(221, 221, 225) 0px 1px 0px inset;
   `
 
   const groupStyles = css`
@@ -14,8 +15,8 @@ export default function Footer() {
     margin: auto;
     p {
       text-align: center;
-      font-size: 14px;
-      color: ${theme.accents1};
+      font-size: 15px;
+      color: ${theme.accents3};
     }
   `
 

@@ -1,10 +1,10 @@
 const theme = {
-  background: '#E2E8F0',
-  foreground: '#011627',
+  background: '#f3f3f3',
+  foreground: '#000020',
   accents1: '#ffffff',
   accents2: '#CBD5E0',
-  accents3: '#718096',
-  danger: '#5533fe',
+  accents3: '#9998a6',
+  danger: '#4630eb',
 }
 
 export default theme

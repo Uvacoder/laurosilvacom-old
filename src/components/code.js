@@ -30,12 +30,10 @@ const Code = ({children, className, metastring}) => {
     float: left;
     min-width: 100%;
     overflow: initial;
-    background-color: ${styleTheme.foreground} !important;
+    background-color: #011628 !important;
     padding: 20px 10px;
-    font-size: 16px;
-    line-height: 1.55rem;
-    font-weight: 400;
-    font-family: 'SFMono-Regular';
+    font-size: 18px;
+    font-family: 'Dank Mono';
   `
 
   const wrapperStyles = css`

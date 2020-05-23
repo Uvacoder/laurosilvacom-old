@@ -37,7 +37,7 @@ export default function Header() {
       white-space: nowrap;
       font-size: 16px;
       margin-left: 20px;
-      opacity: 0.8;
+      opacity: 0.6;
       padding: 6px;
       line-height: 17px;
       border-radius: 4px;
@@ -49,6 +49,9 @@ export default function Header() {
       background: #ffffff57;
     }
     @media (max-width: 580px) {
+      a {
+        font-size: 14px;
+      }
       a:nth-of-type(1) {
         display: none;
       }
@@ -70,9 +73,10 @@ export default function Header() {
       width: 50px;
       margin: 0;
     }
-    @media (max-width: 580px) {
-      img {
-        width: 40px;
+    @media (max-width: 420px) {
+      grid-template-columns: 1fr;
+      span {
+        display: none;
       }
     }
   `

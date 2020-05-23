@@ -20,6 +20,8 @@ const Index = ({data}) => {
     margin: auto;
     text-align: center;
     padding-top: 40px;
+    animation: HeroAnimation 2s 0.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity: 0;
     h1 {
       color: ${theme.accents1};
       font-size: 50px;
@@ -35,7 +37,7 @@ const Index = ({data}) => {
       font-size: 22px;
       line-height: 150%;
       color: ${theme.accents1};
-      opacity: 0.8;
+      opacity: 0.6;
     }
     @media (max-width: 620px) {
       h1 {

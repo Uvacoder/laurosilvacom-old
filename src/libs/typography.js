@@ -14,6 +14,7 @@ export const fonts = {
   // semiboldItalic: 'Inter Semibold Italic',
   bold: 'Inter Bold',
   // boldItalic: 'Inter Bold Italic',
+  dank: 'Dank Mono',
 }
 
 const typography = new Typography({
@@ -22,23 +23,29 @@ const typography = new Typography({
   headerLineHeight: 1.4,
   headerFontFamily: [fonts.light, 'sans-serif'],
   bodyFontFamily: [fonts.regular, 'sans-serif'],
-  headerColor: '#1A202C',
-  bodyColor: '#2D3748',
+  headerColor: 'rgba(0, 0, 32, 0.9)',
+  bodyColor: 'rgba(0, 0, 32, 0.8)',
 
   overrideStyles: ({rhythm}) => ({
+    pre: {
+      fontFamily: fonts.dank,
+    },
     body: {
       fontVariantLigatures: 'none',
     },
     h1: {
-      color: 'hsla(0,0%,0%,0.75)',
       fontFamily: fonts.semibold,
     },
     'h1 code, h2 code, h3 code, h4 code, h5 code, h6 code': {
       fontSize: 'inherit',
     },
     h2: {
-      color: 'hsla(0,0%,0%,0.775)',
       fontFamily: fonts.bold,
+      fontSize: '1.7rem',
+    },
+    h4: {
+      fontFamily: fonts.bold,
+      fontSize: '1.2rem',
     },
     'h1,h2,h3,h4,h5,h6': {
       lineHeight: 1,
