@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'gatsby'
 import {css} from '@emotion/core'
-import Lauro from '../images/logo.svg'
+import Lauro from '../images/icon.png'
 import theme from '../config/theme'
 import {fonts} from '../libs/typography'
 
