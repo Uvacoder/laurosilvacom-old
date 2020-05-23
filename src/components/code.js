@@ -33,7 +33,7 @@ const Code = ({children, className, metastring}) => {
     background-color: #011628 !important;
     padding: 20px 10px;
     font-size: 18px;
-    font-family: 'Dank Mono';
+    font-family: 'Dank Mono', monospace, monospace;
   `
 
   const wrapperStyles = css`
