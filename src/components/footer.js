@@ -7,7 +7,7 @@ export default function Footer() {
     padding: 40px 0;
     margin-top: 100px;
     background: ${theme.accents1};
-    box-shadow: rgb(221, 221, 225) 0px 1px 0px inset;
+    box-shadow: rgb(225, 231, 239) 0px 1px 0px inset;
   `
 
   const groupStyles = css`

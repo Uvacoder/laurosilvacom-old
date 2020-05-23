@@ -93,6 +93,7 @@ const custom = css`
     border-color: ${theme.accents2};
     border-radius: 10px;
     margin: 50px 0;
+    opacity: 0.5;
   }
   .anchor svg {
     fill: ${theme.danger};
