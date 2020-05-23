@@ -56,7 +56,7 @@ export default function SearchPage({data}) {
   const inputStyle = css`
     width: 98%;
     padding: 20px 0;
-    border-radius: 3px;
+    border-radius: 5px;
     border: 0px solid ${theme.accents2};
     background: ${theme.accents1};
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;

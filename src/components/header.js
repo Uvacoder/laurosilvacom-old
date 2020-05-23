@@ -1,14 +1,15 @@
 import React from 'react'
-import {Link, useStaticQuery, graphql} from 'gatsby'
+import {Link} from 'gatsby'
 import {css} from '@emotion/core'
 import Lauro from '../images/logo.svg'
 import theme from '../config/theme'
+import {fonts} from '../libs/typography'
 
 const config = require('../config/website')
 
 export default function Header() {
   const wrapperStyles = css`
-    background: ${theme.success};
+    background: ${theme.danger};
   `
 
   const groupStyles = css`
@@ -29,7 +30,7 @@ export default function Header() {
       line-height:0
       align-items: center;
       border-radius: 2px;
-      color: ${theme.background};
+      color: ${theme.accents1};
       cursor: pointer;
       display: flex;
       justify-content: center;
@@ -38,16 +39,16 @@ export default function Header() {
       margin-left: 20px;
       opacity: 0.8;
       padding: 6px;
-      line-height: 20px;
+      line-height: 17px;
       border-radius: 4px;
       transition: all 0.15s ease;
       font-weight: 600;
     }
     a:hover {
       opacity: 1;
-      background: #ffffff38;
+      background: #ffffff57;
     }
-    @media (max-width: 520px) {
+    @media (max-width: 580px) {
       a:nth-of-type(1) {
         display: none;
       }
@@ -56,18 +57,20 @@ export default function Header() {
 
   const logoStyles = css`
     align-items: center;
-    display: flex;
+    display: grid;
+    grid-template-columns: 50px 1fr;
     span {
-      color: #ffffff;
+      color: ${theme.accents1};
+      font-family: ${fonts.semibold};
       padding-left: 10px;
       font-size: 22px;
-      font-weight: 700;
     }
     img {
       border-radius: 50%;
       width: 50px;
+      margin: 0;
     }
-    @media (max-width: 520px) {
+    @media (max-width: 580px) {
       img {
         width: 40px;
       }

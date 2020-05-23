@@ -10,7 +10,6 @@ import Code from '../components/code'
 import SEO from '../components/seo'
 import Wrapper from '../utils/wrapper'
 import theme from '../config/theme'
-import Newsletter from '../components/newsletter'
 
 const components = {
   code: Code,
@@ -20,7 +19,7 @@ const _ = require('lodash')
 
 export default function TutorialTemplate({data: {mdx: tutorial}}) {
   const content = css`
-    max-width: 720px;
+    max-width: 780px;
     margin: auto;
     padding: 0 20px;
     font-weight: 400;
@@ -32,24 +31,13 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     }
   `
 
-  const ImageStyle = css`
-    border-radius: 3px;
-    width: 100%;
-    height: 500px;
-    background: #c5d2d9 no-repeat 50%;
-    object-fit: cover;
-    @media (max-width: 620px) {
-      height: 250px;
-    }
-  `
   const headerWrapper = css`
     display: grid;
-    grid-template-columns: 1fr;
-    text-align: center;
-    grid-gap: 10px;
-    @media (max-width: 620px) {
-      grid-template-columns: 1fr;
-      text-align: center;
+    grid-template-columns: 80px 1fr;
+    grid-gap: 20px;
+    align-items: center;
+    h1 {
+      margin: 0;
     }
   `
 
@@ -73,6 +61,12 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     }
   `
 
+  const IconStyle = css`
+    width: 80px;
+    border-radius: 0px;
+    align-self: baseline;
+  `
+
   return (
     <Layout>
       <SEO
@@ -83,23 +77,20 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
 
       <Wrapper>
         <div css={headerWrapper}>
-          <h1>{tutorial.frontmatter.title}</h1>
-          {tutorial.frontmatter.tags.map((tag, i) => (
-            <Link
-              to={`/tags/${_.kebabCase(tag)}`}
-              key={i}
-              aria-label="Tutorial Icon"
-            >
-              <button type="button" css={tagStyle}>
-                #{tutorial.frontmatter.tags}
-              </button>
-            </Link>
-          ))}
+          <Img fluid={tutorial.frontmatter.icon.sharp.fluid} css={IconStyle} />
           <div>
-            <Img
-              fluid={tutorial.frontmatter.image.sharp.fluid}
-              css={ImageStyle}
-            />
+            <h1>{tutorial.frontmatter.title}</h1>
+            {tutorial.frontmatter.tags.map((tag, i) => (
+              <Link
+                to={`/tags/${_.kebabCase(tag)}`}
+                key={i}
+                aria-label="Tutorial Icon"
+              >
+                <button type="button" css={tagStyle}>
+                  #{tutorial.frontmatter.tags}
+                </button>
+              </Link>
+            ))}
           </div>
         </div>
       </Wrapper>

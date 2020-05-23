@@ -35,7 +35,7 @@ const Code = ({children, className, metastring}) => {
     font-size: 16px;
     line-height: 1.55rem;
     font-weight: 400;
-    font-family: 'Mono-Hero';
+    font-family: 'SFMono-Regular';
   `
 
   const wrapperStyles = css`

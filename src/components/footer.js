@@ -6,18 +6,16 @@ export default function Footer() {
   const wrapperStyles = css`
     padding: 40px 0;
     margin-top: 100px;
-    background: ${theme.success};
+    background: ${theme.danger};
   `
 
   const groupStyles = css`
-    max-width: 720px;
+    max-width: 780px;
     margin: auto;
     p {
       text-align: center;
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 1px;
-      color: ${theme.background};
+      font-size: 14px;
+      color: ${theme.accents1};
     }
   `
 

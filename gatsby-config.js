@@ -23,6 +23,12 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
     {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/libs/typography`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [

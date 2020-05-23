@@ -3,12 +3,11 @@ import {css} from '@emotion/core'
 import theme from '../config/theme'
 
 const wrapperStyles = css`
-  max-width: 720px;
+  max-width: 780px;
   margin: auto;
-  text-align: center;
-  padding: 50px 20px;
+  padding: 80px 20px;
   input {
-    max-width: 720px;
+    max-width: 780px;
   }
   h1 {
     font-size: 40px;

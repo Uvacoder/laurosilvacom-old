@@ -13,14 +13,15 @@ const Index = ({data}) => {
 
   const Hero = css`
     padding: 0 20px;
-    margin-bottom: 60px;
+    background: ${theme.danger};
+    padding-bottom: 100px;
   `
   const HeroWrapper = css`
     margin: auto;
     text-align: center;
     padding-top: 40px;
     h1 {
-      color: ${theme.foreground};
+      color: ${theme.accents1};
       font-size: 50px;
       line-height: 1;
       margin-top: 20px;
@@ -33,7 +34,8 @@ const Index = ({data}) => {
       margin: auto;
       font-size: 22px;
       line-height: 150%;
-      color: ${theme.accents3};
+      color: ${theme.accents1};
+      opacity: 0.8;
     }
     @media (max-width: 620px) {
       h1 {
@@ -50,15 +52,16 @@ const Index = ({data}) => {
 
       <div css={Hero}>
         <div css={HeroWrapper}>
-          <h1>Welcome to my Digital Garden!</h1>
+          <h1>Hey, I'm Lauro</h1>
           <p>
-            I'm Lauro Silva! I enjoy building thoughtful software and helping
-            individuals become better programmers.
+            I enjoy building thoughtful software and helping individuals become
+            better programmers.
           </p>
         </div>
       </div>
 
       <Grid>
+        <h2>Blog</h2>
         {tutorials.map(({node: tutorial}) => (
           <Link key={tutorial.id} to={`/${tutorial.frontmatter.slug}`}>
             <Card

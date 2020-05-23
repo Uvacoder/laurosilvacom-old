@@ -4,7 +4,7 @@ import theme from '../config/theme'
 
 export default function Nesletter() {
   const wrapperStyles = css`
-    max-width: 720px;
+    max-width: 780px;
     margin: auto;
     text-align: center;
     padding: 60px 20px;
@@ -13,7 +13,7 @@ export default function Nesletter() {
     border-radius: 4px;
     margin-top: 40px;
     input {
-      max-width: 720px;
+      max-width: 780px;
     }
     h1 {
       font-size: 40px;
@@ -38,7 +38,7 @@ export default function Nesletter() {
   const style = css`
     font-size: 18px;
     line-height: 1.4;
-    max-width: 720px;
+    max-width: 780px;
     margin: auto;
     margin-top: 20px;
   `

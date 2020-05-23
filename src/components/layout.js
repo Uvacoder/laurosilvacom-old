@@ -4,24 +4,22 @@ import Header from './header'
 import Footer from './footer'
 import reset from '../libs/reset'
 import theme from '../config/theme'
-import fonts from '../libs/fonts/hero.css'
 
 const custom = css`
   body {
     background: ${theme.background};
-    color: ${theme.foreground};
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: 'Hero', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-      Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 19px;
+  }
+  .highlight-line {
+    background-color: rgb(0, 30, 56);
+    margin: 0 -10px;
+    padding: 0 5px;
+    border-left: 5px solid #5533fe;
   }
 
   code {
     padding: 3px 5px;
     background: ${theme.accents2};
-    border-radius: 3px;
+    border-radius: 5px;
     font-size: 15px;
   }
 
@@ -34,9 +32,9 @@ const custom = css`
     padding-top: 10px;
     background: ${theme.accents1};
     border: 1px solid ${theme.accents2};
-    border-left: 6px solid ${theme.success};
+    border-left: 6px solid ${theme.danger};
     color: ${theme.accents3};
-    border-radius: 3px;
+    border-radius: 5px;
     padding-right: 10px;
   }
 
@@ -51,7 +49,7 @@ const custom = css`
   }
 
   a {
-    color: ${theme.success};
+    color: ${theme.danger};
     text-decoration: none;
   }
 
@@ -87,14 +85,8 @@ const custom = css`
     border-radius: 10px;
     margin: 50px 0;
   }
-  .highlight-line {
-    background-color: rgba(201, 167, 255, 0.2);
-    margin: 0 -10px;
-    padding: 0 5px;
-    border-left: 5px solid #c9a7ff;
-  }
   .anchor svg {
-    fill: ${theme.success};
+    fill: ${theme.danger};
   }
   .anchor {
     padding-right: 10px;
@@ -133,7 +125,6 @@ const custom = css`
 export const globalStyles = css`
   ${custom}
   ${reset},
-  ${fonts}
 `
 
 function Layout({children}) {
