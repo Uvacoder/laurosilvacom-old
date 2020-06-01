@@ -6,7 +6,7 @@ const postCard = css`
   height: 90px;
   display: grid;
   align-items: center;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
   position: relative;
   background: rgb(255, 255, 255);
   border-radius: 5px;
