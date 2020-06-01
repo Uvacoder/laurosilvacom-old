@@ -23,8 +23,8 @@ const typography = new Typography({
   headerLineHeight: 1.4,
   headerFontFamily: [fonts.light, 'sans-serif'],
   bodyFontFamily: [fonts.regular, 'sans-serif'],
-  headerColor: 'rgba(0, 0, 32, 0.9)',
-  bodyColor: 'rgba(0, 0, 32, 0.8)',
+  headerColor: 'hsla(0,0%,0%,0.9)',
+  bodyColor: 'hsla(0,0%,0%,0.8)',
 
   overrideStyles: ({rhythm}) => ({
     pre: {

@@ -30,6 +30,20 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
       font-weight: 600;
     }
   `
+  const ImageStyle = css`
+    border-radius: 5px;
+    width: 100%;
+    height: 500px;
+    background: #c5d2d9 no-repeat 50%;
+    object-fit: cover;
+    margin-top: 20px;
+    @media (max-width: 620px) {
+      height: 250px;
+    }
+    img {
+      border-radius: 5px;
+    }
+  `
 
   const headerWrapper = css`
     display: grid;
@@ -88,7 +102,7 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
         </div>
         <Image
           loading="eager"
-          css={css({marginTop: '20px'})}
+          css={ImageStyle}
           fluid={tutorial.frontmatter.image.sharp.fluid}
         />
       </Wrapper>

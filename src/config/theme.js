@@ -1,5 +1,5 @@
 const theme = {
-  background: '#f3f3f3',
+  background: '#fafafa',
   foreground: '#000020',
   accents1: '#ffffff',
   accents2: '#e6e6e6',

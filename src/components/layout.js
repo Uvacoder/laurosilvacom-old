@@ -33,7 +33,7 @@ const custom = css`
     background: ${theme.accents1};
     border: 1px solid ${theme.accents2};
     border-left: 6px solid ${theme.success};
-    color: ${theme.accents3};
+    color: ${theme.accents4};
     border-radius: 5px;
     padding-right: 10px;
   }

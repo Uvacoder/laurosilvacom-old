@@ -93,8 +93,13 @@ export default function Header() {
           <a href="https://twitter.com/laurosilvacom" rel="me">
             @laurosilvacom
           </a>
-          <Link to="/blog">Blog</Link>
-          <a href="https://laurosilvacom.substack.com/subscribe" rel="me">
+          <Link
+            to="/blog"
+            activeStyle={{background: '#ffffff57', opacity: '1'}}
+          >
+            Blog
+          </Link>
+          <a href="https://tinyletter.com/laurosilvacom" rel="me">
             Newsletter
           </a>
         </div>
