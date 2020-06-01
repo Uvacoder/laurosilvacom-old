@@ -9,7 +9,7 @@ const siteUrl =
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
-    description: `I'm a JavaScript software engineer. I enjoy building thoughtful software and helping individuals become better programmers.`,
+    description: `I'm a software engineer. I enjoy building thoughtful software and helping individuals become better programmers.`,
     author: `@laurosilvacom`,
     siteUrl,
     social: {
@@ -18,6 +18,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://laurosilva.com`,
+      },
+    },
     `gatsby-plugin-emotion`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
