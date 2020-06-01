@@ -13,7 +13,7 @@ const Index = ({data}) => {
 
   const Hero = css`
     padding: 0 20px;
-    background: ${theme.danger};
+    background: ${theme.success};
     padding-bottom: 100px;
   `
   const HeroWrapper = css`

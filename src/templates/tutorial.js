@@ -4,7 +4,7 @@ import {graphql, Link} from 'gatsby'
 import {MDXRenderer} from 'gatsby-plugin-mdx'
 import {MDXProvider} from '@mdx-js/react'
 import {css} from '@emotion/core'
-import Img from 'gatsby-image'
+import Image from 'gatsby-image'
 import Layout from '../components/layout'
 import Code from '../components/code'
 import SEO from '../components/seo'
@@ -38,6 +38,7 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     align-items: center;
     h2 {
       margin: 0;
+      align-self: baseline;
     }
     @media (max-width: 620px) {
       grid-template-columns: 1fr;
@@ -51,30 +52,11 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     }
   `
 
-  const tagStyle = css`
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: transparent;
-    border: 1px solid ${theme.accents2};
-    color: ${theme.accents3};
-    transition: all 0.15s ease;
-    cursor: pointer;
-    padding: 3px 20px;
-    margin: 10px 0;
-    padding-bottom: 4px;
-    font-family: 'Fira Mono';
-    opacity: 0.6;
-    :hover {
-      background: ${theme.accents1};
-      transform: translateY(-1px);
-      opacity: 1;
-    }
-  `
-
   const IconStyle = css`
     width: 80px;
     border-radius: 0px;
     align-self: baseline;
+    cursor: pointer;
     @media (max-width: 620px) {
       margin: auto;
     }
@@ -90,22 +72,25 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
 
       <Wrapper>
         <div css={headerWrapper}>
-          <Img fluid={tutorial.frontmatter.icon.sharp.fluid} css={IconStyle} />
-          <div>
-            <h2>{tutorial.frontmatter.title}</h2>
-            {tutorial.frontmatter.tags.map((tag, i) => (
-              <Link
-                to={`/tags/${_.kebabCase(tag)}`}
-                key={i}
-                aria-label="Tutorial Icon"
-              >
-                <button type="button" css={tagStyle}>
-                  #{tutorial.frontmatter.tags}
-                </button>
-              </Link>
-            ))}
-          </div>
+          {tutorial.frontmatter.tags.map((tag, i) => (
+            <Link
+              to={`/tags/${_.kebabCase(tag)}`}
+              key={i}
+              aria-label="Tutorial Icon"
+            >
+              <Image
+                fluid={tutorial.frontmatter.icon.sharp.fluid}
+                css={IconStyle}
+              />
+            </Link>
+          ))}
+          <h2>{tutorial.frontmatter.title}</h2>
         </div>
+        <Image
+          loading="eager"
+          css={css({marginTop: '20px'})}
+          fluid={tutorial.frontmatter.image.sharp.fluid}
+        />
       </Wrapper>
 
       <div css={content}>

@@ -9,11 +9,11 @@ const config = require('../config/website')
 
 export default function Header() {
   const wrapperStyles = css`
-    background: ${theme.danger};
+    background: ${theme.success};
   `
 
   const groupStyles = css`
-    max-width: 1440px;
+    max-width: 1240px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: auto;
@@ -43,6 +43,7 @@ export default function Header() {
       border-radius: 4px;
       transition: all 0.15s ease;
       font-weight: 600;
+      font-family: ${fonts.regular};
     }
     a:hover {
       opacity: 1;
@@ -64,7 +65,7 @@ export default function Header() {
     grid-template-columns: 50px 1fr;
     span {
       color: ${theme.accents1};
-      font-family: ${fonts.semibold};
+      font-family: ${fonts.regular};
       padding-left: 10px;
       font-size: 22px;
     }

@@ -71,7 +71,7 @@ export default function SearchPage({data}) {
         0 1px 3px rgba(0, 0, 0, 0.08);
     }
     ::placeholder {
-      color: ${theme.accents2};
+      color: ${theme.accents3};
     }
   `
 

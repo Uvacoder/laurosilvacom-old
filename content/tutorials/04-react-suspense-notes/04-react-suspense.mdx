@@ -51,7 +51,7 @@ React.useEffect(() => {
   setState({ status: "pending" })
   doAsyncThing().then(
     (p) => {
-      if (current) setState({ pokemon: p, status: "danger" })
+      if (current) setState({ pokemon: p, status: "success" })
     },
     (e) => {
       if (current) setState({ error: e, status: "error" })

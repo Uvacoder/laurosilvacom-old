@@ -32,7 +32,7 @@ const custom = css`
     padding-top: 10px;
     background: ${theme.accents1};
     border: 1px solid ${theme.accents2};
-    border-left: 6px solid ${theme.danger};
+    border-left: 6px solid ${theme.success};
     color: ${theme.accents3};
     border-radius: 5px;
     padding-right: 10px;
@@ -49,7 +49,7 @@ const custom = css`
   }
 
   a {
-    color: ${theme.danger};
+    color: ${theme.success};
     text-decoration: none;
   }
 
@@ -69,11 +69,11 @@ const custom = css`
   }
 
   ::selection {
-    background: ${theme.danger}; /* WebKit/Blink Browsers */
+    background: ${theme.success}; /* WebKit/Blink Browsers */
     color: ${theme.background};
   }
   ::-moz-selection {
-    background: ${theme.danger}; /* Gecko Browsers */
+    background: ${theme.success}; /* Gecko Browsers */
     color: ${theme.background};
   }
 
@@ -96,7 +96,7 @@ const custom = css`
     opacity: 0.5;
   }
   .anchor svg {
-    fill: ${theme.danger};
+    fill: ${theme.success};
   }
   .anchor {
     padding-right: 10px;

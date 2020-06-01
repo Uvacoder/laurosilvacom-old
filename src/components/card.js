@@ -35,7 +35,7 @@ const postCardHeader = css`
   h4 {
     margin: 0;
     @media (max-width: 420px) {
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 `
