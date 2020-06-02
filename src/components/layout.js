@@ -60,13 +60,6 @@ const custom = css`
   p {
     line-height: 1.6;
   }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    font-weight: bold;
-  }
 
   ::selection {
     background: ${theme.primary}; /* WebKit/Blink Browsers */

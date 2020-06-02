@@ -2,6 +2,7 @@
 import React from 'react'
 import {css} from '@emotion/core'
 import theme from '../config/theme'
+import {fonts} from '../libs/typography'
 
 export default function Nesletter() {
   const wrapperGroup = css`
@@ -10,16 +11,17 @@ export default function Nesletter() {
   `
   const wrapperStyles = css`
     padding: 20px;
-    height: 280px;
+    height: 240px;
     text-align: center;
     padding: 60px 20px;
     background: ${theme.primary};
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
     border-radius: 5px;
     padding: 20px;
-    h2 {
+    h3 {
       color: ${theme.accents1};
       margin: 10px;
+      font-family: ${fonts.light};
     }
     p {
       color: ${theme.accents1};
@@ -77,10 +79,7 @@ export default function Nesletter() {
       onSubmit="window.open('https://tinyletter.com/laurosilvacom', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
     >
       <div css={wrapperGroup}>
-        <h2>Join the Newsletter</h2>
-        <p>
-          <label htmlFor="tlemail">Email address</label>
-        </p>
+        <h3>Join the Newsletter</h3>
         <input
           css={mainInput}
           type="text"

@@ -20,7 +20,7 @@ const Index = ({data}) => {
     margin: auto;
     text-align: center;
     padding-top: 40px;
-    animation: HeroAnimation 2s 0.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation: HeroAnimation 2s 0.4s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
     opacity: 0;
     h1 {
       color: ${theme.accents1};
@@ -54,7 +54,7 @@ const Index = ({data}) => {
 
       <div css={Hero}>
         <div css={HeroWrapper}>
-          <h1>Hey, I'm Lauro</h1>
+          <h1>Hey, I'm Lauro!</h1>
           <p>
             I enjoy building thoughtful software and helping individuals become
             better programmers.

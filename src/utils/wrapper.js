@@ -1,6 +1,5 @@
 import React from 'react'
 import {css} from '@emotion/core'
-import theme from '../config/theme'
 
 const wrapperStyles = css`
   max-width: 780px;

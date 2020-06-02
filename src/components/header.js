@@ -42,7 +42,6 @@ export default function Header() {
       line-height: 17px;
       border-radius: 4px;
       transition: all 0.15s ease;
-      font-weight: 600;
       font-family: ${fonts.regular};
     }
     a:hover {

@@ -4,8 +4,6 @@ import {MDXRenderer} from 'gatsby-plugin-mdx'
 import {css} from '@emotion/core'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import Wrapper from '../utils/wrapper'
-import theme from '../config/theme'
 
 export default function PagesTemplate({data: {mdx: page}}) {
   const content = css`

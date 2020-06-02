@@ -22,12 +22,8 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     max-width: 780px;
     margin: auto;
     padding: 0 20px;
-    font-weight: 400;
     strong {
       color: ${theme.foreground};
-    }
-    a {
-      font-weight: 600;
     }
   `
   const ImageStyle = css`
