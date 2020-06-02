@@ -13,7 +13,7 @@ const Index = ({data}) => {
 
   const Hero = css`
     padding: 0 20px;
-    background: ${theme.success};
+    background: ${theme.primary};
     padding-bottom: 100px;
   `
   const HeroWrapper = css`
@@ -63,7 +63,7 @@ const Index = ({data}) => {
       </div>
 
       <Grid>
-        <h2>Blog</h2>
+        <h2>Tutorial</h2>
         {tutorials.map(({node: tutorial}) => (
           <Link key={tutorial.id} to={`/${tutorial.frontmatter.slug}`}>
             <Card

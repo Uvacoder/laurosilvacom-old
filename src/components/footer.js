@@ -6,7 +6,7 @@ export default function Footer() {
   const wrapperStyles = css`
     padding: 40px 0;
     margin-top: 100px;
-    background: ${theme.success};
+    background: ${theme.primary};
   `
 
   const groupStyles = css`

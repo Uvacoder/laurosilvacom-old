@@ -82,6 +82,7 @@ export default function Tutorials({data}) {
     }
     p {
       color: ${theme.accents3};
+      margin-top: 10px;
     }
   `
 
@@ -123,7 +124,10 @@ export default function Tutorials({data}) {
 
 export const pageQuery = graphql`
   query WritingPage {
-    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+    allMdx(
+      sort: {fields: frontmatter___date, order: DESC}
+      filter: {fileAbsolutePath: {regex: "//tutorials//"}}
+    ) {
       edges {
         node {
           id

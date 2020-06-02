@@ -32,8 +32,9 @@ const postCardHeader = css`
   grid-template-columns: 30px 1fr;
   grid-gap: 20px;
   align-items: center;
-  h4 {
+  h2 {
     margin: 0;
+    font-size: 20px;
     @media (max-width: 420px) {
       font-size: 16px;
     }
@@ -47,7 +48,7 @@ export default function Card(props) {
         <div>
           <Img fluid={props.tutorialIcon} css={IconStyle} />
         </div>
-        <h4>{props.tutorialTitle}</h4>
+        <h2>{props.tutorialTitle}</h2>
       </header>
     </div>
   )

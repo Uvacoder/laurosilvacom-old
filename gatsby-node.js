@@ -4,6 +4,14 @@ exports.createPages = async ({actions, graphql, reporter}) => {
   const {createPage} = actions
   const result = await graphql(`
     query {
+      pages: allMdx(filter: {fileAbsolutePath: {regex: "//pages//"}}) {
+        nodes {
+          frontmatter {
+            slug
+          }
+        }
+      }
+
       tutorials: allMdx(filter: {fileAbsolutePath: {regex: "//tutorials//"}}) {
         nodes {
           frontmatter {
@@ -33,6 +41,18 @@ exports.createPages = async ({actions, graphql, reporter}) => {
       context: {
         slug: tutorial.frontmatter.slug,
         url: `https://laurosilva.com/${tutorial.frontmatter.slug}/`,
+      },
+    })
+  })
+
+  // renders pages for lessons
+  const pages = result.data.pages.nodes
+  pages.forEach(page => {
+    actions.createPage({
+      path: `/${page.frontmatter.slug}/`,
+      component: require.resolve('./src/templates/page.js'),
+      context: {
+        slug: page.frontmatter.slug,
       },
     })
   })

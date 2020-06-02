@@ -9,7 +9,7 @@ const config = require('../config/website')
 
 export default function Header() {
   const wrapperStyles = css`
-    background: ${theme.success};
+    background: ${theme.primary};
   `
 
   const groupStyles = css`
