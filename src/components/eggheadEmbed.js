@@ -39,6 +39,7 @@ const cta = css`
   p {
     line-height: 1.1;
     margin-bottom: 15px;
+    font-size: 16px;
   }
 `
 
@@ -66,61 +67,64 @@ const buttonStyle = css`
 
 const mainWrapper = css`
   display: grid;
-  margin: 40px 0;
+  margin: 20px 0;
 `
 
-const EggheadEmbed = ({lessonLink, lessonTitle}) => (
-  <div css={mainWrapper}>
-    <div css={embedWrapper}>
-      <div css={cta}>
-        <h2>Watch the video</h2>
-        <small>NEW</small>
-      </div>
+export default function EggheadEmbed({lessonLink, lessonTitle}) {
+  const affiliateLink = 'af=4obayz'
+  const heroEmbedLink = `${lessonLink}?${affiliateLink}`.toString()
 
-      <p>Prefer your lessons in video format? Watch for free on egghead:</p>
-      <div css={embedStyle}>
-        <iframe
-          width="100%"
-          height="100%"
-          src={lessonLink}
-          title={lessonTitle}
-          frameBorder="0"
-          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreenstyle="position: absolute;width: 100%;height: 100%;"
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-          }}
-        />
+  return (
+    <div css={mainWrapper}>
+      <div css={embedWrapper}>
+        <div css={cta}>
+          <h2>Watch the video</h2>
+          <small>NEW</small>
+        </div>
+
+        <p>Prefer your lessons in video format? Watch for free on egghead:</p>
+        <div css={embedStyle}>
+          <iframe
+            width="100%"
+            height="100%"
+            src={heroEmbedLink}
+            title={lessonTitle}
+            frameBorder="0"
+            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreenstyle="position: absolute;width: 100%;height: 100%;"
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+            }}
+          />
+        </div>
       </div>
-    </div>
-    <button css={buttonStyle} type="button">
-      <a href={lessonLink}>
-        View on egghead
-        <i
-          fill="currentColor"
-          style={{display: 'inlineBlock', paddingLeft: '4px'}}
-        >
-          <svg
-            fill="none"
-            style={{display: 'inlineBlock', verticalAlign: 'middle'}}
-            height="16"
-            width="16"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+      <button css={buttonStyle} type="button">
+        <a href={heroEmbedLink}>
+          View on egghead
+          <i
+            fill="currentColor"
+            style={{display: 'inlineBlock', paddingLeft: '4px'}}
           >
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-            <polyline points="15 3 21 3 21 9" />
-            <line x1="10" y1="14" x2="21" y2="3" />
-          </svg>
-        </i>
-      </a>
-    </button>
-  </div>
-)
-
-export default EggheadEmbed
+            <svg
+              fill="none"
+              style={{display: 'inlineBlock', verticalAlign: 'middle'}}
+              height="16"
+              width="16"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </i>
+        </a>
+      </button>
+    </div>
+  )
+}

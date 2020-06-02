@@ -52,9 +52,7 @@ export default function Header() {
     @media (max-width: 580px) {
       a {
         font-size: 14px;
-      }
-      a:nth-of-type(1) {
-        display: none;
+        margin-left: 5px;
       }
     }
   `
@@ -82,6 +80,8 @@ export default function Header() {
     }
   `
 
+  const activeLinkStyles = {background: '#ffffff57', opacity: '1'}
+
   return (
     <div css={wrapperStyles}>
       <div css={groupStyles}>
@@ -90,18 +90,15 @@ export default function Header() {
           <span>Lauro Silva</span>
         </Link>
         <div css={navStyles}>
-          <a href="https://twitter.com/laurosilvacom" rel="me">
-            @laurosilvacom
-          </a>
-          <Link
-            to="/blog"
-            activeStyle={{background: '#ffffff57', opacity: '1'}}
-          >
-            Blog
+          <Link to="/about" activeStyle={activeLinkStyles}>
+            About
           </Link>
-          <a href="https://tinyletter.com/laurosilvacom" rel="me">
-            Newsletter
-          </a>
+          <Link to="/contact" activeStyle={activeLinkStyles}>
+            Contact
+          </Link>
+          <Link to="/tutorials" activeStyle={activeLinkStyles}>
+            Tutorials
+          </Link>
         </div>
       </div>
     </div>

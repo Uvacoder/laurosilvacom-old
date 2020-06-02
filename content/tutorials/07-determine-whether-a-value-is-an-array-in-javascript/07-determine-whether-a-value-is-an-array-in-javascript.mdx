@@ -6,13 +6,34 @@ image: ./images/cover.png
 icon: ../icons/javascript.png
 tags: ["javascript"]
 lead: you will learn how to check if a JavaScript value is an array with isArray() a static method provided by the Array built-in object.
+video: true
 ---
 
 import EggheadEmbed from "../../../src/components/eggheadEmbed"
-
-In this tutorial, you will learn how to check if a JavaScript value is an array with `isArray()` a static method provided by the `Array` built-in object. This is an alternative to using the operator `typeof`, since arrays are technically objects.
 
 <EggheadEmbed
   lessonTitle="Determine whether a Value is an Array in JavaScript"
   lessonLink="https://egghead.io/lessons/javascript-determine-whether-a-value-is-an-array-in-javascript/embed"
 />
+
+It mighty be tempting to use the operator `typeof` , on the array.
+
+```jsx
+const food = typeof ["🧀", "🍤", "🍔", "🥞"]
+
+console.log(food)
+```
+
+But as you can see, it returns an object. This is because **arrays are technically objects**. Instead, we can use `isArray()` a static method provided by the `Array` built-in object.
+
+```jsx {3,7}
+const list = typeof ["🧀", "🍤", "🍔", "🥞"]
+const list2 = ["🧀", "🍤", "🍔", "🥞"]
+const list3 = true
+
+console.log(list)
+console.log(Array.isArray(list2))
+console.log(Array.isArray(list3)) // returns false
+```
+
+To summarize, if the value is an Array, `true` is returned; otherwise, `false` is.

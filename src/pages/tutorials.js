@@ -9,7 +9,7 @@ import Grid from '../utils/grid'
 import Wrapper from '../utils/wrapper'
 import theme from '../config/theme'
 
-export default function SearchPage({data}) {
+export default function Tutorials({data}) {
   const allContent = data.allMdx.edges
 
   const emptyQuery = ''

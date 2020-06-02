@@ -5,7 +5,7 @@ import theme from '../config/theme'
 const wrapperStyles = css`
   max-width: 780px;
   margin: auto;
-  padding: 80px 20px;
+  padding: 50px 20px;
   input {
     max-width: 780px;
   }

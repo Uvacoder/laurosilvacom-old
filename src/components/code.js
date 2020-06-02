@@ -30,7 +30,7 @@ const Code = ({children, className, metastring}) => {
     float: left;
     min-width: 100%;
     overflow: initial;
-    background-color: #011628 !important;
+    background-color: ${styleTheme.nightOwl} !important;
     padding: 20px 10px;
     font-size: 18px;
     font-family: 'Dank Mono', monospace, monospace;
@@ -39,12 +39,6 @@ const Code = ({children, className, metastring}) => {
   const wrapperStyles = css`
     overflow: auto;
     border-radius: 6px;
-    margin-left: -80px;
-    margin-right: -80px;
-    @media (max-width: 620px) {
-      margin-left: 0px;
-      margin-right: 0px;
-    }
   `
 
   const spanStyles = css`

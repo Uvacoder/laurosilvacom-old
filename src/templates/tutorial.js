@@ -100,11 +100,13 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
           ))}
           <h2>{tutorial.frontmatter.title}</h2>
         </div>
-        <Image
-          loading="eager"
-          css={ImageStyle}
-          fluid={tutorial.frontmatter.image.sharp.fluid}
-        />
+        {tutorial.frontmatter.video === true ? null : (
+          <Image
+            loading="eager"
+            css={ImageStyle}
+            fluid={tutorial.frontmatter.image.sharp.fluid}
+          />
+        )}
       </Wrapper>
 
       <div css={content}>
@@ -125,6 +127,7 @@ export const query = graphql`
         tags
         date
         lead
+        video
         image {
           sharp: childImageSharp {
             fluid(maxWidth: 1200, quality: 100) {
