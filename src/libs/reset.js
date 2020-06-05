@@ -41,11 +41,6 @@ const reset = css`
     text-decoration: underline dotted; /* 2 */
   }
 
-  b,
-  strong {
-    font-weight: bolder;
-  }
-
   code,
   kbd,
   samp {
