@@ -10,7 +10,6 @@ export default function PagesTemplate({data: {mdx: page}}) {
     max-width: 780px;
     margin: auto;
     padding: 0 20px;
-    font-weight: 400;
     margin-top: 80px;
   `
   return (

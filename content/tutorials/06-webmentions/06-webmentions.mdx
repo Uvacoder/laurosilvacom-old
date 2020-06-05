@@ -1,5 +1,5 @@
 ---
-title: How I’m effectively just outsourcing my blog comments to Twitter
+title: Pair Programming Notes - Adding Webmentions to Gatsby Blog
 date: 2020-04-22
 slug: webmentions
 image: ./images/cover.png
@@ -9,34 +9,39 @@ lead: Notes on turning social media interactions into Webmentions for my digital
 video: false
 ---
 
-- What are webmentions?
-  - A [Webmention](https://indieweb.org/Webmention) is an open standard for a reaction to something on the web.
-    - W3C standard - full recommendation in Jan 2017
-    - [IndieWeb](https://indieweb.org/)
-      - Group of hipsters with websites trying to take down THE MAN (aka the corporate web)
-  - When you link to a website, you can send it a Webmention to notify it.
-  - Somewhat of a "Ping" or "@"
-- The new workflow
-  - I write a pretty cool post on laurosilva.com
-  - I post a link to the post on Twitter
-  - Someone RT's, Likes or Comments on Twitter.
-  - Social media activity shows up on my blog post.
-  - I’m effectively just outsourcing my comments to Twitter now. 😅
-- Inspired
-  - https://www.swyx.io/
-- How to get started
-  - [Chris Biscardi’s source plugin](https://www.christopherbiscardi.com/post/building-gatsby-plugin-webmentions) to pull data from [webmention.io](https://webmention.io/)’s API
-  - WebMention.io takes care of the nitty gritty of accepting & storing WebMentions.
-  - [brid.gy](https://brid.gy/) crawls social media activity into WebMentions. Send that data using a Webhook to laurosilva.com.
-    - Bridgy looks at the post linked in my tweet, loads the link tag pointing it to webmention.io, and sends a WebMention to laurosilva.com
-  - Pull the data into my Gatsby blog.
-    - My site rebuilds pulling data from webmention.io
-- Further Resources
-  - Webmentions in Gatsby https://www.knutmelvaer.no/blog/2019/06/getting-started-with-webmentions-in-gatsby/
-  - Clientside Webmentions in Svelte https://www.swyx.io/writing/clientside-webmentions/
-  - Basic starter template Eleventy - https://github.com/maxboeck/eleventy-webmentions
-  - [Webmention.io Jekyll Plugin](https://github.com/aarongustafson/jekyll-webmention_io) by Aaron Gustafson
-  - Live Stream with [Kevin Cunningham](https://www.kevincunningham.co.uk/) - https://www.kevincunningham.co.uk/wiki/Webmentions
-  - laurosilva.com - open source - https://github.com/laurosilvacom/laurosilva.com
-- All my notes for this talk can be found here - https://laurosilva.com/webmentions
-- Want to see if it works? 👇🏽
+## What are webmentions?
+
+- A [Webmention](https://indieweb.org/Webmention) is an open standard for a reaction to something on the web.
+  - W3C standard - full recommendation in Jan 2017
+  - [IndieWeb](https://indieweb.org/)
+    - Group of hipsters with websites trying to take down THE MAN (aka the corporate web)
+- When you link to a website, you can send it a Webmention to notify it.
+- Somewhat of a "Ping" or "@"
+
+## The new workflow
+
+- I write a pretty cool post on laurosilva.com
+- I post a link to the post on Twitter
+- Someone RT's, Likes or Comments on Twitter.
+- Social media activity shows up on my blog post.
+- I’m effectively just outsourcing my comments to Twitter now. 😅
+- Inspired by: https://www.swyx.io/
+
+## How to get started
+
+- [Chris Biscardi’s source plugin](https://www.christopherbiscardi.com/post/building-gatsby-plugin-webmentions) to pull data from [webmention.io](https://webmention.io/)’s API
+- WebMention.io takes care of the nitty gritty of accepting & storing WebMentions.
+- [brid.gy](https://brid.gy/) crawls social media activity into WebMentions. Send that data using a Webhook to laurosilva.com.
+  - Bridgy looks at the post linked in my tweet, loads the link tag pointing it to webmention.io, and sends a WebMention to laurosilva.com
+- Pull the data into my Gatsby blog.
+  - My site rebuilds pulling data from webmention.io
+
+## Further Resources
+
+- [Getting started with Webmentions in Gatsby](https://www.knutmelvaer.no/blog/2019/06/getting-started-with-webmentions-in-gatsby/)
+- [Source Code to laurosilva.com](https://github.com/laurosilvacom/laurosilva.com/tree/bfb76cc405685de98de0fe753464a9c49329e633)
+- [Webmentions in Gatsby](https://www.knutmelvaer.no/blog/2019/06/getting-started-with-webmentions-in-gatsby/)
+- [Clientside Webmentions in Svelte](https://www.swyx.io/writing/clientside-webmentions/)
+- [Basic starter template Eleventy](https://github.com/maxboeck/eleventy-webmentions)
+- [Webmention.io Jekyll Plugin](https://github.com/aarongustafson/jekyll-webmention_io)
+- [Kevin Cunningham Note's](https://www.kevincunningham.co.uk/wiki/Webmentions)
