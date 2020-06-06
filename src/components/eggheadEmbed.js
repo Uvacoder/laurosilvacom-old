@@ -74,6 +74,14 @@ export default function EggheadEmbed({lessonLink, lessonTitle}) {
   const affiliateLink = 'af=4obayz'
   const heroEmbedLink = `${lessonLink}?${affiliateLink}`.toString()
 
+  const normalLink = `${lessonLink.substring(
+    0,
+    lessonLink.length - 6,
+  )}?${affiliateLink}`
+
+  console.log(normalLink)
+  console.log(heroEmbedLink)
+
   return (
     <div css={mainWrapper}>
       <div css={embedWrapper}>
@@ -101,7 +109,7 @@ export default function EggheadEmbed({lessonLink, lessonTitle}) {
         </div>
       </div>
       <button css={buttonStyle} type="button">
-        <a href={heroEmbedLink}>
+        <a href={normalLink}>
           View on egghead
           <i
             fill="currentColor"
