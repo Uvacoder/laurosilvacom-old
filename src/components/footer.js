@@ -10,7 +10,7 @@ export default function Footer() {
   `
 
   const groupStyles = css`
-    max-width: 780px;
+    max-width: 720px;
     margin: auto;
     p {
       text-align: center;

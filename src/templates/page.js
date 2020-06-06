@@ -7,7 +7,7 @@ import SEO from '../components/seo'
 
 export default function PagesTemplate({data: {mdx: page}}) {
   const content = css`
-    max-width: 780px;
+    max-width: 720px;
     margin: auto;
     padding: 0 20px;
     margin-top: 80px;

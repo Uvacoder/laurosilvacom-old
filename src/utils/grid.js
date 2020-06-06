@@ -4,7 +4,7 @@ import theme from '../config/theme'
 
 const ineerStyles = css`
   margin: auto;
-  max-width: 780px;
+  max-width: 720px;
 `
 
 const postFeed = css`

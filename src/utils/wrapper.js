@@ -2,11 +2,11 @@ import React from 'react'
 import {css} from '@emotion/core'
 
 const wrapperStyles = css`
-  max-width: 780px;
+  max-width: 720px;
   margin: auto;
   padding: 50px 20px;
   input {
-    max-width: 780px;
+    max-width: 720px;
   }
 `
 

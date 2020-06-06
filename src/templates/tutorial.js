@@ -19,7 +19,7 @@ const _ = require('lodash')
 
 export default function TutorialTemplate({data: {mdx: tutorial}}) {
   const content = css`
-    max-width: 780px;
+    max-width: 720px;
     margin: auto;
     padding: 0 20px;
     strong {
