@@ -79,9 +79,6 @@ export default function EggheadEmbed({lessonLink, lessonTitle}) {
     lessonLink.length - 6,
   )}?${affiliateLink}`
 
-  console.log(normalLink)
-  console.log(heroEmbedLink)
-
   return (
     <div css={mainWrapper}>
       <div css={embedWrapper}>
