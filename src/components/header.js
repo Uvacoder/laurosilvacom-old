@@ -48,7 +48,7 @@ export default function Header() {
       opacity: 1;
       background: #ffffff57;
     }
-    @media (max-width: 580px) {
+    @media (max-width: 480px) {
       a {
         font-size: 14px;
         margin-left: 5px;

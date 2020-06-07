@@ -3,17 +3,14 @@ require('dotenv').config()
 
 const config = require('./src/config/website')
 
-const siteUrl =
-  process.env.URL || process.env.DEPLOY_URL || `https://laurosilva.com`
-
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
-    description: `I'm a software engineer. I enjoy building thoughtful software and helping individuals become better programmers.`,
-    author: `@laurosilvacom`,
-    siteUrl,
+    description: config.siteDescription,
+    author: config.siteAuthor,
+    siteUrl: config.siteURL,
     social: {
-      twitter: `laurosilvacom`,
+      twitter: config.siteAuthorTwitter,
     },
   },
   plugins: [
@@ -32,20 +29,6 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/libs/typography`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Source Sans Pro`,
-            variants: [`400`, `600`, `700`],
-          },
-          {
-            family: `Fira Mono`,
-          },
-        ],
       },
     },
     {
@@ -99,7 +82,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: `tutorials`,
+        name: `pages`,
         path: `${__dirname}/content/pages/`,
       },
     },
@@ -119,10 +102,10 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#4e01ff`,
-        theme_color: `#4e01ff`,
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
         display: `minimal-ui`,
-        icon: `src/images/icon.png`,
+        icon: config.siteLogo,
       },
     },
   ],
