@@ -1,7 +1,7 @@
 module.exports = {
   // Site Config
   siteTitle: 'Lauro Silva',
-  siteDescription: `Lauro Silva is a software engineer and instructor. He's active in the open-source community and teaches JavaScript.`,
+  siteDescription: `Lauro Silva is a software engineer and instructor. He's active in the open-source community and teaches JavaScript for the browser and Node.`,
   siteAuthor: `@laurosilvacom`,
   siteAuthorTwitter: `laurosilvacom`,
   siteLogo: `src/images/icon.png`,

@@ -86,6 +86,7 @@ const Index = ({data}) => {
       font-size: 30px;
       line-height: 1.4;
       margin-top: 0;
+      margin-bottom: 0;
     }
   `
 
