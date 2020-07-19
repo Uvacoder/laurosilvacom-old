@@ -3,7 +3,7 @@ import {css} from '@emotion/core'
 import Img from 'gatsby-image'
 
 const postCard = css`
-  height: 90px;
+  height: 100px;
   display: grid;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
@@ -46,9 +46,9 @@ export default function Card(props) {
     <div css={postCard}>
       <header css={postCardHeader}>
         <div>
-          <Img fluid={props.tutorialIcon} css={IconStyle} />
+          <Img fluid={props.postIcon} css={IconStyle} />
         </div>
-        <h2>{props.tutorialTitle}</h2>
+        <h2>{props.postTitle}</h2>
       </header>
     </div>
   )

@@ -54,7 +54,7 @@ const typography = new Typography({
       lineHeight: 1.25,
       marginTop: rhythm(1),
       marginBottom: rhythm(1 / 2),
-      letterSpacing: '-0.04rem',
+      letterSpacing: '-0.02rem',
       fontFamily: fonts.semibold,
     },
     strong: {

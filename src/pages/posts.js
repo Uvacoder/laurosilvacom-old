@@ -9,7 +9,7 @@ import Grid from '../utils/grid'
 import Wrapper from '../utils/wrapper'
 import theme from '../config/theme'
 
-export default function Tutorials({data}) {
+export default function BlogPosts({data}) {
   const allContent = data.allMdx.edges
 
   const emptyQuery = ''
@@ -92,7 +92,7 @@ export default function Tutorials({data}) {
 
       <Wrapper>
         <div css={inputWrapper}>
-          <h1>Tutorials</h1>
+          <h1>Blog Posts</h1>
           <input
             // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
@@ -107,13 +107,13 @@ export default function Tutorials({data}) {
       </Wrapper>
 
       <Grid>
-        {pages.map(({node: tutorial}) => (
-          <Link key={tutorial.id} to={`/${tutorial.frontmatter.slug}`}>
+        {pages.map(({node: post}) => (
+          <Link key={post.id} to={`/${post.frontmatter.slug}`}>
             <Card
-              tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
-              tutorialTitle={tutorial.frontmatter.title}
-              tutorialLead={tutorial.frontmatter.lead}
-              tutorialImage={tutorial.frontmatter.image.sharp.fluid}
+              postIcon={post.frontmatter.icon.sharp.fluid}
+              postTitle={post.frontmatter.title}
+              postLead={post.frontmatter.lead}
+              postImage={post.frontmatter.image.sharp.fluid}
             />
           </Link>
         ))}
@@ -126,7 +126,7 @@ export const pageQuery = graphql`
   query WritingPage {
     allMdx(
       sort: {fields: frontmatter___date, order: DESC}
-      filter: {fileAbsolutePath: {regex: "//tutorials//"}}
+      filter: {fileAbsolutePath: {regex: "//posts//"}}
     ) {
       edges {
         node {

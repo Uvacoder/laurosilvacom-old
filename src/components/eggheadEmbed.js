@@ -9,6 +9,7 @@ const embedWrapper = css`
   border: 1px solid ${theme.accents2};
   border-radius: 5px;
   border-bottom-right-radius: 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
 `
 
 const cta = css`

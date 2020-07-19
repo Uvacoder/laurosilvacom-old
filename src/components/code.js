@@ -39,6 +39,10 @@ const Code = ({children, className, metastring}) => {
   const wrapperStyles = css`
     overflow: auto;
     border-radius: 6px;
+    margin: 0 -80px;
+    @media (max-width: 880px) {
+      margin: 0;
+    }
   `
 
   const spanStyles = css`

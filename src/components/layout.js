@@ -36,6 +36,7 @@ const custom = css`
     color: ${theme.accents4};
     border-radius: 5px;
     padding-right: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
   }
 
   button:focus {

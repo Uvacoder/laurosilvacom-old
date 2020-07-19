@@ -12,7 +12,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
         }
       }
 
-      tutorials: allMdx(filter: {fileAbsolutePath: {regex: "//tutorials//"}}) {
+      posts: allMdx(filter: {fileAbsolutePath: {regex: "//posts//"}}) {
         nodes {
           frontmatter {
             slug
@@ -32,15 +32,15 @@ exports.createPages = async ({actions, graphql, reporter}) => {
     reporter.panic('failed to create pages', result.errors)
   }
 
-  // renders pages for tutorials
-  const tutorials = result.data.tutorials.nodes
-  tutorials.forEach(tutorial => {
+  // renders pages for posts
+  const posts = result.data.posts.nodes
+  posts.forEach(post => {
     actions.createPage({
-      path: `/${tutorial.frontmatter.slug}/`,
-      component: require.resolve('./src/templates/tutorial.js'),
+      path: `/${post.frontmatter.slug}/`,
+      component: require.resolve('./src/templates/post.js'),
       context: {
-        slug: tutorial.frontmatter.slug,
-        url: `https://laurosilva.com/${tutorial.frontmatter.slug}/`,
+        slug: post.frontmatter.slug,
+        url: `https://laurosilva.com/${post.frontmatter.slug}/`,
       },
     })
   })
@@ -57,7 +57,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
     })
   })
 
-  // renders pages for courses, based from tutorials tags
+  // renders pages for courses, based from posts tags
   const tags = result.data.tagsGroup.group
   tags.forEach(tag => {
     createPage({

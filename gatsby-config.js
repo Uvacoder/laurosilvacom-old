@@ -21,6 +21,12 @@ module.exports = {
         siteUrl: `https://laurosilva.com`,
       },
     },
+    {
+      resolve: 'gatsby-source-custom-api',
+      options: {
+        url: 'https://egghead.io/api/v1/instructors/lauro-silva/lessons',
+      },
+    },
     `gatsby-plugin-emotion`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -75,8 +81,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: `tutorials`,
-        path: `${__dirname}/content/tutorials/`,
+        name: `posts`,
+        path: `${__dirname}/content/posts/`,
       },
     },
     {

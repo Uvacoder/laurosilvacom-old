@@ -4,19 +4,33 @@ import {Link, graphql} from 'gatsby'
 import {css} from '@emotion/core'
 import Layout from '../components/layout'
 import Card from '../components/card'
+import LessonCard from '../components/lessonCard'
 import SEO from '../components/seo'
 import theme from '../config/theme'
 import Grid from '../utils/grid'
 import Newsletter from '../components/newsletter'
 
 const Index = ({data}) => {
-  const {edges: tutorials} = data.allMdx
+  const {edges: posts} = data.allMdx
+  const {edges: lessons} = data.allCustomApi
+
+  console.log(lessons)
 
   const NewsletterWrapper = css`
     max-width: 720px;
     margin: auto;
-    padding: 0 20px;
+    padding: 20px;
+    margin-top: 50px;
   `
+  const NewsletterGroup = css`
+  max-width: 720px;
+  margin: auto;
+  border-radius: 5px;
+  padding: 30px;
+  background: ${theme.accents1};
+  border: 1px solid ${theme.accents2};
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
+`
 
   const Hero = css`
     padding: 0 20px;
@@ -38,24 +52,23 @@ const Index = ({data}) => {
     }
     p {
       margin-top: 10px;
-      opacity: 0.9;
-      max-width: 620px;
+      max-width: 720px;
       margin: auto;
-      font-size: 22px;
       line-height: 150%;
       color: ${theme.accents1};
-      opacity: 0.6;
+      font-size: 24px;
+      opacity: 0.7;
     }
     @media (max-width: 620px) {
       h1 {
         font-size: 35px;
       }
       p {
-        font-size: 18px;
+        font-size: 22px;
       }
     }
   `
-  const allTutorials = css`
+  const allPosts = css`
     align-items: center;
     display: flex;
     height: 56px;
@@ -79,7 +92,9 @@ const Index = ({data}) => {
       cursor: pointer;
       padding: 6px 20px;
       :hover {
-        transform: scale(1.05);
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.08),
+          0 1px 3px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
       }
     }
     h2 {
@@ -115,30 +130,50 @@ const Index = ({data}) => {
       </div>
 
       <Grid>
-        <div css={allTutorials}>
-          <h2>Latest Tutorials</h2>
-          <Link to="/tutorials">
+        <div css={allPosts}>
+          <h2>Posts</h2>
+          <Link to="/posts">
             <button>View All</button>
           </Link>
         </div>
-        {tutorials.map(({node: tutorial}) => (
-          <Link key={tutorial.id} to={`/${tutorial.frontmatter.slug}`}>
+        {posts.map(({node: post}) => (
+          <Link key={post.id} to={`/${post.frontmatter.slug}`}>
             <Card
-              tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
-              tutorialTitle={tutorial.frontmatter.title}
-              tutorialLead={tutorial.frontmatter.lead}
-              tutorialImage={tutorial.frontmatter.image.sharp.fluid}
+              postIcon={post.frontmatter.icon.sharp.fluid}
+              postTitle={post.frontmatter.title}
             />
           </Link>
         ))}
       </Grid>
+
+      <Grid>
+        <div css={allPosts}>
+          <h2>Lessons</h2>
+          <a href="https://egghead.io/instructors/lauro-silva">
+            <button>View All</button>
+          </a>
+        </div>
+        
+        {lessons.map(({node: lesson}) => (
+          <a href={lesson.http_url}>
+            <LessonCard
+              lessonIcon={lesson.image_128_url}
+              lessonTitle={lesson.title}
+            />
+          </a>
+        ))}       
+      </Grid>
+      
       <div css={NewsletterWrapper}>
-        <h2>Newsletter</h2>
-        <p>
-          I write tutorials. Get an update when something new comes out by
-          signing up below! You can always unsubscribe.
-        </p>
-        <Newsletter />
+        <div css={NewsletterGroup}> 
+          <h2>Newsletter</h2>
+          <p>
+            I'm pretty into React, JavaScript, and tooling. My weekly emails
+            reflect this preference. Get an update when something new comes out by
+            signing up below! You can always unsubscribe.
+          </p>
+          <Newsletter />
+        </div>
       </div>
     </Layout>
   )
@@ -148,9 +183,19 @@ export default Index
 
 export const pageQuery = graphql`
   query IndexPage {
+    allCustomApi( limit: 8) {
+      edges {
+        node {
+          id
+          http_url
+          title
+          image_128_url
+        }
+      }
+    }
     allMdx(
       sort: {fields: frontmatter___date, order: DESC}
-      filter: {fileAbsolutePath: {regex: "//tutorials//"}}
+      filter: {fileAbsolutePath: {regex: "//posts//"}}
       limit: 6
     ) {
       edges {

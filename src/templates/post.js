@@ -10,6 +10,8 @@ import Code from '../components/code'
 import SEO from '../components/seo'
 import Wrapper from '../utils/wrapper'
 import theme from '../config/theme'
+import Newsletter from '../components/newsletter'
+import {fonts} from '../libs/typography'
 
 const components = {
   code: Code,
@@ -17,13 +19,16 @@ const components = {
 
 const _ = require('lodash')
 
-export default function TutorialTemplate({data: {mdx: tutorial}}) {
+export default function PostTemplate({data: {mdx: post}}) {
   const content = css`
     max-width: 720px;
     margin: auto;
     padding: 0 20px;
     strong {
       color: ${theme.foreground};
+    }
+    a {
+      font-family: ${fonts.semibold};
     }
   `
   const ImageStyle = css`
@@ -72,43 +77,66 @@ export default function TutorialTemplate({data: {mdx: tutorial}}) {
     }
   `
 
+  const NewsletterWrapper = css`
+    max-width: 720px;
+    margin: auto;
+    border-radius: 5px;
+    padding: 20px;
+    background: ${theme.accents1};
+    border: 1px solid ${theme.accents2};
+    margin-top: 100px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
+    @media (max-width: 520px) {
+      margin: 20px;
+    }
+  `
+
   return (
     <Layout>
       <SEO
-        title={tutorial.frontmatter.title}
-        description={tutorial.frontmatter.lead}
-        image={tutorial.frontmatter.image.sharp.fluid}
+        title={post.frontmatter.title}
+        description={post.frontmatter.lead}
+        image={post.frontmatter.image.sharp.fluid}
       />
 
       <Wrapper>
         <div css={headerWrapper}>
-          {tutorial.frontmatter.tags.map((tag, i) => (
+          {post.frontmatter.tags.map((tag, i) => (
             <Link
               to={`/tags/${_.kebabCase(tag)}`}
               key={i}
-              aria-label="Tutorial Icon"
+              aria-label="Post Icon"
             >
               <Image
-                fluid={tutorial.frontmatter.icon.sharp.fluid}
+                fluid={post.frontmatter.icon.sharp.fluid}
                 css={IconStyle}
               />
             </Link>
           ))}
-          <h2>{tutorial.frontmatter.title}</h2>
+          <h2>{post.frontmatter.title}</h2>
         </div>
-        {tutorial.frontmatter.video === true ? null : (
+        {post.frontmatter.video === true ? null : (
           <Image
             loading="eager"
             css={ImageStyle}
-            fluid={tutorial.frontmatter.image.sharp.fluid}
+            fluid={post.frontmatter.image.sharp.fluid}
           />
         )}
       </Wrapper>
 
       <div css={content}>
         <MDXProvider components={components}>
-          <MDXRenderer components={components}>{tutorial.body}</MDXRenderer>
+          <MDXRenderer components={components}>{post.body}</MDXRenderer>
         </MDXProvider>
+      </div>
+      <div css={NewsletterWrapper}>
+        <h2>Newsletter 📫</h2>
+        <p>
+          I'm pretty into React, JavaScript, and tooling. My weekly emails
+          reflect this preference. Get an update when something new comes out by
+          signing up below! You can always unsubscribe.
+        </p>
+        <Newsletter />
       </div>
     </Layout>
   )

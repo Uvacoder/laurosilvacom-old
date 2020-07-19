@@ -4,7 +4,7 @@ date: 2020-04-22
 slug: build-content-rich-apps-gatsby-and-contentful-notes
 image: ./images/cover.png
 icon: ../icons/gatsby.png
-tags: ["gatsby"]
+tags: ['gatsby']
 lead: These notes are intended to be used and studied in tandem with Khaled Garbaya's Build Content Rich Progressive Web Apps with Gatsby and Contentful course.
 video: false
 ---
@@ -77,29 +77,29 @@ Export the function. Inside of this function, we'll have access to the migration
 module.exports = function (migration) {
   // create the content type
   const instructor = migration
-    .createContentType("intructor")
-    .name("Instructor")
-    .description("")
-    .displayField("fullName")
+    .createContentType('intructor')
+    .name('Instructor')
+    .description('')
+    .displayField('fullName')
 
   //fields
-  instructor.createField("fullName").name("Full Name").type("Symbol")
+  instructor.createField('fullName').name('Full Name').type('Symbol')
 
   // fields
-  instructor.createField("fullName").name("Full Name").type("Symbol")
-  instructor.createField("slug").name("Slug").type("Symbol")
-  instructor.createField("bio").name("Bio").type("Symbol")
-  instructor.createField("website").name("website").type("Symbol")
-  instructor.createField("twitter").name("Twitter").type("Symbol")
-  instructor.createField("github").name("Github").type("Symbol")
+  instructor.createField('fullName').name('Full Name').type('Symbol')
+  instructor.createField('slug').name('Slug').type('Symbol')
+  instructor.createField('bio').name('Bio').type('Symbol')
+  instructor.createField('website').name('website').type('Symbol')
+  instructor.createField('twitter').name('Twitter').type('Symbol')
+  instructor.createField('github').name('Github').type('Symbol')
 
-  instructor.createField("avatar").name("Avatar").type("Link").linkType("Asset")
+  instructor.createField('avatar').name('Avatar').type('Link').linkType('Asset')
 
   // appearances
-  instructor.changeEditorInterface("slug", "slugEditor", {})
-  instructor.changeEditorInterface("website", "urlEditor", {})
-  instructor.changeEditorInterface("twitter", "urlEditor", {})
-  instructor.changeEditorInterface("github", "urlEditor", {})
+  instructor.changeEditorInterface('slug', 'slugEditor', {})
+  instructor.changeEditorInterface('website', 'urlEditor', {})
+  instructor.changeEditorInterface('twitter', 'urlEditor', {})
+  instructor.changeEditorInterface('github', 'urlEditor', {})
 }
 ```
 
@@ -119,13 +119,13 @@ We can follow the same steps for other content types.
 // seo.js
 module.exports = function (migration) {
   const seo = migration
-    .createContentType("seo")
-    .name("SEO")
-    .description("")
-    .displayField("title")
-  seo.createField("title").name("Title").type("Symbol")
-  seo.createField("description").name("Description").type("Symbol")
-  seo.createField("keywords").name("Keywords").type("Symbol")
+    .createContentType('seo')
+    .name('SEO')
+    .description('')
+    .displayField('title')
+  seo.createField('title').name('Title').type('Symbol')
+  seo.createField('description').name('Description').type('Symbol')
+  seo.createField('keywords').name('Keywords').type('Symbol')
 }
 ```
 
@@ -188,7 +188,7 @@ This code should live next to your website in the repository, so another develop
 Run `npx gatsby new` and give it the name of the website.
 
 ```bash
-npx gatsby new jamstacktutorials
+npx gatsby new jamstackposts
 ```
 
 Now let's `cd` to this directory. Let's run `npm run develop`. Now let's add some Contentful dependency to it. Install the `gatsby-source-contentful` plugin:
@@ -245,7 +245,7 @@ Let's `import { graphql } from "gatsby"`. Once the query is done, Gatsby will pa
 Once you have all the data import it, now you can render it. Example:
 
 ```js
-import Card from "../components/card"
+import Card from '../components/card'
 ;<div className="flex flex-wrap -mx-3">
   {allContentfulLesson.edges.map(({ node }) => (
     <Card node={{ ...node, slug: `/lessons/${node.slug}` }} key={node.id} />
@@ -307,10 +307,10 @@ Let's save this and create our lesson template.
 
 ```js
 // lesson.js template
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from 'react'
+import { graphql } from 'gatsby'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 export const query = graphql`
   query lessonQuery($slug: String!) {
@@ -342,7 +342,7 @@ function Lesson({ data }) {
               <h2 className="text-4xl">{children}</h2>
             ),
             [BLOCKS.EMBEDDED_ASSET]: (node, children) => (
-              <img src={node.data.target.fields.file["en-US"].url} />
+              <img src={node.data.target.fields.file['en-US'].url} />
             ),
           },
         })}
@@ -404,7 +404,7 @@ We take this function, and in the markup here, we give it the data from the body
         <h2 className="text-4xl">{children}</h2>
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node, children) => (
-        <img src={node.data.target.fields.file["en-US"].url} />
+        <img src={node.data.target.fields.file['en-US'].url} />
       ),
     },
   })
@@ -483,7 +483,7 @@ Now that's available for us, let's render it. For that, we need to check first i
 Go to the command line. Here, we will paste this. Hit enter:
 
 ```
-git remote add origin git@github.com: Khaledgarbaya/jamstacktutorials.git
+git remote add origin git@github.com: Khaledgarbaya/jamstackposts.git
 ```
 
 Now that we have the remote added, let's add everything and commit.

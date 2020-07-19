@@ -9,7 +9,7 @@ import Wrapper from '../utils/wrapper'
 
 export default function Tags({pageContext, data}) {
   const {tag} = pageContext
-  const {edges: tutorials} = data.allMdx
+  const {edges: posts} = data.allMdx
 
   const tagHeaderStyle = css`
     margin-top: 50px;
@@ -17,21 +17,21 @@ export default function Tags({pageContext, data}) {
 
   return (
     <Layout>
-      <SEO title={`Tutorials tagged as ${tag}`} />
+      <SEO title={`Blog Posts tagged as ${tag}`} />
 
       <Wrapper>
         <h1 css={tagHeaderStyle}>#{`${tag}`}</h1>
-        <p>Tutorials tagged as {`${tag}`}</p>
+        <p>Blog Posts tagged as {`${tag}`}</p>
       </Wrapper>
 
       <Grid>
-        {tutorials.map(({node: tutorial}) => (
-          <Link key={tutorial.id} to={`/${tutorial.frontmatter.slug}`}>
+        {posts.map(({node: post}) => (
+          <Link key={post.id} to={`/${post.frontmatter.slug}`}>
             <Card
-              tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
-              tutorialTitle={tutorial.frontmatter.title}
-              tutorialLead={tutorial.frontmatter.lead}
-              tutorialImage={tutorial.frontmatter.image.sharp.fluid}
+              postIcon={post.frontmatter.icon.sharp.fluid}
+              postTitle={post.frontmatter.title}
+              postLead={post.frontmatter.lead}
+              postImage={post.frontmatter.image.sharp.fluid}
             />
           </Link>
         ))}

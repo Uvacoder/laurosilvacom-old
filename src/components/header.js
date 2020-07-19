@@ -51,7 +51,7 @@ export default function Header() {
       white-space: nowrap;
       font-size: 16px;
       margin-left: 20px;
-      opacity: 0.6;
+      opacity: 0.8;
       padding: 6px;
       line-height: 17px;
       border-radius: 4px;
@@ -112,8 +112,8 @@ export default function Header() {
           <Link to="/contact" activeStyle={activeLinkStyles}>
             Contact
           </Link>
-          <Link to="/tutorials" activeStyle={activeLinkStyles}>
-            Tutorials
+          <Link to="/posts" activeStyle={activeLinkStyles}>
+            Blog
           </Link>
         </div>
       </div>
