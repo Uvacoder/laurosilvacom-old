@@ -88,6 +88,16 @@ const Index = ({data}) => {
       margin-top: 0;
       margin-bottom: 0;
     }
+    @media (max-width: 420px) {
+      grid-template-columns: 1fr;
+      display: grid;
+      a {
+        align-items: center;
+        display: flex;
+        justify-content: flex-start;
+        margin-left: inherit;
+      }
+    }
   `
 
   return (

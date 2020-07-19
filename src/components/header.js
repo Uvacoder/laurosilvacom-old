@@ -90,6 +90,9 @@ export default function Header() {
       span {
         display: none;
       }
+      .gatsby-image-wrapper {
+        width: 50px;
+      }
     }
   `
 
